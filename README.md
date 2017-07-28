@@ -1,4 +1,4 @@
-# devfest_florida_app
+# DevFest Florida App
 
 A Flutter based conference app built for DevFest Florida, backed by Firebase 🔥
 
@@ -10,3 +10,10 @@ For help getting started with Flutter, view our online
 You will need IntelliJ IDEA for this.
 
 ![Example of app with some dummy data](https://github.com/miketraverso/devfest_florida_app/blob/master/devfestflorida-flutter.gif "Example")
+
+## To-Do
+- Speaker details widget
+- Session details widget
+- Location of conference with address widget
+- Adding in [PlutoImage](https://github.com/FaisalAbid/pluto)
+- something else that's ridiculous awesome but I'm not telling so go buy a ticket to [devfestflorida.org](https://devfestflorida.org) and find out :)
