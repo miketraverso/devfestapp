@@ -1,0 +1,95 @@
+{
+  "schedule" : [ {
+    "date" : "11/11/2017",
+    "dateReadable" : "November 11th 2017",
+    "timeslots" : [ {
+      "ends" : "9:30am",
+      "sessions" : [ 0 ],
+      "starts" : "9:00am"
+    }, {
+      "ends" : "10:00am",
+      "sessions" : [ 101, 102, 103 ],
+      "starts" : "9:30am"
+    }, {
+      "ends" : "11:00am",
+      "sessions" : [ 0, 102 ],
+      "starts" : "10:00am"
+    } ]
+  } ],
+  "sessions" : {
+    "0" : {
+      "description" : "Let's take a look at how promising Flutter looks to be by implementing a conference app. We'll first take a look at Dart, see its similarities & differences compared to Java. Then take a look at what it takes to write an app with one codebase for Android & iOS. Finally we'll pull our conference data into our app using Firebase as our datasource.",
+      "language" : "EN",
+      "room" : "Sorcerer's Ballroom 1",
+      "session_id" : 0,
+      "speakers" : [ 101 ],
+      "title" : "Writing a conference app with Flutter",
+      "track" : "Android"
+    },
+    "101" : {
+      "description" : "Traditionally, many companies haven’t had the ability to make UX a strong part of their internal Line-of-Business (LOB) web apps. With the availability of Material Design across many platforms, it is much easier for your development team to create cost-effective LOB apps with quality UX. In this talk, we’ll explore how to use Angular Material to create LOB apps that will delight your users and impress your organization.",
+      "language" : "EN",
+      "room" : "Sorcerer's Ballroom 1",
+      "session_id" : 1,
+      "speakers" : [ 102 ],
+      "title" : "Delight your organization with Material Design",
+      "track" : "Web"
+    },
+    "102" : {
+      "description" : "Do you want to learn how to build your empire? We'll detail how you can go from black and white character to 3D CGI with theme parks built in your name around the world",
+      "language" : "EN",
+      "room" : "Sorcerer's Ballroom 2",
+      "sessions_id" : 2,
+      "speakers" : [ 101 ],
+      "title" : "Keep your app relevant with Firebase App Indexing",
+      "track" : "Android"
+    },
+    "103" : {
+      "description" : "Learn the in's & out's of cel animation",
+      "language" : "EN",
+      "room" : "Sorcerer's Ballroom 3",
+      "session_id" : "",
+      "speakers" : [ 103 ],
+      "title" : "Properly pronouncing words",
+      "track" : "Track 3"
+    }
+  },
+  "speakers" : {
+    "101" : {
+      "bio" : "Mickey Mouse is a funny animal cartoon character and the official mascot of The Walt Disney Company. He was created by Walt Disney and Ub Iwerks at the Walt Disney Studios in 1928. An anthropomorphic mouse who typically wears red shorts, large yellow shoes, and white gloves, Mickey has become one of the world's most recognizable characters.",
+      "company" : "Theme park owner",
+      "featured" : true,
+      "id" : 101,
+      "jobTitle" : "Mouse",
+      "name" : "Mickey",
+      "photoUrl" : "https://en.wikipedia.org/wiki/Mickey_Mouse#/media/File:Mickey_Mouse.png",
+      "social" : {
+        "facebook" : "https://facebook.com/traversoft",
+        "twitter" : "https://twitter.com/traversoft"
+      }
+    },
+    "102" : {
+      "bio" : "Minnie Mouse is a funny animal cartoon character created by Ub Iwerks and Walt Disney. She and Mickey Mouse were first drawn by Iwerks in 1928. The comic strip story \"The Gleam\" (published January 19–May 2, 1942) by Merrill De Maris and Floyd Gottfredson first gave her full name as Minerva Mouse, although this is seldom used.",
+      "company" : "DevIntent",
+      "featured" : true,
+      "jobTitle" : "Cartoon character",
+      "name" : "Minnie",
+      "photoUrl" : "https://en.wikipedia.org/wiki/Donald_Duck#/media/File:Donald_Duck.svg",
+      "social" : {
+        "github" : "https://github.com/traversoft",
+        "twitter" : "https://twitter.com/traversoft"
+      }
+    },
+    "103" : {
+      "bio" : "Donald Duck is a cartoon character created in 1934 at Walt Disney Productions. Donald is an anthropomorphic white duck with a yellow-orange bill, legs, and feet. He typically wears a sailor shirt and cap with a bow tie. Donald is most famous for his semi-intelligible speech and his mischievous and temperamental personality.",
+      "company" : "House of Mouse",
+      "featured" : false,
+      "jobTitle" : "Cartoon character",
+      "name" : "Donald",
+      "photoUrl" : "https://en.wikipedia.org/wiki/Minnie_Mouse#/media/File:Minnie_Mouse.png",
+      "social" : {
+        "twitter" : "https://twitter.com/traversoft"
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "32530452901",
+    "firebase_url": "https://devfestflorida.firebaseio.com",
+    "project_id": "devfestflorida",
+    "storage_bucket": "devfestflorida.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32530452901:android:9b648ddbf9f16389",
+        "android_client_info": {
+          "package_name": "com.traversoft.devfestflorida"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32530452901-22u0g3kpfttuabluukh0nc0ti5c28bkf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0UIPMIK0ktR7fFdkoufHzSKklY6HBGq8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
