@@ -9,4 +9,4 @@ For help getting started with Flutter, view our online
 
 You will need IntelliJ IDEA for this.
 
-![Example of app with some dummy data](../devfestflorida-flutter.gif "Example")
+![Example of app with some dummy data](https://github.com/miketraverso/devfest_florida_app/blob/master/devfestflorida-flutter.gif "Example")
