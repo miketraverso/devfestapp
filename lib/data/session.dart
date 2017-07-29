@@ -2,6 +2,7 @@ import 'dart:collection';
 
 class Session {
   String id;
+  bool isFavorite = false;
   String description;
   String title;
   String track;

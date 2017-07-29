@@ -24,15 +24,16 @@ class ScheduleHomeWidget extends StatefulWidget {
   const ScheduleHomeWidget({
     Key key,
     this.onSendFeedback,
-  }) : super(key: key);
+  })
+      : super(key: key);
 
   final VoidCallback onSendFeedback;
 
-  @override ConfAppHomeState createState() => new ConfAppHomeState();
+  @override
+  ConfAppHomeState createState() => new ConfAppHomeState();
 }
 
 class ConfAppHomeState extends State<ScheduleHomeWidget> {
-
   final reference = FirebaseDatabase.instance.reference().child('2017');
   LinkedHashMap<String, Session> sessions = kSessions;
   LinkedHashMap<String, Speaker> speakers = kSpeakers;
@@ -40,14 +41,15 @@ class ConfAppHomeState extends State<ScheduleHomeWidget> {
   List<Schedule> schedules = <Schedule>[];
   bool isLoaded = false;
 
-  @override void initState() {
+  @override
+  void initState() {
     super.initState();
     kSpeakers.clear();
     kSessions.clear();
     kTimeSlots.clear();
     loadData();
   }
-
+  
   Future loadData() async {
     await loadDataFromFireBase();
   }
@@ -89,92 +91,137 @@ class ConfAppHomeState extends State<ScheduleHomeWidget> {
   }
 
   Widget buildScheduledSession(BuildContext context, TimeSlot timeSlot) {
-    return new ScheduledSession(
+    return new ScheduledSessionWidget(
       timeSlot: timeSlot,
     );
   }
 
-  @override Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     List<Widget> timeSlotWidgets = <Widget>[];
     kTimeSlots.forEach((timeSlot) {
-      timeSlotWidgets.add(buildScheduledSession(context,timeSlot));
+      timeSlotWidgets.add(buildScheduledSession(context, timeSlot));
     });
 
     return new Scaffold(
-      appBar: new AppBar(title:
-      new Text(
+      appBar: new AppBar(
+          title: new Text(
         kAppTitle,
-        style: new TextStyle(
-            color: new Color(0xFFFFFFFF),
-            fontSize: 24.0),
-      )
-      ),
+        style: new TextStyle(color: new Color(0xFFFFFFFF), fontSize: 24.0),
+      )),
       drawer: new ConfAppDrawer(),
       body: new Scrollbar(
         child: new ListView(
-            padding: new EdgeInsets.symmetric(vertical: 8.0),
-            children: kTimeSlots.length > 0 ? timeSlotWidgets : null,
+          padding: new EdgeInsets.symmetric(vertical: 8.0),
+          children: kTimeSlots.length > 0 ? timeSlotWidgets : null,
         ),
       ),
     );
   }
 }
 
-class ScheduledSession extends StatelessWidget {
+class ScheduledSessionWidget extends StatefulWidget {
   final TimeSlot timeSlot;
+
+  ScheduledSessionWidget({this.timeSlot});
+
+  @override
+  SessionState createState() => new SessionState(timeSlot: timeSlot);
+}
+
+class SessionState extends State<ScheduledSessionWidget> {
+  final TimeSlot timeSlot;
+
+  SessionState({this.timeSlot});
+
+  bool isFavorited = false;
   final List<Widget> sessionWidgets = <Widget>[];
   final List<Widget> sessionRows = <Widget>[];
 
-  ScheduledSession({this.timeSlot});
+  void toggleFavorite(Session session) {
+    setState(() {
+      if (session.isFavorite) {
+        session.isFavorite = false;
+      } else {
+        session.isFavorite = true;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      decoration: new BoxDecoration(
+          border: new Border(
+        bottom: new BorderSide(color: Colors.grey[400], width: .5),
+      )),
+      child: new Container(child: buildRow()),
+    );
+  }
 
   Widget buildSessionCard(Session session) {
     String speakerString = getSpeakerNames(session);
-    Widget card = new Card (
+    Widget card = new Card(
       child: new Container(
-        margin: const EdgeInsets.all(12.0),
+        margin: new EdgeInsets.only(left: kPadding, top: kPadding),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            new Row(
-                children: <Widget>[
-                  new Expanded(
-                    child: new Text(session.title, maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: new TextStyle(
-                        fontSize: 20.0, fontWeight: FontWeight.bold,),),
+            new Row(children: <Widget>[
+              new Expanded(
+                child: new Text(
+                  session.title,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: new TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                  new Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                  ),
-                ]
-            ),
-            new Row(
-                children: <Widget>[
-                  new Container(
-                    padding: const EdgeInsets.only(bottom: 8.0, top: 8.0),
-                    child: new Text(speakerString, style: new TextStyle(
-                        fontSize: 16.0, color: Colors.grey[700])),
-                  ),
-                ]
-            ),
+                ),
+              ),
+              new Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+              ),
+            ]),
+            new Row(children: <Widget>[
+              new Container(
+                padding: const EdgeInsets.only(bottom: 8.0, top: 8.0),
+                child: new Text(speakerString,
+                    style:
+                        new TextStyle(fontSize: 16.0, color: Colors.grey[700])),
+              ),
+            ]),
             new Stack(
               children: <Widget>[
                 new Align(
                     alignment: FractionalOffset.topLeft,
                     child: new Row(
                       children: <Widget>[
-                        new Icon(Icons.location_on, color: Colors.grey[700],),
-                        new Text(session.room,
-                          style: new TextStyle(color: Colors.grey[700],),),
+                        new Icon(
+                          Icons.location_on,
+                          color: Colors.grey[700],
+                        ),
+                        new Text(
+                          session.room,
+                          style: new TextStyle(
+                            color: Colors.grey[700],
+                          ),
+                        ),
                       ],
-                    )
-                ),
+                    )),
                 new Align(
                   alignment: FractionalOffset.topRight,
-                  child: new Icon(Icons.star, color: Colors.red[500]),
+                  child: new IconButton(
+                      onPressed: () {
+                        toggleFavorite(session);
+                      },
+                      icon: session.isFavorite
+                          ? new Icon(Icons.star, color: kColorFavoriteOn)
+                          : new Icon(Icons.star_border, color: kColorFavoriteOff),
+                  )
                 ),
               ],
             ),
@@ -198,22 +245,20 @@ class ScheduledSession extends StatelessWidget {
       margin: const EdgeInsets.all(8.0),
       child: new Row(
         children: [
-          new Column(
-              children: <Widget>[
-                new Container (
-                    margin: const EdgeInsets.only(right: 8.0, top: 0.0),
-                    child: new SizedBox(
-                        width: 58.0,
-                        child: new Text(
-                          timeSlot.starts + "\nto\n" + timeSlot.ends,
-                          textAlign: TextAlign.right,)
-                    )
-                ),
-              ]
-          ),
+          new Column(children: <Widget>[
+            new Container(
+                margin: const EdgeInsets.only(right: 8.0, top: 0.0),
+                child: new SizedBox(
+                    width: 58.0,
+                    child: new Text(
+                      timeSlot.starts + "\nto\n" + timeSlot.ends,
+                      textAlign: TextAlign.right,
+                    ))),
+          ]),
           new Expanded(
-              child: new Column(children: sessionCards,)
-          ),
+              child: new Column(
+            children: sessionCards,
+          )),
         ],
       ),
     );
@@ -231,21 +276,5 @@ class ScheduledSession extends StatelessWidget {
     });
     speakerString = speakerString.substring(0, speakerString.length - 2);
     return speakerString;
-  }
-
-  @override Widget build(BuildContext context) {
-    return new Container(
-            decoration: new BoxDecoration(
-                border: new Border(
-                  bottom: new BorderSide(
-                      color: Colors.grey[400],
-                      width: .5),
-                )
-            ),
-            child: new Container(
-                child: buildRow()
-            ),
-        )
-    ;
   }
 }
