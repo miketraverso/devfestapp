@@ -1,9 +1,11 @@
 library devfest_florida_app.home;
 
 import 'dart:collection';
+import 'dart:developer';
 import 'package:devfest_florida_app/data/schedule.dart';
 import 'package:devfest_florida_app/data/session.dart';
 import 'package:devfest_florida_app/data/speaker.dart';
+import 'package:devfest_florida_app/views/session_detail.dart';
 import 'package:devfest_florida_app/views/shared/drawer.dart';
 import 'package:devfest_florida_app/main.dart';
 import 'package:flutter/foundation.dart';
@@ -49,7 +51,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget> {
     kTimeSlots.clear();
     loadData();
   }
-  
+
   Future loadData() async {
     await loadDataFromFireBase();
   }
@@ -162,72 +164,83 @@ class SessionState extends State<ScheduledSessionWidget> {
   Widget buildSessionCard(Session session) {
     String speakerString = getSpeakerNames(session);
     Widget card = new Card(
-      child: new Container(
-        margin: new EdgeInsets.only(left: kPadding, top: kPadding),
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            new Row(children: <Widget>[
-              new Expanded(
-                child: new Text(
-                  session.title,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: new TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
+      child: new GestureDetector(
+        onTap: () {
+          kSelectedSession = session;
+          kSelectedTimeslot = timeSlot;
+          Timeline.instantSync('Start Transition', arguments: <String, String>{
+            'from': '/',
+            'to': SessionDetailsWidget.routeName
+          });
+          Navigator.pushNamed(context, SessionDetailsWidget.routeName);
+        },
+        child: new Container(
+          margin: new EdgeInsets.only(left: kPadding, top: kPadding),
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              new Row(children: <Widget>[
+                new Expanded(
+                  child: new Text(
+                    session.title,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: new TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              new Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
-              ),
-            ]),
-            new Row(children: <Widget>[
-              new Container(
-                padding: const EdgeInsets.only(bottom: 8.0, top: 8.0),
-                child: new Text(speakerString,
-                    style:
-                        new TextStyle(fontSize: 16.0, color: Colors.grey[700])),
-              ),
-            ]),
-            new Stack(
-              children: <Widget>[
-                new Align(
-                    alignment: FractionalOffset.topLeft,
-                    child: new Row(
-                      children: <Widget>[
-                        new Icon(
-                          Icons.location_on,
-                          color: Colors.grey[700],
-                        ),
-                        new Text(
-                          session.room,
-                          style: new TextStyle(
+                new Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                ),
+              ]),
+              new Row(children: <Widget>[
+                new Container(
+                  padding: const EdgeInsets.only(bottom: 8.0, top: 8.0),
+                  child: new Text(speakerString,
+                      style:
+                      new TextStyle(fontSize: 16.0, color: Colors.grey[700])),
+                ),
+              ]),
+              new Stack(
+                children: <Widget>[
+                  new Align(
+                      alignment: FractionalOffset.topLeft,
+                      child: new Row(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.location_on,
                             color: Colors.grey[700],
                           ),
-                        ),
-                      ],
-                    )),
-                new Align(
-                  alignment: FractionalOffset.topRight,
-                  child: new IconButton(
-                      onPressed: () {
-                        toggleFavorite(session);
-                      },
-                      icon: session.isFavorite
-                          ? new Icon(Icons.star, color: kColorFavoriteOn)
-                          : new Icon(Icons.star_border, color: kColorFavoriteOff),
-                  )
-                ),
-              ],
-            ),
-          ],
+                          new Text(
+                            session.room,
+                            style: new TextStyle(
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                        ],
+                      )),
+                  new Align(
+                      alignment: FractionalOffset.topRight,
+                      child: new IconButton(
+                        onPressed: () {
+                          toggleFavorite(session);
+                        },
+                        icon: session.isFavorite
+                            ? new Icon(Icons.star, color: kColorFavoriteOn)
+                            : new Icon(Icons.star_border, color: kColorFavoriteOff),
+                      )
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-      ),
+      )
     );
     return card;
   }
