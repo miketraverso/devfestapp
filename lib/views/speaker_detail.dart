@@ -20,13 +20,6 @@ class SpeakerDetailsWidget extends StatefulWidget {
 class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
   final double _appBarHeight = 256.0;
 
-  Future launchUrl (String url) async {
-    bool isTwitterUrlValid = await canLaunch(url);
-    if (isTwitterUrlValid) {
-      launchUrl(url);
-    }
-  }
-
   String _twitterHandle() {
     String twitterHandle = "";
     if (kSelectedSpeaker.socialMap.containsKey("twitter")) {
@@ -57,7 +50,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
         new IconButton(
             icon: new Icon(FontAwesomeIcons.twitter, color: const Color(0xff1DA1F2), size: 28.0,),
             onPressed: () {
-              launchUrl(kSelectedSpeaker.socialMap["twitter"]);
+              launch(kSelectedSpeaker.socialMap["twitter"]);
             }
         ),
         new Container (
