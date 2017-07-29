@@ -5,16 +5,18 @@ import 'package:devfest_florida_app/data/schedule.dart';
 import 'package:devfest_florida_app/data/session.dart';
 import 'package:devfest_florida_app/data/speaker.dart';
 import 'package:devfest_florida_app/views/schedule_home.dart';
+import 'package:devfest_florida_app/views/session_detail.dart';
 import 'package:devfest_florida_app/views/speaker_detail.dart';
 import 'package:devfest_florida_app/views/speaker_list.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 List<TimeSlot> kTimeSlots = <TimeSlot>[];
 LinkedHashMap<String, Speaker> kSpeakers = new LinkedHashMap<String, Speaker>();
 LinkedHashMap<String, Session> kSessions = new LinkedHashMap<String, Session>();
 List<Schedule> kSchedules = <Schedule>[];
 Speaker kSelectedSpeaker;
+Session kSelectedSession;
+TimeSlot kSelectedTimeslot;
 
 final ThemeData kTheme = new ThemeData(
   brightness: Brightness.light,
@@ -47,6 +49,8 @@ class ConfAppState extends State<DevFestApp> {
           new SpeakerListWidget(),
       SpeakerDetailsWidget.routeName: (BuildContext context) =>
           new SpeakerDetailsWidget(),
+      SessionDetailsWidget.routeName: (BuildContext context) =>
+        new SessionDetailsWidget(),
     };
 
     return new MaterialApp(
