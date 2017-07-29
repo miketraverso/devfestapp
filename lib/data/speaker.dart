@@ -9,7 +9,8 @@ class Speaker {
   String photoUrl;
   bool featured;
 
-  List<Social> socials = <Social>[];
+//  List<Social> socials = <Social>[];
+  LinkedHashMap<String, String> socialMap = new LinkedHashMap<String, String>();
 
   Speaker.loadFromFireBase(String fbKey, LinkedHashMap map) {
     id = fbKey;
@@ -35,10 +36,11 @@ class Speaker {
           break;
         case 'social': {
             if (map[key] is HashMap) {
-              LinkedHashMap socialMap = map[key];
-              socialMap.forEach((key, value) {
-                socials.add(new Social(key, value));
-              });
+              this.socialMap = map[key];
+//              LinkedHashMap socialMap = map[key];
+//              socialMap.forEach((key, value) {
+//                socials.add(new Social(key, value));
+//              });
             }
           }
           break;
