@@ -5,9 +5,9 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^0.4.0
+  shared_preferences: ^0.2.4+1
   font_awesome_flutter: 4.7.2
   image_picker: ^0.0.2                                             # new
-#  google_sign_in: ^0.0.2                                           # new
   firebase_analytics: ^0.0.2                                       # new
   firebase_auth: ^0.0.2                                            # new
   firebase_database: ^0.0.4                                        # new

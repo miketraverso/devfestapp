@@ -78,6 +78,8 @@ PODS:
     - GTMSessionFetcher/Core (= 1.1.8)
   - image_picker (0.0.1):
     - Flutter
+  - shared_preferences (0.0.1):
+    - Flutter
   - url_launcher (0.0.1):
     - Flutter
 
@@ -89,6 +91,7 @@ DEPENDENCIES:
   - firebase_storage (from `/Users/michaelrtraverso/.pub-cache/hosted/pub.dartlang.org/firebase_storage-0.0.5/ios`)
   - Flutter (from `/Users/michaelrtraverso/dev/flutter/bin/cache/artifacts/engine/ios`)
   - image_picker (from `/Users/michaelrtraverso/.pub-cache/hosted/pub.dartlang.org/image_picker-0.0.3/ios`)
+  - shared_preferences (from `/Users/michaelrtraverso/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.2.4+1/ios`)
   - url_launcher (from `/Users/michaelrtraverso/.pub-cache/hosted/pub.dartlang.org/url_launcher-0.4.2+1/ios`)
 
 EXTERNAL SOURCES:
@@ -104,6 +107,8 @@ EXTERNAL SOURCES:
     :path: /Users/michaelrtraverso/dev/flutter/bin/cache/artifacts/engine/ios
   image_picker:
     :path: /Users/michaelrtraverso/.pub-cache/hosted/pub.dartlang.org/image_picker-0.0.3/ios
+  shared_preferences:
+    :path: /Users/michaelrtraverso/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.2.4+1/ios
   url_launcher:
     :path: /Users/michaelrtraverso/.pub-cache/hosted/pub.dartlang.org/url_launcher-0.4.2+1/ios
 
@@ -127,6 +132,7 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   image_picker: a211f28b95a560433c00f5cd3773f4710a20404d
+  shared_preferences: 1feebfa37bb57264736e16865e7ffae7fc99b523
   url_launcher: 0067ddb8f10d36786672aa0722a21717dba3a298
 
 PODFILE CHECKSUM: 9bbfad37a0386c9dbb800298c09a061d2ed177cc

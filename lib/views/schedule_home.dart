@@ -16,6 +16,7 @@ import 'package:firebase_database/firebase_database.dart' as fb;
 import 'package:firebase_database/firebase_database.dart';
 
 import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final auth = FirebaseAuth.instance;
 const double _kFlexibleSpaceMaxHeight = 256.0;
@@ -67,6 +68,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget> {
         });
         setState(() {
           kSessions = sessions;
+          _setStoredFavorites();
         });
       } else if (d.key == 'speakers') {
         LinkedHashMap hashMap = e.snapshot.value;
@@ -90,6 +92,24 @@ class ConfAppHomeState extends State<ScheduleHomeWidget> {
         }
       }
     });
+  }
+
+  _setStoredFavorites() async {
+    kSessions.values.forEach((sesh) async {
+      sesh.isFavorite = await _isFavorite(sesh);
+    });
+  }
+
+  Future<bool> _isFavorite(Session session) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> favoriteSessions = prefs.getStringList("favoriteSessions");
+    if (favoriteSessions == null) {
+      return false;
+    }
+    if (favoriteSessions.contains(session.id)) {
+      return true;
+    }
+    return false;
   }
 
   Widget buildScheduledSession(BuildContext context, TimeSlot timeSlot) {
@@ -144,8 +164,10 @@ class SessionState extends State<ScheduledSessionWidget> {
     setState(() {
       if (session.isFavorite) {
         session.isFavorite = false;
+        _unFavorite(session);
       } else {
         session.isFavorite = true;
+        _favorite(session);
       }
     });
   }
@@ -159,6 +181,34 @@ class SessionState extends State<ScheduledSessionWidget> {
       )),
       child: new Container(child: buildRow()),
     );
+  }
+
+  _unFavorite(Session session) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> favoriteSessions = prefs.getStringList("favoriteSessions");
+    if (favoriteSessions == null) {
+      return;
+    }
+    if (favoriteSessions.contains(session.id)) {
+      List<String> updatedFavorites = new List<String>();
+      updatedFavorites.addAll(favoriteSessions);
+      updatedFavorites.remove(session.id);
+      prefs.setStringList("favoriteSessions", updatedFavorites);
+    }
+  }
+
+  _favorite(Session session) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> favoriteSessions = prefs.getStringList("favoriteSessions");
+    if (favoriteSessions == null) {
+      favoriteSessions = <String>[];
+    }
+    if (!favoriteSessions.contains(session.id)) {
+      List<String> updatedFavorites = new List<String>();
+      updatedFavorites.addAll(favoriteSessions);
+      updatedFavorites.add(session.id);
+      prefs.setStringList("favoriteSessions", updatedFavorites);
+    }
   }
 
   Widget buildSessionCard(Session session) {

@@ -7,7 +7,7 @@ class Session {
   String title;
   String track;
   String room;
-  List<int> speakers = <int>[];
+  List<String> speakers = <String>[];
 
   Session.loadFromFireBase(String fbKey, LinkedHashMap map) {
     id = fbKey;
