@@ -5,6 +5,7 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^0.4.0
+  font_awesome_flutter: 4.7.2
   image_picker: ^0.0.2                                             # new
 #  google_sign_in: ^0.0.2                                           # new
   firebase_analytics: ^0.0.2                                       # new
@@ -32,6 +33,10 @@ flutter:
     - assets/images/logo.png
     - assets/images/devfest-logo.png
 
+  fonts:
+    - family: FontAwesome # Do not change!
+      fonts:
+        - asset: packages/font_awesome_flutter/fonts/fontawesome.woff
 
   # To add assets from package dependencies, first ensure the asset
   # is in the lib/ directory of the dependency. Then,
