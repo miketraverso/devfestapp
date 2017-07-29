@@ -2,9 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:developer';
 import 'package:devfest_florida_app/data/speaker.dart';
+import 'package:devfest_florida_app/util/pluto.dart';
 import 'package:devfest_florida_app/views/shared/drawer.dart';
 import 'package:devfest_florida_app/main.dart';
+import 'package:devfest_florida_app/views/speaker_detail.dart';
 import 'package:flutter/material.dart';
 
 class SpeakerListWidget extends StatefulWidget {
@@ -23,9 +26,21 @@ class _SpeakerListState extends State<SpeakerListWidget> {
       child: new ListTile(
         leading: new ExcludeSemantics(
             child: new CircleAvatar(
-                              child: new Text(speakerIntials),
+          child: speakerInitials.isEmpty ? null : new Text(speakerInitials),
+          backgroundImage: new PlutoImage.networkWithPlaceholder(
+                  speaker.photoUrl,
+                  new Image.asset('assets/images/devfest-logo.png'))
+              .image,
         )),
         title: new Text(speaker.name),
+        onTap: () {
+          kSelectedSpeaker = speaker;
+          Timeline.instantSync('Start Transition', arguments: <String, String>{
+            'from': '/',
+            'to': SpeakerDetailsWidget.routeName
+          });
+          Navigator.pushNamed(context, SpeakerDetailsWidget.routeName);
+        },
       ),
     );
   }
