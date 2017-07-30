@@ -40,20 +40,6 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    Widget sessionTitle = new Container(
-      child: new DefaultTextStyle(
-        style: new TextStyle(color: Colors.grey[800],
-            fontWeight: FontWeight.bold,
-            fontSize: 26.0),
-        child: new Text(kSelectedSession.title),
-      ),
-      padding: const EdgeInsets.only(top: kPadding, left: kPadding, right: kPadding),
-    );
-
-
-//    Speaker speak = kSpeakers[kSelectedSession.speakers[0].toString()];
-//    String speakerInitials = getCircleDetails(speak);
-
     List<Widget> speakerRowWidgets = <Widget>[];
     kSelectedSession.speakers.forEach((speakerId) {
       Speaker speak = kSpeakers[speakerId.toString()];
@@ -85,7 +71,6 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
     );
 
     List<Widget> sessionDetailWidgets = <Widget>[];
-//    sessionDetailWidgets.add(sessionTitle);
     sessionDetailWidgets.addAll(speakerRowWidgets);
     sessionDetailWidgets.add(sessionDescription);
 
