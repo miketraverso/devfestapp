@@ -6,6 +6,8 @@ library devfest_florida_app.drawer;
 
 import 'dart:developer';
 
+import 'package:devfest_florida_app/main.dart';
+import 'package:devfest_florida_app/views/location.dart';
 import 'package:devfest_florida_app/views/schedule_home.dart';
 import 'package:devfest_florida_app/views/speaker_list.dart';
 import 'package:flutter/foundation.dart';
@@ -75,6 +77,14 @@ class ConfAppDrawer extends StatelessWidget {
       onTap: onSendFeedback ?? () {
         launch('https://github.com/flutter/flutter/issues/new');
       },
+    );
+
+    final Widget locationItem = new DrawerItem(
+      title: 'Location',
+      leadingIcon: const Icon(Icons.location_on),
+      subtitle: '',
+      routeName: LocationWidget.routeName,
+      buildRoute: (BuildContext context) => new LocationWidget(),
     );
 
     final Widget aboutItem = new AboutListTile(

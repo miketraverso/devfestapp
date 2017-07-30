@@ -4,6 +4,7 @@ import 'dart:collection';
 import 'package:devfest_florida_app/data/schedule.dart';
 import 'package:devfest_florida_app/data/session.dart';
 import 'package:devfest_florida_app/data/speaker.dart';
+import 'package:devfest_florida_app/views/location.dart';
 import 'package:devfest_florida_app/views/schedule_home.dart';
 import 'package:devfest_florida_app/views/session_detail.dart';
 import 'package:devfest_florida_app/views/speaker_detail.dart';
@@ -27,6 +28,15 @@ final String kAppTitle = 'DevFest Florida';
 const double kPadding = 12.0;
 final Color kColorFavoriteOn = Colors.orange[500];
 final Color kColorFavoriteOff = Colors.orange[100];
+final String kSurveyUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScvVof4YcQiiR0qvAN84rNVsXBLgArTdmOuwFQY4KXK2Tff-g/viewform?entry.385327315=GDG+Sun+Coast';
+final String kVenueName = 'Disney\'s Contemporary Resort';
+final String kVenueAddress = '4600 North World Dr.\nOrlando, FL 32830';
+final String kVenuePhone = '(407) 824-1000';
+
+// Visit http://staticmapmaker.com/google/ to create your own static map
+// Flutter can't, at the time of this coding, handle native maps so let's
+// provide the user with a map image instead.
+final String kGoogleStaticMapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=Disney+Contemporary+Resort&zoom=15&scale=2&size=600x1000&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7CDisney+Contemporary+Resort';
 
 class DevFestApp extends StatefulWidget {
   const DevFestApp({this.onSendFeedback, Key key}) : super(key: key);
@@ -51,6 +61,8 @@ class ConfAppState extends State<DevFestApp> {
           new SpeakerDetailsWidget(),
       SessionDetailsWidget.routeName: (BuildContext context) =>
         new SessionDetailsWidget(),
+      LocationWidget.routeName: (BuildContext context) =>
+          new LocationWidget()
     };
 
     return new MaterialApp(
