@@ -71,11 +71,11 @@ class ConfAppDrawer extends StatelessWidget {
     final TextStyle aboutTextStyle = themeData.textTheme.body2;
     final TextStyle linkStyle = themeData.textTheme.body2.copyWith(color: themeData.accentColor);
 
-    final Widget locationItem = new ListTile(
+    final Widget surveyItem = new ListTile(
       leading: const Icon(Icons.message),
-      title: const Text('Send feedback'),
+      title: const Text('Take Survey'),
       onTap: onSendFeedback ?? () {
-        launch('https://github.com/flutter/flutter/issues/new');
+        launch(kSurveyUrl);
       },
     );
 
@@ -88,7 +88,8 @@ class ConfAppDrawer extends StatelessWidget {
     );
 
     final Widget aboutItem = new AboutListTile(
-        icon: const Icon(Icons.info),
+        icon: const FlutterLogo(),
+        applicationIcon: new FlutterLogo(),
         applicationVersion: 'June 2017 Preview',
         applicationLegalese: '© 2017 The Chromium Authors',
         aboutBoxChildren: <Widget>[
@@ -105,16 +106,22 @@ class ConfAppDrawer extends StatelessWidget {
                         ),
                         new TextSpan(
                             style: aboutTextStyle,
-                            text: ".\n\nTo see the source code for this app, please visit the "
+                            text: "\n\nTo see the source code for this app, please visit the "
                         ),
                         new LinkTextSpan(
                             style: linkStyle,
                             url: 'https://goo.gl/iv1p4G',
-                            text: 'flutter github repo'
+                            text: 'repo'
                         ),
                         new TextSpan(
                             style: aboutTextStyle,
-                            text: "."
+                            text: ".\n\nTo check our Flutter, and explore how you can build apps with "
+                            "Flutter+Dart, please visit "
+                        ),
+                        new LinkTextSpan(
+                            style: linkStyle,
+                            url: 'https://flutter.io',
+                            text: 'flutter.io'
                         )
                       ]
                   )
@@ -126,10 +133,10 @@ class ConfAppDrawer extends StatelessWidget {
     final List<Widget> drawerItems = new List<Widget>();
     drawerItems.add(new ConfAppDrawerHeader());
     kAllDrawerMenuItems.forEach((drawerItem)=> drawerItems.add(drawerItem));
-    drawerItems.add(new Divider(color: Colors.grey[400], height: 0.4,),);
+    drawerItems.add(new Divider(color: kColorDivider, height: 0.4,),);
     drawerItems.add(locationItem);
+    drawerItems.add(surveyItem);
     drawerItems.add(aboutItem);
-
     return new Drawer(child: new ListView(primary: false, children: drawerItems));
   }
 }
@@ -139,18 +146,15 @@ class DrawerItem extends StatelessWidget {
     @required this.title,
     this.leadingIcon,
     this.subtitle,
-    @required this.category,
     @required this.routeName,
     @required this.buildRoute,
   }) : assert(title != null),
-        assert(category != null),
         assert(routeName != null),
         assert(buildRoute != null);
 
   final String title;
   final Icon leadingIcon;
   final String subtitle;
-  final String category;
   final String routeName;
   final WidgetBuilder buildRoute;
 
@@ -180,7 +184,6 @@ List<DrawerItem> drawerMenuItems() {
     new DrawerItem(
       title: 'Schedule',
       leadingIcon: const Icon(Icons.view_quilt),
-      category: 'Drawer Menu',
       subtitle: '',
       routeName: ScheduleHomeWidget.routeName,
       buildRoute: (BuildContext context) => new ScheduleHomeWidget(),
@@ -189,7 +192,6 @@ List<DrawerItem> drawerMenuItems() {
       title: 'Speakers',
       leadingIcon: const Icon(Icons.record_voice_over),
       subtitle: '',
-      category: 'Drawer Menu',
       routeName: SpeakerListWidget.routeName,
       buildRoute: (BuildContext context) => new SpeakerListWidget(),
     )
