@@ -2,15 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
-
-import 'package:devfest_florida_app/data/session.dart';
 import 'package:devfest_florida_app/data/speaker.dart';
 import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/util/pluto.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SessionDetailsWidget extends StatefulWidget {
   static const String routeName = '/sessiondetails';

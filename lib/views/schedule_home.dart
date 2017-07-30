@@ -12,7 +12,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart' as fb;
+import 'package:firebase_database/firebase_database.dart' as fireb;
 import 'package:firebase_database/firebase_database.dart';
 
 import 'dart:async';
@@ -59,7 +59,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget> {
 
   Future loadDataFromFireBase() async {
     reference.onChildAdded.forEach((e) {
-      fb.DataSnapshot d = e.snapshot;
+      fireb.DataSnapshot d = e.snapshot;
       if (d.key == 'sessions') {
         LinkedHashMap hashMap = e.snapshot.value;
         hashMap.forEach((key, value) {
