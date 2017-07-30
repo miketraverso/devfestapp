@@ -65,7 +65,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
 
     Widget _speakerName = new Container(
       child: new DefaultTextStyle(
-        style: new TextStyle(color: Colors.grey[800],
+        style: new TextStyle(color: kColorSpeakerName,
             fontWeight: FontWeight.bold,
             fontSize: 26.0),
         child: new Text(kSelectedSpeaker.name),

@@ -129,7 +129,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget> {
       appBar: new AppBar(
           title: new Text(
         kAppTitle,
-        style: new TextStyle(color: new Color(0xFFFFFFFF), fontSize: 24.0),
+        style: new TextStyle(color: Colors.white, fontSize: 24.0),
       )),
       drawer: new ConfAppDrawer(),
       body: new Scrollbar(
@@ -177,7 +177,7 @@ class SessionState extends State<ScheduledSessionWidget> {
     return new Container(
       decoration: new BoxDecoration(
           border: new Border(
-        bottom: new BorderSide(color: Colors.grey[400], width: .5),
+        bottom: new BorderSide(color: kColorDivider, width: .5),
       )),
       child: new Container(child: buildRow()),
     );
@@ -250,10 +250,10 @@ class SessionState extends State<ScheduledSessionWidget> {
               ]),
               new Row(children: <Widget>[
                 new Container(
-                  padding: const EdgeInsets.only(bottom: 8.0, top: 8.0),
+                  padding: const EdgeInsets.only(bottom: kMaterialPadding, top: kMaterialPadding),
                   child: new Text(speakerString,
                       style:
-                      new TextStyle(fontSize: 16.0, color: Colors.grey[700])),
+                      new TextStyle(fontSize: 16.0, color: kColorText)),
                 ),
               ]),
               new Stack(
@@ -264,12 +264,12 @@ class SessionState extends State<ScheduledSessionWidget> {
                         children: <Widget>[
                           new Icon(
                             Icons.location_on,
-                            color: Colors.grey[700],
+                            color: kColorText,
                           ),
                           new Text(
                             session.room,
                             style: new TextStyle(
-                              color: Colors.grey[700],
+                              color: kColorText,
                             ),
                           ),
                         ],
@@ -305,12 +305,12 @@ class SessionState extends State<ScheduledSessionWidget> {
     });
 
     Widget titleSection = new Container(
-      margin: const EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(kMaterialPadding),
       child: new Row(
         children: [
           new Column(children: <Widget>[
             new Container(
-                margin: const EdgeInsets.only(right: 8.0, top: 0.0),
+                margin: const EdgeInsets.only(right: kMaterialPadding, top: kMaterialPadding),
                 child: new SizedBox(
                     width: 58.0,
                     child: new Text(

@@ -59,7 +59,7 @@ class _SpeakerListState extends State<SpeakerListWidget> {
         listTiles.add(listItem);
         listTiles.add(
           new Divider(
-            color: Colors.grey[400],
+            color: kColorDivider,
             height: 0.4,
           ),
         );
@@ -70,7 +70,7 @@ class _SpeakerListState extends State<SpeakerListWidget> {
       appBar: new AppBar(
           title: new Text(
         kAppTitle,
-        style: new TextStyle(color: new Color(0xFFFFFFFF), fontSize: 24.0),
+        style: new TextStyle(color: Colors.white, fontSize: 24.0),
       )),
       drawer: new ConfAppDrawer(),
       body: new Scrollbar(
