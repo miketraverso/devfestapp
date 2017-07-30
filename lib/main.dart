@@ -25,9 +25,17 @@ final ThemeData kTheme = new ThemeData(
 );
 
 final String kAppTitle = 'DevFest Florida';
+const double kMaterialPadding = 8.0;
 const double kPadding = 12.0;
+const double kPaddingDouble = 24.0;
+
 final Color kColorFavoriteOn = Colors.orange[500];
 final Color kColorFavoriteOff = Colors.orange[100];
+final Color kColorDivider = Colors.grey[400];
+final Color kColorText = Colors.grey[700];
+final Color kColorTextHeader = Colors.grey[800];
+final Color kColorSpeakerName = Colors.grey[800];
+
 final String kSurveyUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScvVof4YcQiiR0qvAN84rNVsXBLgArTdmOuwFQY4KXK2Tff-g/viewform?entry.385327315=GDG+Sun+Coast';
 final String kVenueName = 'Disney\'s Contemporary Resort';
 final String kVenueAddress = '4600 North World Dr.\nOrlando, FL 32830';
