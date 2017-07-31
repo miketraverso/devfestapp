@@ -22,7 +22,7 @@ final auth = FirebaseAuth.instance;
 const double _kFlexibleSpaceMaxHeight = 256.0;
 
 class ScheduleHomeWidget extends StatefulWidget {
-  static const String routeName = '/schedule';
+  static const routeName = '/schedule';
 
   const ScheduleHomeWidget({
     Key key,
@@ -153,12 +153,9 @@ class ScheduledSessionWidget extends StatefulWidget {
 
 class SessionState extends State<ScheduledSessionWidget> {
   final TimeSlot timeSlot;
-
   SessionState({this.timeSlot});
-
-  bool isFavorited = false;
-  final List<Widget> sessionWidgets = <Widget>[];
-  final List<Widget> sessionRows = <Widget>[];
+  final sessionWidgets = <Widget>[];
+  final sessionRows = <Widget>[];
 
   void toggleFavorite(Session session) {
     setState(() {

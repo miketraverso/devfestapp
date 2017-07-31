@@ -24,27 +24,27 @@ final ThemeData kTheme = new ThemeData(
   primarySwatch: Colors.blue,
 );
 
-final String kAppTitle = 'DevFest Florida';
-const double kMaterialPadding = 8.0;
-const double kPadding = 12.0;
-const double kPaddingDouble = 24.0;
+const kMaterialPadding = 8.0;
+const kPadding = 12.0;
+const kPaddingDouble = 24.0;
 
-final Color kColorFavoriteOn = Colors.orange[500];
-final Color kColorFavoriteOff = Colors.orange[100];
-final Color kColorDivider = Colors.grey[400];
-final Color kColorText = Colors.grey[700];
-final Color kColorTextHeader = Colors.grey[800];
-final Color kColorSpeakerName = Colors.grey[800];
+final kColorFavoriteOn = Colors.orange[500];
+final kColorFavoriteOff = Colors.orange[100];
+final kColorDivider = Colors.grey[400];
+final kColorText = Colors.grey[700];
+final kColorTextHeader = Colors.grey[800];
+final kColorSpeakerName = Colors.grey[800];
 
-final String kSurveyUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScvVof4YcQiiR0qvAN84rNVsXBLgArTdmOuwFQY4KXK2Tff-g/viewform?entry.385327315=GDG+Sun+Coast';
-final String kVenueName = 'Disney\'s Contemporary Resort';
-final String kVenueAddress = '4600 North World Dr.\nOrlando, FL 32830';
-final String kVenuePhone = '(407) 824-1000';
+final kAppTitle = 'DevFest Florida';
+final kSurveyUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScvVof4YcQiiR0qvAN84rNVsXBLgArTdmOuwFQY4KXK2Tff-g/viewform?entry.385327315=GDG+Sun+Coast';
+final kVenueName = 'Disney\'s Contemporary Resort';
+final kVenueAddress = '4600 North World Dr.\nOrlando, FL 32830';
+final kVenuePhone = '(407) 824-1000';
 
 // Visit http://staticmapmaker.com/google/ to create your own static map
 // Flutter can't, at the time of this coding, handle native maps so let's
 // provide the user with a map image instead.
-final String kGoogleStaticMapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=Disney+Contemporary+Resort&zoom=15&scale=2&size=600x1000&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7CDisney+Contemporary+Resort';
+final kGoogleStaticMapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=Disney+Contemporary+Resort&zoom=15&scale=2&size=600x1000&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7CDisney+Contemporary+Resort';
 
 class DevFestApp extends StatefulWidget {
   const DevFestApp({this.onSendFeedback, Key key}) : super(key: key);

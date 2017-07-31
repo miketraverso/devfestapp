@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 class LocationWidget extends StatefulWidget {
   const LocationWidget({Key key}) : super(key: key);
 
-  static const String routeName = '/location';
+  static const routeName = '/location';
 
   @override
   _LocationState createState() => new _LocationState();
