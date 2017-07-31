@@ -236,7 +236,7 @@ class SessionState extends State<ScheduledSessionWidget> {
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: new TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 22.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -271,6 +271,7 @@ class SessionState extends State<ScheduledSessionWidget> {
                               session.room,
                               style: new TextStyle(
                                 color: kColorText,
+                                fontSize: 16.0
                               ),
                             ),
                           ],
