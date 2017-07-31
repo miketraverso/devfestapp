@@ -2,9 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:developer';
 import 'package:devfest_florida_app/data/speaker.dart';
 import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/util/pluto.dart';
+import 'package:devfest_florida_app/views/speaker_detail.dart';
 import 'package:flutter/material.dart';
 
 class SessionDetailsWidget extends StatefulWidget {
@@ -59,6 +61,14 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
             style: new TextStyle(color: kColorSpeakerName, fontSize: 20.0),
             child: new Text(speak.name),
           ),
+          onTap: () {
+            kSelectedSpeaker = speak;
+            Timeline.instantSync('Start Transition', arguments: <String, String>{
+              'from': '/',
+              'to': SpeakerDetailsWidget.routeName
+            });
+            Navigator.pushNamed(context, SpeakerDetailsWidget.routeName);
+          }
         ),
       );
       speakerRowWidgets.add(speakerRowWidget);
