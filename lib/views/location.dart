@@ -68,15 +68,14 @@ class _LocationState extends State<LocationWidget> {
                 ],
               ),
               new Padding(padding: const EdgeInsets.only(bottom: kPadding)),
-                new Expanded(
-                  child: new PlutoImage.networkWithPlaceholder(
-                      kGoogleStaticMapUrl,
-                      new Image.asset('assets/images/devfest-logo.png'),
-                  fit: BoxFit.fitHeight),
-                ),
+              new Expanded(
+                child: new PlutoImage.networkWithPlaceholder(
+                    kGoogleStaticMapUrl,
+                    new Image.asset('assets/images/devfest-logo.png'),
+                    fit: BoxFit.fitHeight),
+              ),
             ],
-          )
-      ),
+          )),
     );
   }
 }

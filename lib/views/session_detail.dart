@@ -55,7 +55,10 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
                     new Image.asset('assets/images/devfest-logo.png'))
                     .image,
               )),
-          title: new Text(speak.name),
+          title: new DefaultTextStyle(
+            style: new TextStyle(color: kColorSpeakerName, fontSize: 20.0),
+            child: new Text(speak.name),
+          ),
         ),
       );
       speakerRowWidgets.add(speakerRowWidget);
@@ -64,7 +67,7 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
 
     Widget sessionDescription = new Container(
       child: new DefaultTextStyle(
-          style: new TextStyle(color: const Color(0xff696969), fontSize: 15.0, ),
+          style: new TextStyle(color: kColorText, fontSize: 16.0, ),
           child: new Text(kSelectedSession.description),
       ),
       padding: const EdgeInsets.all(kPadding),
@@ -100,7 +103,7 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: new TextStyle(
-                                    fontSize: 20.0,
+                                    fontSize: 22.0,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold
                                   ),

@@ -32,7 +32,10 @@ class _SpeakerListState extends State<SpeakerListWidget> {
                   new Image.asset('assets/images/devfest-logo.png'))
               .image,
         )),
-        title: new Text(speaker.name),
+        title: new DefaultTextStyle(
+          style: new TextStyle(color: kColorSpeakerName, fontSize: 20.0),
+          child: new Text(speaker.name),
+        ),
         onTap: () {
           kSelectedSpeaker = speaker;
           Timeline.instantSync('Start Transition', arguments: <String, String>{
