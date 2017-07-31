@@ -255,37 +255,38 @@ class SessionState extends State<ScheduledSessionWidget> {
                       new TextStyle(fontSize: 16.0, color: kColorText)),
                 ),
               ]),
-              new Stack(
-                children: <Widget>[
-                  new Align(
-                      alignment: FractionalOffset.topLeft,
-                      child: new Row(
-                        children: <Widget>[
-                          new Icon(
-                            Icons.location_on,
-                            color: kColorText,
-                          ),
-                          new Text(
-                            session.room,
-                            style: new TextStyle(
+              new Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    new Row(children: <Widget>[
+                      new Expanded(
+                        child: new Row(
+                          children: <Widget>[
+                            new Icon(
+                              Icons.location_on,
                               color: kColorText,
                             ),
-                          ),
-                        ],
-                      )),
-                  new Align(
-                      alignment: FractionalOffset.topRight,
-                      child: new IconButton(
+                            new Text(
+                              session.room,
+                              style: new TextStyle(
+                                color: kColorText,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      new IconButton(
                         onPressed: () {
                           toggleFavorite(session);
                         },
                         icon: session.isFavorite
                             ? new Icon(Icons.star, color: kColorFavoriteOn)
                             : new Icon(Icons.star_border, color: kColorFavoriteOff),
-                      )
-                  ),
-                ],
-              ),
+                      ),
+                    ]),
+                  ]),
+
             ],
           ),
         ),
