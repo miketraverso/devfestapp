@@ -67,9 +67,6 @@ class ConfAppDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Theme.of(context);
-    final TextStyle aboutTextStyle = themeData.textTheme.body2;
-    final TextStyle linkStyle = themeData.textTheme.body2.copyWith(color: themeData.accentColor);
 
     final Widget surveyItem = new ListTile(
       leading: const Icon(Icons.message),
@@ -79,64 +76,12 @@ class ConfAppDrawer extends StatelessWidget {
       },
     );
 
-    final Widget locationItem = new DrawerItem(
-      title: 'Location',
-      leadingIcon: const Icon(Icons.location_on),
-      subtitle: '',
-      routeName: LocationWidget.routeName,
-      buildRoute: (BuildContext context) => new LocationWidget(),
-    );
-
-    final Widget aboutItem = new AboutListTile(
-        icon: const FlutterLogo(),
-        applicationIcon: new FlutterLogo(),
-        applicationVersion: 'June 2017 Preview',
-        applicationLegalese: '© 2017 The Chromium Authors',
-        aboutBoxChildren: <Widget>[
-          new Padding(
-              padding: const EdgeInsets.only(top: 24.0),
-              child: new RichText(
-                  text: new TextSpan(
-                      children: <TextSpan>[
-                        new TextSpan(
-                            style: aboutTextStyle,
-                            text: "Flutter is an early-stage, open-source project to help "
-                                "developers build high-performance, high-fidelity, mobile "
-                                "apps for iOS and Android from a single codebase. "
-                        ),
-                        new TextSpan(
-                            style: aboutTextStyle,
-                            text: "\n\nTo see the source code for this app, please visit the "
-                        ),
-                        new LinkTextSpan(
-                            style: linkStyle,
-                            url: 'https://goo.gl/iv1p4G',
-                            text: 'repo'
-                        ),
-                        new TextSpan(
-                            style: aboutTextStyle,
-                            text: ".\n\nTo check our Flutter, and explore how you can build apps with "
-                            "Flutter+Dart, please visit "
-                        ),
-                        new LinkTextSpan(
-                            style: linkStyle,
-                            url: 'https://flutter.io',
-                            text: 'flutter.io'
-                        )
-                      ]
-                  )
-              )
-          )
-        ]
-    );
-
     final List<Widget> drawerItems = new List<Widget>();
     drawerItems.add(new ConfAppDrawerHeader());
     kAllDrawerMenuItems.forEach((drawerItem)=> drawerItems.add(drawerItem));
-    drawerItems.add(new Divider(color: kColorDivider, height: 0.4,),);
-    drawerItems.add(locationItem);
+    drawerItems.add(new Divider(color: kColorDivider, height: 0.4));
     drawerItems.add(surveyItem);
-    drawerItems.add(aboutItem);
+    drawerItems.add(aboutDrawerItem(context));
     return new Drawer(child: new ListView(primary: false, children: drawerItems));
   }
 }
@@ -179,21 +124,73 @@ class DrawerItem extends StatelessWidget {
   }
 }
 
+AboutListTile aboutDrawerItem (BuildContext context) {
+  final ThemeData themeData = Theme.of(context);
+  final aboutTextStyle = themeData.textTheme.body2;
+  final linkStyle = themeData.textTheme.body2.copyWith(color: themeData.accentColor);
+  return new AboutListTile(
+      icon: const FlutterLogo(),
+      applicationIcon: new FlutterLogo(),
+      applicationVersion: 'June 2017 Preview',
+      applicationLegalese: '© 2017 The Chromium Authors',
+      aboutBoxChildren: <Widget>[
+        new Padding(
+            padding: const EdgeInsets.only(top: 24.0),
+            child: new RichText(
+                text: new TextSpan(
+                    children: <TextSpan>[
+                      new TextSpan(
+                          style: aboutTextStyle,
+                          text: "Flutter is an early-stage, open-source project to help "
+                              "developers build high-performance, high-fidelity, mobile "
+                              "apps for iOS and Android from a single codebase. "
+                      ),
+                      new TextSpan(
+                          style: aboutTextStyle,
+                          text: "\n\nTo see the source code for this app, please visit the "
+                      ),
+                      new LinkTextSpan(
+                          style: linkStyle,
+                          url: 'https://goo.gl/iv1p4G',
+                          text: 'repo'
+                      ),
+                      new TextSpan(
+                          style: aboutTextStyle,
+                          text: ".\n\nTo check our Flutter, and explore how you can build apps with "
+                              "Flutter+Dart, please visit "
+                      ),
+                      new LinkTextSpan(
+                          style: linkStyle,
+                          url: 'https://flutter.io',
+                          text: 'flutter.io'
+                      )
+                    ]
+                )
+            )
+        )
+      ]
+  );
+}
+
 List<DrawerItem> drawerMenuItems() {
   final List<DrawerItem> appItems = <DrawerItem>[
     new DrawerItem(
       title: 'Schedule',
       leadingIcon: const Icon(Icons.view_quilt),
-      subtitle: '',
       routeName: ScheduleHomeWidget.routeName,
       buildRoute: (BuildContext context) => new ScheduleHomeWidget(),
     ),
     new DrawerItem(
       title: 'Speakers',
       leadingIcon: const Icon(Icons.record_voice_over),
-      subtitle: '',
       routeName: SpeakerListWidget.routeName,
       buildRoute: (BuildContext context) => new SpeakerListWidget(),
+    ),
+    new DrawerItem(
+      title: 'Location',
+      leadingIcon: const Icon(Icons.location_on),
+      routeName: LocationWidget.routeName,
+      buildRoute: (BuildContext context) => new LocationWidget(),
     )
   ];
   return appItems;
