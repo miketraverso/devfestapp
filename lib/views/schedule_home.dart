@@ -224,6 +224,7 @@ class SessionState extends State<ScheduledSessionWidget> {
         },
         child: new Container(
           margin: new EdgeInsets.only(left: kPadding, top: kPadding),
+          color: Colors.white,
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
