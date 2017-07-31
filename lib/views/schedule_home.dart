@@ -215,6 +215,7 @@ class SessionState extends State<ScheduledSessionWidget> {
         onTap: () {
           kSelectedSession = session;
           kSelectedTimeslot = timeSlot;
+          log('card tapped');
           Timeline.instantSync('Start Transition', arguments: <String, String>{
             'from': '/',
             'to': SessionDetailsWidget.routeName
