@@ -151,7 +151,7 @@ AboutListTile aboutDrawerItem (BuildContext context) {
                       ),
                       new LinkTextSpan(
                           style: linkStyle,
-                          url: 'https://goo.gl/iv1p4G',
+                          url: 'https://github.com/miketraverso/devfest_florida_app',
                           text: 'repo'
                       ),
                       new TextSpan(
