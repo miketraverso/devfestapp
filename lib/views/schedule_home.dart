@@ -16,6 +16,7 @@ import 'package:firebase_database/firebase_database.dart' as fireb;
 import 'package:firebase_database/firebase_database.dart';
 
 import 'dart:async';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final auth = FirebaseAuth.instance;
@@ -223,17 +224,17 @@ class SessionState extends State<ScheduledSessionWidget> {
           Navigator.pushNamed(context, SessionDetailsWidget.routeName);
         },
         child: new Container(
-          margin: new EdgeInsets.only(left: kPadding, top: kPadding),
+          margin: new EdgeInsets.only(left: kPadding, top: kMaterialPadding, right: kPadding),
           color: Colors.white,
           child: new Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               new Row(children: <Widget>[
                 new Expanded(
                   child: new Text(
                     session.title,
-                    maxLines: 3,
+                    maxLines: 4,
                     overflow: TextOverflow.ellipsis,
                     style: new TextStyle(
                       fontSize: 22.0,
@@ -241,23 +242,19 @@ class SessionState extends State<ScheduledSessionWidget> {
                     ),
                   ),
                 ),
-                new Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                ),
-              ]),
+                ]
+              ),
               new Row(children: <Widget>[
                 new Container(
-                  padding: const EdgeInsets.only(bottom: kMaterialPadding, top: kMaterialPadding),
+                  padding: const EdgeInsets.only(top: kMaterialPadding),
                   child: new Text(speakerString,
-                      style:
-                      new TextStyle(fontSize: 16.0, color: kColorText)),
+                          style: new TextStyle(fontSize: 16.0,
+                          color: kColorText)),
                 ),
               ]),
               new Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     new Row(children: <Widget>[
                       new Expanded(
@@ -278,6 +275,8 @@ class SessionState extends State<ScheduledSessionWidget> {
                         ),
                       ),
                       new IconButton(
+                        alignment: FractionalOffset.centerRight,
+                        padding: const EdgeInsets.all(0.0),
                         onPressed: () {
                           toggleFavorite(session);
                         },
@@ -287,7 +286,6 @@ class SessionState extends State<ScheduledSessionWidget> {
                       ),
                     ]),
                   ]),
-
             ],
           ),
         ),
@@ -306,17 +304,18 @@ class SessionState extends State<ScheduledSessionWidget> {
     });
 
     Widget titleSection = new Container(
-      margin: const EdgeInsets.all(kMaterialPadding),
+      margin: const EdgeInsets.only(left: 4.0, right: kMaterialPadding, top:kMaterialPadding, bottom: kMaterialPadding),
       child: new Row(
         children: [
           new Column(children: <Widget>[
             new Container(
-                margin: const EdgeInsets.only(right: kMaterialPadding, top: kMaterialPadding),
+                margin: const EdgeInsets.only(right: 4.0, top: kMaterialPadding),
                 child: new SizedBox(
-                    width: 58.0,
+                    width: 64.0,
                     child: new Text(
                       timeSlot.starts + "\nto\n" + timeSlot.ends,
                       textAlign: TextAlign.right,
+                      style: new TextStyle(fontSize: 15.0),
                     ))),
           ]),
           new Expanded(

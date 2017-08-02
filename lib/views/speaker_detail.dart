@@ -5,12 +5,13 @@
 import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/util/pluto.dart';
 import 'package:devfest_florida_app/views/shared/drawer.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SpeakerDetailsWidget extends StatefulWidget {
-  static const   routeName = '/speakerdetail';
+  static const routeName = '/speakerdetail';
 
   @override
   SpeakerDetailsState createState() => new SpeakerDetailsState();
@@ -70,7 +71,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
                               launch(kSelectedSpeaker.socialMap["twitter"]);
                             }),
                         new Padding(
-                            padding: const EdgeInsets.only(top: 4.0),
+                            padding: new EdgeInsets.only(top: defaultTargetPlatform == TargetPlatform.iOS ? 4.0 : 0.0),
                             child: new RichText(
                                 text: new TextSpan(children: <TextSpan>[
                               new LinkTextSpan(
