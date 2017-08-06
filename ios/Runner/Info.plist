@@ -17,13 +17,17 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>12</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>To take photos while you're at the conference and share</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To share photos taken while at the conference</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
