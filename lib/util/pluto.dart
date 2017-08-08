@@ -15,8 +15,7 @@ ImageConfiguration createLocalImageConfiguration(BuildContext context, {Size siz
       bundle: DefaultAssetBundle.of(context),
       devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
       // TODO(ianh): provide the locale
-      size: size,
-      platform: Platform.operatingSystem);
+      size: size);
 }
 
 class PlutoImage extends StatefulWidget {
@@ -89,9 +88,7 @@ class PlutoImage extends StatefulWidget {
   @override
   _ImageState createState() => new _ImageState(placeHolder);
 
-  @override
   void debugFillDescription(List<String> description) {
-    super.debugFillDescription(description);
     description.add('image: $image');
     if (width != null) description.add('width: $width');
     if (height != null) description.add('height: $height');
@@ -173,9 +170,7 @@ class _ImageState extends State<PlutoImage> {
     }
   }
 
-  @override
   void debugFillDescription(List<String> description) {
-    super.debugFillDescription(description);
     description.add('stream: $_imageStream');
     description.add('pixels: $_imageInfo');
   }
