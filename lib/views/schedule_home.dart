@@ -1,22 +1,21 @@
 library devfest_florida_app.home;
 
+import 'dart:async';
 import 'dart:collection';
 import 'dart:developer';
+
 import 'package:devfest_florida_app/data/schedule.dart';
 import 'package:devfest_florida_app/data/session.dart';
 import 'package:devfest_florida_app/data/speaker.dart';
+import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/views/session_detail.dart';
 import 'package:devfest_florida_app/views/shared/drawer.dart';
-import 'package:devfest_florida_app/main.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart' as fireb;
 import 'package:firebase_database/firebase_database.dart';
-
-import 'dart:async';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final auth = FirebaseAuth.instance;
@@ -38,12 +37,10 @@ class ScheduleHomeWidget extends StatefulWidget {
 }
 
 class ConfAppHomeState extends State<ScheduleHomeWidget> {
-  final reference = FirebaseDatabase.instance.reference().child('2017');
   LinkedHashMap<String, Session> sessions = kSessions;
   LinkedHashMap<String, Speaker> speakers = kSpeakers;
   List<TimeSlot> timeSlots = <TimeSlot>[];
   List<Schedule> schedules = <Schedule>[];
-  bool isLoaded = false;
 
   @override
   void initState() {
@@ -59,6 +56,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget> {
   }
 
   Future loadDataFromFireBase() async {
+    final reference = FirebaseDatabase.instance.reference().child('2017');
     reference.onChildAdded.forEach((e) {
       fireb.DataSnapshot d = e.snapshot;
       if (d.key == 'sessions') {
@@ -126,20 +124,34 @@ class ConfAppHomeState extends State<ScheduleHomeWidget> {
       timeSlotWidgets.add(buildScheduledSession(context, timeSlot));
     });
 
-    return new Scaffold(
-      appBar: new AppBar(
-          title: new Text(
-        kAppTitle,
-        style: new TextStyle(color: Colors.white, fontSize: 24.0),
-      )),
-      drawer: new ConfAppDrawer(),
-      body: new Scrollbar(
-        child: new ListView(
-          padding: new EdgeInsets.symmetric(vertical: 8.0),
-          children: kTimeSlots.length > 0 ? timeSlotWidgets : null,
+    if (timeSlotWidgets.length == 0) {
+      return new Scaffold(
+        appBar: new AppBar(
+            title: new Text(
+              kAppTitle,
+              style: new TextStyle(color: Colors.white, fontSize: 24.0),
+            )),
+        drawer: new ConfAppDrawer(),
+        body: const Center(
+          child: const CupertinoActivityIndicator(),
         ),
-      ),
-    );
+      );
+    } else {
+      return new Scaffold(
+        appBar: new AppBar(
+            title: new Text(
+              kAppTitle,
+              style: new TextStyle(color: Colors.white, fontSize: 24.0),
+            )),
+        drawer: new ConfAppDrawer(),
+        body: new Scrollbar(
+          child: new ListView(
+            padding: new EdgeInsets.symmetric(vertical: 8.0),
+            children: kTimeSlots.length > 0 ? timeSlotWidgets : null,
+          ),
+        ),
+      );
+    }
   }
 }
 
