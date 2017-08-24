@@ -16,7 +16,7 @@ LinkedHashMap<String, Session> kSessions = new LinkedHashMap<String, Session>();
 List<Schedule> kSchedules = <Schedule>[];
 Speaker kSelectedSpeaker;
 Session kSelectedSession;
-TimeSlot kSelectedTimeslot;
+TimeSlot kSelectedTimeSlot;
 
 final ThemeData kTheme = new ThemeData(
   brightness: Brightness.light,

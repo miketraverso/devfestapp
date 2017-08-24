@@ -19,7 +19,7 @@ class SessionDetailsWidget extends StatefulWidget {
 class SessionDetailsState extends State<SessionDetailsWidget> {
 
   String roomAndTime() {
-    return kSelectedSession.room + '\n' + kSelectedTimeslot.starts + ' - ' + kSelectedTimeslot.ends;
+    return kSelectedSession.room + '\n' + kSelectedTimeSlot.starts + ' - ' + kSelectedTimeSlot.ends;
   }
 
   String getCircleDetails(Speaker speaker) {
