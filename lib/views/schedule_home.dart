@@ -18,8 +18,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final auth = FirebaseAuth.instance;
-const double _kFlexibleSpaceMaxHeight = 256.0;
+final _auth = FirebaseAuth.instance;
+const _kFlexibleSpaceMaxHeight = 256.0;
 
 class ScheduleHomeWidget extends StatefulWidget {
   static const routeName = '/schedule';
@@ -39,11 +39,11 @@ class ScheduleHomeWidget extends StatefulWidget {
 class ConfAppHomeState extends State<ScheduleHomeWidget>
     with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  LinkedHashMap<String, Session> sessionsMap = kSessions;
-  LinkedHashMap<String, Speaker> speakersMap = kSpeakers;
-  LinkedHashMap<int, Schedule> allSchedulesMap
+  LinkedHashMap<String, Session> _sessionsMap = kSessions;
+  LinkedHashMap<String, Speaker> _speakersMap = kSpeakers;
+  LinkedHashMap<int, Schedule> _allSchedulesMap
     = new LinkedHashMap<int, Schedule>();
-  LinkedHashMap<int, List<TimeSlot>> timeSlotsByScheduleMap
+  LinkedHashMap<int, List<TimeSlot>> _timeSlotsByScheduleMap
     = new LinkedHashMap<int, List<TimeSlot>>();
 
   var _schedules = <Schedule>[];
@@ -83,14 +83,14 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
   void createScheduleFromSnapshot(fireb.DataSnapshot dataSnapshot) {
     var scheduleIndex = 0;
     dataSnapshot.value.forEach((LinkedHashMap map) {
-      timeSlotsByScheduleMap[scheduleIndex] = <TimeSlot>[];
+      _timeSlotsByScheduleMap[scheduleIndex] = <TimeSlot>[];
       Schedule schedule =
           new Schedule.loadFromFireBase(scheduleIndex.toString(), map);
       _schedules.add(schedule);
-      allSchedulesMap.putIfAbsent(scheduleIndex, () => schedule);
+      _allSchedulesMap.putIfAbsent(scheduleIndex, () => schedule);
       schedule.timeSlots.forEach((timeSlot) {
-        timeSlotsByScheduleMap[scheduleIndex]
-            .insert(timeSlotsByScheduleMap[scheduleIndex].length, timeSlot);
+        _timeSlotsByScheduleMap[scheduleIndex]
+            .insert(_timeSlotsByScheduleMap[scheduleIndex].length, timeSlot);
       });
       scheduleIndex += 1;
     });
@@ -105,10 +105,10 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
     LinkedHashMap hashMap = event.snapshot.value;
     hashMap.forEach((key, value) {
       Speaker speaker = new Speaker.loadFromFireBase(key, value);
-      speakersMap.putIfAbsent(speaker.id, () => speaker);
+      _speakersMap.putIfAbsent(speaker.id, () => speaker);
     });
     setState(() {
-      kSpeakers = speakersMap;
+      kSpeakers = _speakersMap;
     });
   }
 
@@ -116,10 +116,10 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
     LinkedHashMap hashMap = dataSnapshot.value;
     hashMap.forEach((key, value) {
       Session session = new Session.loadFromFireBase(key, value);
-      sessionsMap.putIfAbsent(session.id, () => session);
+      _sessionsMap.putIfAbsent(session.id, () => session);
     });
     setState(() {
-      kSessions = sessionsMap;
+      kSessions = _sessionsMap;
       _setStoredFavorites();
     });
   }
