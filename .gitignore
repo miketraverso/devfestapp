@@ -9,3 +9,5 @@ packages
 pubspec.lock
 .flutter-plugins
 key.properties
+Runner.xcscmblueprint
+Podfile.lock
