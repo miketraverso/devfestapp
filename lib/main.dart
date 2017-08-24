@@ -11,9 +11,11 @@ import 'package:devfest_florida_app/views/speaker_list.dart';
 import 'package:flutter/material.dart';
 
 List<TimeSlot> kTimeSlots = <TimeSlot>[];
+List<Schedule> kSchedules = <Schedule>[];
 LinkedHashMap<String, Speaker> kSpeakers = new LinkedHashMap<String, Speaker>();
 LinkedHashMap<String, Session> kSessions = new LinkedHashMap<String, Session>();
-List<Schedule> kSchedules = <Schedule>[];
+LinkedHashMap<int, Schedule> kAllSchedules = new LinkedHashMap<int, Schedule>();
+
 Speaker kSelectedSpeaker;
 Session kSelectedSession;
 TimeSlot kSelectedTimeSlot;
