@@ -39,14 +39,14 @@ class ScheduleHomeWidget extends StatefulWidget {
 class ConfAppHomeState extends State<ScheduleHomeWidget>
     with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
   LinkedHashMap<String, Session> sessionsMap = kSessions;
   LinkedHashMap<String, Speaker> speakersMap = kSpeakers;
-  LinkedHashMap<int, List<TimeSlot>> timeSlotsByScheduleMap = new LinkedHashMap<int, List<TimeSlot>>();
-  LinkedHashMap<int, Schedule> allSchedulesMap = new LinkedHashMap<int, Schedule>();
+  LinkedHashMap<int, Schedule> allSchedulesMap
+    = new LinkedHashMap<int, Schedule>();
+  LinkedHashMap<int, List<TimeSlot>> timeSlotsByScheduleMap
+    = new LinkedHashMap<int, List<TimeSlot>>();
 
-  List<TimeSlot> timeSlotsList = <TimeSlot>[];
-  List<Schedule> schedules = <Schedule>[];
+  var _schedules = <Schedule>[];
 
   TabController _tabController;
 
@@ -55,9 +55,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
     super.initState();
     kSpeakers.clear();
     kSessions.clear();
-    kTimeSlots.clear();
     kSchedules.clear();
-    kAllSchedules.clear();
 
     loadDataFromFireBase();
   }
@@ -70,69 +68,65 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
 
   Future loadDataFromFireBase() async {
     final reference = FirebaseDatabase.instance.reference().child('2017');
-    reference.onChildAdded.forEach((e) {
-      fireb.DataSnapshot d = e.snapshot;
-      if (d.key == 'sessions') {
-        LinkedHashMap hashMap = e.snapshot.value;
-        hashMap.forEach((key, value) {
-          Session session = new Session.loadFromFireBase(key, value);
-          sessionsMap.putIfAbsent(session.id, () => session);
-        });
-        setState(() {
-          kSessions = sessionsMap;
-          _setStoredFavorites();
-        });
-      } else if (d.key == 'speakers') {
-        LinkedHashMap hashMap = e.snapshot.value;
-        hashMap.forEach((key, value) {
-          Speaker speaker = new Speaker.loadFromFireBase(key, value);
-          speakersMap.putIfAbsent(speaker.id, () => speaker);
-        });
-        setState(() {
-          kSpeakers = speakersMap;
-        });
-      } else if (d.key == 'schedule') {
-        if (d.value is List) {
-          int index = 0;
-          d.value.forEach((LinkedHashMap map) {
-            timeSlotsByScheduleMap[index] = <TimeSlot>[];
-            Schedule schedule =
-                new Schedule.loadFromFireBase(index.toString(), map);
-            schedules.add(schedule);
-            allSchedulesMap.putIfAbsent(index, () => schedule);
-            schedule.timeSlots.forEach((timeSlot) {
-              timeSlotsByScheduleMap[index]
-                  .insert(timeSlotsByScheduleMap[index].length, timeSlot);
-            });
-            index += 1;
-          });
-          setState(() {
-            kSchedules = schedules;
-            kAllSchedules = allSchedulesMap;
-            _tabController = new TabController(
-                vsync: this, length: kSchedules.length);
-          });
-        } else {
-          for (LinkedHashMap map in d.value) {
-            Schedule schedule = new Schedule.loadFromFireBase(d.key, map);
-            kSchedules.add(schedule);
-            kSchedules.first.timeSlots.forEach((timeSlot) {
-              timeSlotsByScheduleMap[0]
-                  .insert(timeSlotsByScheduleMap[0].length, timeSlot);
-              timeSlotsList.insert(timeSlotsList.length, timeSlot);
-            });
-          }
-          setState(() {
-            kTimeSlots = timeSlotsList;
-          });
-        }
+    reference.onChildAdded.forEach((event) {
+      fireb.DataSnapshot dataSnapshot = event.snapshot;
+      if (dataSnapshot.key == 'sessions') {
+        createSessionsFromSnapshot(dataSnapshot);
+      } else if (dataSnapshot.key == 'speakers') {
+        createSpeakersFromSnapshot(event);
+      } else if (dataSnapshot.key == 'schedule') {
+        createScheduleFromSnapshot(dataSnapshot);
       }
     });
   }
 
+  void createScheduleFromSnapshot(fireb.DataSnapshot dataSnapshot) {
+    var scheduleIndex = 0;
+    dataSnapshot.value.forEach((LinkedHashMap map) {
+      timeSlotsByScheduleMap[scheduleIndex] = <TimeSlot>[];
+      Schedule schedule =
+          new Schedule.loadFromFireBase(scheduleIndex.toString(), map);
+      _schedules.add(schedule);
+      allSchedulesMap.putIfAbsent(scheduleIndex, () => schedule);
+      schedule.timeSlots.forEach((timeSlot) {
+        timeSlotsByScheduleMap[scheduleIndex]
+            .insert(timeSlotsByScheduleMap[scheduleIndex].length, timeSlot);
+      });
+      scheduleIndex += 1;
+    });
+    setState(() {
+      kSchedules = _schedules;
+      _tabController =
+          new TabController(vsync: this, length: kSchedules.length);
+    });
+  }
+
+  void createSpeakersFromSnapshot(fireb.Event event) {
+    LinkedHashMap hashMap = event.snapshot.value;
+    hashMap.forEach((key, value) {
+      Speaker speaker = new Speaker.loadFromFireBase(key, value);
+      speakersMap.putIfAbsent(speaker.id, () => speaker);
+    });
+    setState(() {
+      kSpeakers = speakersMap;
+    });
+  }
+
+  void createSessionsFromSnapshot(fireb.DataSnapshot dataSnapshot) {
+    LinkedHashMap hashMap = dataSnapshot.value;
+    hashMap.forEach((key, value) {
+      Session session = new Session.loadFromFireBase(key, value);
+      sessionsMap.putIfAbsent(session.id, () => session);
+    });
+    setState(() {
+      kSessions = sessionsMap;
+      _setStoredFavorites();
+    });
+  }
+
   _setStoredFavorites() async {
-    kSessions.values.forEach((sesh) async {
-      sesh.isFavorite = await _isFavorite(sesh);
+    kSessions.values.forEach((session) async {
+      session.isFavorite = await _isFavorite(session);
     });
   }
 
@@ -156,61 +150,67 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
 
   @override
   Widget build(BuildContext context) {
-    List dailyScrollingScheduleWidgets = new List();
-    for (Schedule schedule in kSchedules) {
-      List<Widget> widgetsForDay = new List<Widget>();
-      for (TimeSlot slot in schedule.timeSlots) {
-        widgetsForDay.add(buildScheduledSession(slot));
-      }
+    List dailyScrollingScheduleWidgets = createScheduleWidget();
 
-      var dayScrollWidget =
-        new Scrollbar(
-          child: new ListView(
-            padding: new EdgeInsets.symmetric(vertical: 8.0),
-            children: widgetsForDay,
-          ),
-        );
-      dailyScrollingScheduleWidgets.add(dayScrollWidget);
-    }
-
-    List<Widget> tabs = kSchedules.map((Schedule schedule) =>
-      new Tab(text: schedule.dateReadable)
-    ).toList();
-
-    if (dailyScrollingScheduleWidgets != null
-        && dailyScrollingScheduleWidgets.length > 0) {
+    if (dailyScrollingScheduleWidgets != null &&
+        dailyScrollingScheduleWidgets.length > 0) {
       return new Scaffold(
-        key: _scaffoldKey,
-        drawer: new ConfAppDrawer(),
-        appBar: new AppBar(
-          title: new Text(
-            kAppTitle,
-            style: new TextStyle(color: Colors.white, fontSize: 24.0),
+          key: _scaffoldKey,
+          drawer: new ConfAppDrawer(),
+          appBar: new AppBar(
+            title: new Text(
+              kAppTitle,
+              style: new TextStyle(color: Colors.white, fontSize: 24.0),
+            ),
+            bottom: new TabBar(
+              controller: _tabController,
+              tabs: kSchedules
+                  .map((Schedule schedule) => new Tab(
+                        text: schedule.dateReadable,
+                      ))
+                  .toList(),
+              labelStyle: new TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
-          bottom: new TabBar(
-            controller: _tabController,
-            tabs: tabs,
-          ),
-        ),
-        body: new TabBarView(
-          controller: _tabController,
-          children: dailyScrollingScheduleWidgets
-        )
-      );
+          body: new TabBarView(
+              controller: _tabController,
+              children: dailyScrollingScheduleWidgets));
     } else {
       return new Scaffold(
         key: _scaffoldKey,
         appBar: new AppBar(
-          title: new Text(
-            kAppTitle,
-            style: new TextStyle(color: Colors.white, fontSize: 24.0),
-          )),
+            title: new Text(
+          kAppTitle,
+          style: new TextStyle(color: Colors.white, fontSize: 24.0),
+        )),
         drawer: new ConfAppDrawer(),
         body: const Center(
           child: const CupertinoActivityIndicator(),
         ),
       );
     }
+  }
+
+  List createScheduleWidget() {
+    var dailyScrollingScheduleWidgets = new List();
+    for (Schedule schedule in kSchedules) {
+      List<Widget> widgetsForDay = new List<Widget>();
+      for (TimeSlot slot in schedule.timeSlots) {
+        widgetsForDay.add(buildScheduledSession(slot));
+      }
+
+      var dayScrollWidget = new Scrollbar(
+        child: new ListView(
+          padding: new EdgeInsets.symmetric(vertical: 8.0),
+          children: widgetsForDay,
+        ),
+      );
+      dailyScrollingScheduleWidgets.add(dayScrollWidget);
+    }
+    return dailyScrollingScheduleWidgets;
   }
 }
 
@@ -245,9 +245,7 @@ class SessionState extends State<ScheduledSessionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (kSessions.length > 0 &&
-        kSpeakers.length > 0 &&
-        kAllSchedules.length > 0) {
+    if (kSessions.length > 0 && kSpeakers.length > 0) {
       return new Container(
         decoration: new BoxDecoration(
             border: new Border(
@@ -330,38 +328,38 @@ class SessionState extends State<ScheduledSessionWidget> {
               ),
             ]),
             new Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                new Row(children: <Widget>[
-                  new Expanded(
-                    child: new Row(
-                      children: <Widget>[
-                        new Icon(
-                          Icons.location_on,
-                          color: kColorText,
-                        ),
-                        new Text(
-                          session.room,
-                          style: new TextStyle(
-                              color: kColorText, fontSize: 16.0),
-                        ),
-                      ],
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  new Row(children: <Widget>[
+                    new Expanded(
+                      child: new Row(
+                        children: <Widget>[
+                          new Icon(
+                            Icons.location_on,
+                            color: kColorText,
+                          ),
+                          new Text(
+                            session.room,
+                            style: new TextStyle(
+                                color: kColorText, fontSize: 16.0),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  new IconButton(
-                    alignment: FractionalOffset.centerRight,
-                    padding: const EdgeInsets.all(0.0),
-                    onPressed: () {
-                      toggleFavorite(session);
-                    },
-                    icon: session.isFavorite
-                        ? new Icon(Icons.star, color: kColorFavoriteOn)
-                        : new Icon(Icons.star_border,
-                            color: kColorFavoriteOff),
-                  ),
+                    new IconButton(
+                      alignment: FractionalOffset.centerRight,
+                      padding: const EdgeInsets.all(0.0),
+                      onPressed: () {
+                        toggleFavorite(session);
+                      },
+                      icon: session.isFavorite
+                          ? new Icon(Icons.star, color: kColorFavoriteOn)
+                          : new Icon(Icons.star_border,
+                              color: kColorFavoriteOff),
+                    ),
+                  ]),
                 ]),
-              ]),
           ],
         ),
       ),
