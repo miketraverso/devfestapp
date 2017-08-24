@@ -1,5 +1,3 @@
-import 'dart:io' show File, Platform;
-
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
@@ -111,11 +109,6 @@ class _ImageState extends State<PlutoImage> {
   void didChangeDependencies() {
     _resolveImage();
     super.didChangeDependencies();
-  }
-
-  @override
-  void didUpdateConfig(PlutoImage oldConfig) {
-    if (widget.image != oldConfig.image) _resolveImage();
   }
 
   @override
