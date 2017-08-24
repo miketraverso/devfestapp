@@ -20,6 +20,8 @@ class SpeakerListWidget extends StatefulWidget {
 }
 
 class _SpeakerListState extends State<SpeakerListWidget> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   Widget buildListTile(BuildContext context, Speaker speaker) {
     String speakerInitials = getCircleDetails(speaker);
     return new MergeSemantics(
@@ -70,6 +72,7 @@ class _SpeakerListState extends State<SpeakerListWidget> {
     });
 
     return new Scaffold(
+      key: _scaffoldKey,
       appBar: new AppBar(
           title: new Text(
         kAppTitle,
