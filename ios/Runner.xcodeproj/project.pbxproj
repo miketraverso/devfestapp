@@ -443,7 +443,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.traversoft.devfestFloridaApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.traversoft.devfestflorida;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -465,7 +465,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.traversoft.devfestFloridaApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.traversoft.devfestflorida;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
