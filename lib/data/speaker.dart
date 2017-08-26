@@ -5,6 +5,7 @@ class Speaker {
   String bio;
   String company;
   String name;
+  String lastName;
   String jobTitle;
   String thumbnailUrl = "";
   bool featured;
@@ -23,6 +24,9 @@ class Speaker {
           break;
         case 'name':
           this.name = map[key];
+          break;
+        case 'lastname':
+          this.lastName = map[key];
           break;
         case 'thumbnailUrl':
           this.thumbnailUrl = map[key];

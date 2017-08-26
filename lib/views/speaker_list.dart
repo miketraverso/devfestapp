@@ -61,7 +61,9 @@ class _SpeakerListState extends State<SpeakerListWidget> {
   @override
   Widget build(BuildContext context) {
     List<Widget> listTiles = <Widget>[];
-    kSpeakers.values.forEach((speaker) {
+    var speakers = kSpeakers.values.toList();
+    speakers.sort((Speaker a, Speaker b) => a.lastName.compareTo(b.lastName));
+    speakers.forEach((speaker) {
       Widget listItem = buildListTile(context, speaker);
       if (listItem != null) {
         listTiles.add(listItem);
