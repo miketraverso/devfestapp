@@ -102,48 +102,41 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
                   children: <Widget>[
                       new Container(
                         margin: new EdgeInsets.only(left: kPadding, bottom: kPadding, top: 100.0),
+                        padding: new EdgeInsets.only(right: kMaterialPadding),
                         child: new Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            new Row(children: <Widget>[
-                              new Expanded(
-                                child: new Text(
-                                  kSelectedSession.title,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: new TextStyle(
+                              new Text(
+                                kSelectedSession.title,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: new TextStyle(
                                     fontSize: 22.0,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold
-                                  ),
                                 ),
                               ),
-                            ]),
-                            new Row(
-                              children: <Widget>[
+
                                 new Text(
                                   roomAndTime(),
+                                  maxLines: 4,
+                                  softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
                                   style: new TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.0,
                                   ),
                                 ),
-                              ],
-                            ),
                             new Row(children: <Widget>[
                               new Expanded(
-                                child: new Row(
-                                  children: <Widget>[
-                                    new Text(
-                                      kSelectedSession.track,
-                                      style: new TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                child:new Text(
+                                  kSelectedSession.track,
+                                  style: new TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16.0,
+                                  ),
+                                )
                               ),
                             ]),
                           ],

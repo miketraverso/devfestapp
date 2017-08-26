@@ -24,7 +24,9 @@ class _SpeakerListState extends State<SpeakerListWidget> {
 
   Widget buildListTile(BuildContext context, Speaker speaker) {
     String speakerInitials = getCircleDetails(speaker);
-    return new MergeSemantics(
+    return new Container(
+      padding: new EdgeInsets.only(top: 5.0, bottom: 5.0),
+    child: new MergeSemantics(
       child: new ListTile(
         leading: new ExcludeSemantics(
             child: new CircleAvatar(
@@ -46,7 +48,8 @@ class _SpeakerListState extends State<SpeakerListWidget> {
           });
           Navigator.pushNamed(context, SpeakerDetailsWidget.routeName);
         },
-      ),
+      )
+    ),
     );
   }
 
