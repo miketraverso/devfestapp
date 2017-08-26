@@ -90,18 +90,6 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
       ),
     );
 
-    Widget _speakerName = new Container(
-      child: new DefaultTextStyle(
-        style: new TextStyle(
-            color: kColorSpeakerName,
-            fontWeight: FontWeight.bold,
-            fontSize: 26.0),
-        child: new Text(kSelectedSpeaker.name),
-      ),
-      padding:
-          const EdgeInsets.only(top: kPadding, left: kPadding, right: kPadding),
-    );
-
     Widget speakerBio = new Container(
       child: new DefaultTextStyle(
         style: new TextStyle(color: const Color(0xff696969), fontSize: 18.0),
@@ -111,7 +99,6 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
     );
 
     List<Widget> speakerDetailWidgets = <Widget>[];
-    speakerDetailWidgets.add(_speakerName);
     if (twitterHandle.isNotEmpty) {
       speakerDetailWidgets.add(twitterWidget);
     }
@@ -141,13 +128,13 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
                     decoration: const BoxDecoration(
                       gradient: const LinearGradient(
                         begin: const FractionalOffset(0.5, 0.0),
-                        stops: const [0.5, 0.7, 0.85, 0.98],
+                        stops: const [0.5, 0.7, 0.8, 0.86],
                         end: const FractionalOffset(.5, 1.0),
                         colors: const <Color>[
                           const Color(0x00000000),
-                          const Color(0x30000000),
-                          const Color(0x70000000),
-                          const Color(0xaa0c0c0c)
+                          const Color(0x99000000),
+                          const Color(0xbb000000),
+                          const Color(0xdd0c0c0c)
                         ],
                       ),
                     ),

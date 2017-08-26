@@ -16,6 +16,9 @@ class Speaker {
     id = fbKey;
     for (String key in map.keys) {
       switch (key) {
+        case 'id':
+          this.id = map[key];
+          break;
         case 'bio':
           this.bio = map[key];
           break;
