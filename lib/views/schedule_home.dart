@@ -103,14 +103,28 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
   }
 
   void createSpeakersFromSnapshot(fireb.Event event) {
-    LinkedHashMap hashMap = event.snapshot.value;
-    hashMap.forEach((key, value) {
-      Speaker speaker = new Speaker.loadFromFireBase(key, value);
-      _speakersMap.putIfAbsent(speaker.id, () => speaker);
-    });
-    setState(() {
-      kSpeakers = _speakersMap;
-    });
+    if (event.snapshot.value is LinkedHashMap) {
+      LinkedHashMap hashMap = event.snapshot.value;
+      hashMap.forEach((key, value) {
+        Speaker speaker = new Speaker.loadFromFireBase(key, value);
+        _speakersMap.putIfAbsent(speaker.id, () => speaker);
+      });
+      setState(() {
+        kSpeakers = _speakersMap;
+      });
+    } else {
+      List list = event.snapshot.value;
+      list.forEach((value) {
+        if (value != null) {
+          Speaker speaker = new Speaker.loadFromFireBase("speaker", value);
+          _speakersMap.putIfAbsent(speaker.id, () => speaker);
+        }
+      });
+
+      setState(() {
+        kSpeakers = _speakersMap;
+      });
+    }
   }
 
   void createSessionsFromSnapshot(fireb.DataSnapshot dataSnapshot) {
