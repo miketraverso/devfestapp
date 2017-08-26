@@ -8,6 +8,7 @@ import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/util/pluto.dart';
 import 'package:devfest_florida_app/views/speaker_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class SessionDetailsWidget extends StatefulWidget {
   static const String routeName = '/sessiondetails';
@@ -17,9 +18,13 @@ class SessionDetailsWidget extends StatefulWidget {
 }
 
 class SessionDetailsState extends State<SessionDetailsWidget> {
-
+  var formatter = new DateFormat.jm();
   String roomAndTime() {
-    return kSelectedSession.room + '\n' + kSelectedTimeSlot.starts + ' - ' + kSelectedTimeSlot.ends;
+    return kSelectedSession.room
+        + '\n'
+        + formatter.format(kSelectedTimeSlot.startDate).replaceAll(" ", "")
+        + ' - '
+        + formatter.format(kSelectedTimeSlot.endDate).replaceAll(" ", "");
   }
 
   String getCircleDetails(Speaker speaker) {
