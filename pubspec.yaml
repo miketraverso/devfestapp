@@ -36,6 +36,9 @@ flutter:
     - family: FontAwesome # Do not change!
       fonts:
         - asset: packages/font_awesome_flutter/fonts/fontawesome.woff
+    - family: FloridaProject-PhaseOne
+      fonts:
+        - asset: assets/fonts/FloridaProjectPhaseOne.ttf
 
   # To add assets from package dependencies, first ensure the asset
   # is in the lib/ directory of the dependency. Then,
