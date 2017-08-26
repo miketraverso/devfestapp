@@ -22,8 +22,8 @@ class _LocationState extends State<LocationWidget> {
     return new Scaffold(
       appBar: new AppBar(
           title: new Text(
-        kAppTitle,
-        style: new TextStyle(color: Colors.white, fontSize: 24.0),
+            kAppTitle,
+            style: new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne'),
       )),
       drawer: new ConfAppDrawer(),
       body: new Container(

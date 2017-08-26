@@ -175,7 +175,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
           appBar: new AppBar(
             title: new Text(
               kAppTitle,
-              style: new TextStyle(color: Colors.white, fontSize: 24.0),
+              style: new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne'),
             ),
             bottom: new TabBar(
               controller: _tabController,
@@ -199,7 +199,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
         appBar: new AppBar(
             title: new Text(
           kAppTitle,
-          style: new TextStyle(color: Colors.white, fontSize: 24.0),
+              style: new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne'),
         )),
         drawer: new ConfAppDrawer(),
         body: const Center(

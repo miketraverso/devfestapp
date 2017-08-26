@@ -80,9 +80,9 @@ class _SpeakerListState extends State<SpeakerListWidget> {
       key: _scaffoldKey,
       appBar: new AppBar(
           title: new Text(
-        kAppTitle,
-        style: new TextStyle(color: Colors.white, fontSize: 24.0),
-      )),
+            kAppTitle,
+            style: new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne'),
+          )),
       drawer: new ConfAppDrawer(),
       body: new Scrollbar(
         child: new ListView(
