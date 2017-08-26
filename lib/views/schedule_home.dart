@@ -172,7 +172,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
                   .toList(),
               labelStyle: new TextStyle(
                   color: Colors.white,
-                  fontSize: 18.0,
+                  fontSize: 15.0,
                   fontWeight: FontWeight.bold),
             ),
           ),
@@ -316,7 +316,7 @@ class SessionState extends State<ScheduledSessionWidget> {
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                   style: new TextStyle(
-                    fontSize: 22.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -326,7 +326,7 @@ class SessionState extends State<ScheduledSessionWidget> {
               new Container(
                 padding: const EdgeInsets.only(top: kMaterialPadding),
                 child: new Text(speakerString,
-                    style: new TextStyle(fontSize: 16.0, color: kColorText)),
+                    style: new TextStyle(fontSize: 15.0, color: kColorText)),
               ),
             ]),
             new Column(
@@ -334,19 +334,17 @@ class SessionState extends State<ScheduledSessionWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   new Row(children: <Widget>[
+                    new Icon(
+                      Icons.location_on,
+                      color: kColorText,
+                    ),
                     new Expanded(
-                      child: new Row(
-                        children: <Widget>[
-                          new Icon(
-                            Icons.location_on,
-                            color: kColorText,
-                          ),
-                          new Text(
-                            session.room,
-                            style: new TextStyle(
-                                color: kColorText, fontSize: 16.0),
-                          ),
-                        ],
+                      child:new Text(
+                        session.room,
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
+                        style: new TextStyle(
+                            color: kColorText, fontSize: 14.0),
                       ),
                     ),
                     new IconButton(
@@ -418,7 +416,9 @@ class SessionState extends State<ScheduledSessionWidget> {
           speakerString += speaker.name + ", ";
         }
       });
-      speakerString = speakerString.substring(0, speakerString.length - 2);
+      if (speakerString.length > 2) {
+        speakerString = speakerString.substring(0, speakerString.length - 2);
+      }
     }
     return speakerString;
   }
