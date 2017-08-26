@@ -6,10 +6,9 @@ class Speaker {
   String company;
   String name;
   String jobTitle;
-  String photoUrl;
+  String thumbnailUrl = "";
   bool featured;
 
-//  List<Social> socials = <Social>[];
   LinkedHashMap<String, String> socialMap = new LinkedHashMap<String, String>();
 
   Speaker.loadFromFireBase(String fbKey, LinkedHashMap map) {
@@ -25,8 +24,8 @@ class Speaker {
         case 'name':
           this.name = map[key];
           break;
-        case 'photoUrl':
-          this.photoUrl = map[key];
+        case 'thumbnailUrl':
+          this.thumbnailUrl = map[key];
           break;
         case 'jobTitle':
           this.jobTitle = map[key];

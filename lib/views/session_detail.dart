@@ -31,10 +31,10 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
       speakerIntials = speaker.name.substring(0, 1);
     }
 
-    if (speaker.photoUrl.isEmpty ||
-        !(speaker.photoUrl.endsWith("jpg") ||
-            speaker.photoUrl.endsWith("jpeg") ||
-            speaker.photoUrl.endsWith("png"))) {
+    if (speaker.thumbnailUrl.isEmpty ||
+        !(speaker.thumbnailUrl.endsWith("jpg") ||
+            speaker.thumbnailUrl.endsWith("jpeg") ||
+            speaker.thumbnailUrl.endsWith("png"))) {
       return speakerIntials;
     } else
       return "";
@@ -53,7 +53,7 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
               child: new CircleAvatar(
                 child: speakerInitials.isEmpty ? null : new Text(speakerInitials),
                 backgroundImage: new PlutoImage.networkWithPlaceholder(
-                    speak.photoUrl,
+                    speak.thumbnailUrl,
                     new Image.asset('assets/images/devfest-logo.png'))
                     .image,
               )),
