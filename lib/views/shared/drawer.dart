@@ -80,7 +80,7 @@ class ConfAppDrawer extends StatelessWidget {
     drawerItems.add(new ConfAppDrawerHeader());
     kAllDrawerMenuItems.forEach((drawerItem)=> drawerItems.add(drawerItem));
     drawerItems.add(new Divider(color: kColorDivider, height: 0.4));
-    drawerItems.add(surveyItem);
+//    drawerItems.add(surveyItem); TODO Add this back in once we have a survey link
     drawerItems.add(aboutDrawerItem(context));
     return new Drawer(child: new ListView(primary: false, children: drawerItems));
   }
@@ -130,9 +130,6 @@ AboutListTile aboutDrawerItem (BuildContext context) {
   final linkStyle = themeData.textTheme.body2.copyWith(color: themeData.accentColor);
   return new AboutListTile(
       icon: const FlutterLogo(),
-      applicationIcon: new FlutterLogo(),
-      applicationVersion: 'June 2017 Preview',
-      applicationLegalese: '© 2017 The Chromium Authors',
       aboutBoxChildren: <Widget>[
         new Padding(
             padding: const EdgeInsets.only(top: 24.0),
