@@ -91,9 +91,10 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
     );
 
     Widget speakerBio = new Container(
-      child: new DefaultTextStyle(
-        style: new TextStyle(color: const Color(0xff696969), fontSize: 18.0),
-        child: new Text(kSelectedSpeaker.bio),
+      child: new Text(kSelectedSpeaker.bio,
+          style: new TextStyle(
+              color: const Color(0xff696969),
+              fontSize: 18.0)
       ),
       padding: const EdgeInsets.all(kPadding),
     );
@@ -114,7 +115,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
             expandedHeight: _appBarHeight,
             pinned: true,
             flexibleSpace: new FlexibleSpaceBar(
-              title: new Text(kSelectedSpeaker.name),
+              title: new Text(kSelectedSpeaker.name, textAlign: TextAlign.center,),
               background: new Stack(
                 fit: StackFit.expand,
                 children: <Widget>[

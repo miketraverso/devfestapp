@@ -81,9 +81,10 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
 
 
     Widget sessionDescription = new Container(
-      child: new DefaultTextStyle(
-          style: new TextStyle(color: kColorText, fontSize: 16.0, ),
-          child: new Text(kSelectedSession.description),
+      child: new Text(kSelectedSession.description,
+          style: new TextStyle(
+              color: const Color(0xff696969),
+              fontSize: 18.0)
       ),
       padding: const EdgeInsets.all(kPadding),
     );
@@ -99,7 +100,7 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
         body: new CustomScrollView(
           slivers: <Widget>[
             new SliverAppBar(
-              expandedHeight: 220.0,
+              expandedHeight: 240.0,
               pinned: true,
               flexibleSpace: new FlexibleSpaceBar(
                 background: new Stack(
@@ -114,10 +115,10 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
                           children: <Widget>[
                               new Text(
                                 kSelectedSession.title,
-                                maxLines: 2,
+                                maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                                 style: new TextStyle(
-                                    fontSize: 22.0,
+                                    fontSize: 20.0,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold
                                 ),
