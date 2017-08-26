@@ -16,6 +16,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final _auth = FirebaseAuth.instance;
@@ -225,6 +226,7 @@ class ScheduledSessionWidget extends StatefulWidget {
 
 class SessionState extends State<ScheduledSessionWidget> {
   final TimeSlot timeSlot;
+  var formatter = new DateFormat.jm();
 
   SessionState({this.timeSlot});
 
@@ -391,7 +393,7 @@ class SessionState extends State<ScheduledSessionWidget> {
                 child: new SizedBox(
                     width: 64.0,
                     child: new Text(
-                      timeSlot.starts + "\nto\n" + timeSlot.ends,
+                      sessionTimePeriod(timeSlot),
                       textAlign: TextAlign.right,
                       style: new TextStyle(fontSize: 15.0),
                     ))),
@@ -419,5 +421,11 @@ class SessionState extends State<ScheduledSessionWidget> {
       speakerString = speakerString.substring(0, speakerString.length - 2);
     }
     return speakerString;
+  }
+
+  String sessionTimePeriod(TimeSlot timeSlot) {
+    return formatter.format(timeSlot.startDate).replaceAll(" ", "")
+        + "\nto\n"
+        + formatter.format(timeSlot.endDate).replaceAll(" ", "");
   }
 }

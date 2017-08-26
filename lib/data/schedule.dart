@@ -19,7 +19,7 @@ class Schedule {
         case 'timeslots': {
           if (map[key] is List) {
             for (LinkedHashMap timeSlotMap in map[key]) {
-              TimeSlot timeSlot = new TimeSlot.loadFromFireBase(key, timeSlotMap);
+              TimeSlot timeSlot = new TimeSlot.loadFromFireBase(key, map["date"], timeSlotMap);
               timeSlots.add(timeSlot);
             }
           }
@@ -29,6 +29,7 @@ class Schedule {
           break;
       }
     }
+
   }
 }
 
@@ -36,9 +37,10 @@ class TimeSlot {
   String id;
   String starts;
   String ends;
+  DateTime startDate, endDate;
   List<int> sessions;
 
-  TimeSlot.loadFromFireBase(String fbKey, LinkedHashMap timeSlotMap) {
+  TimeSlot.loadFromFireBase(String fbKey, String date, LinkedHashMap timeSlotMap) {
     id = fbKey;
     for (String key in timeSlotMap.keys) {
       switch (key) {
@@ -53,6 +55,13 @@ class TimeSlot {
           break;
       }
     }
+    
+    try{
+      startDate = DateTime.parse(date + " " + starts);
+      endDate = DateTime.parse(date + " " + ends);
+    } catch(exception, stacktrace){
+      print(exception);
+      print(stacktrace);
+    }
   }
 }
-
