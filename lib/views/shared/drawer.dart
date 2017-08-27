@@ -49,7 +49,7 @@ class _ConfAppDrawerHeaderState extends State<ConfAppDrawerHeader> {
             color: const Color(0xff1e90ff),
         ),
         duration: const Duration(milliseconds: 750),
-        child: new Image.asset('assets/images/devfest-logo.png')
+        child: logoImage
     );
   }
 }
@@ -108,7 +108,10 @@ class DrawerItem extends StatelessWidget {
     return new MergeSemantics(
       child: new ListTile(
           leading: leadingIcon,
-          title: new Text(title),
+          title: new Text(title,
+              style: new TextStyle(fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                  color: kColorText)),
           onTap: () {
             if (routeName != null) {
               Timeline.instantSync('Start Transition', arguments: <String, String>{
@@ -170,22 +173,23 @@ AboutListTile aboutDrawerItem (BuildContext context) {
 }
 
 List<DrawerItem> drawerMenuItems() {
+  // TODO : Add items to the drawer menu here
   final List<DrawerItem> appItems = <DrawerItem>[
     new DrawerItem(
       title: 'Schedule',
-      leadingIcon: const Icon(Icons.view_quilt),
+      leadingIcon: new Icon(Icons.view_quilt, color: kColorTextHeader,),
       routeName: ScheduleHomeWidget.routeName,
       buildRoute: (BuildContext context) => new ScheduleHomeWidget(),
     ),
     new DrawerItem(
       title: 'Speakers',
-      leadingIcon: const Icon(Icons.record_voice_over),
+      leadingIcon: new Icon(Icons.record_voice_over, color: kColorText,),
       routeName: SpeakerListWidget.routeName,
       buildRoute: (BuildContext context) => new SpeakerListWidget(),
     ),
     new DrawerItem(
       title: 'Location',
-      leadingIcon: const Icon(Icons.location_on),
+      leadingIcon: new Icon(Icons.location_on, color: kColorTextHeader,),
       routeName: LocationWidget.routeName,
       buildRoute: (BuildContext context) => new LocationWidget(),
     )
