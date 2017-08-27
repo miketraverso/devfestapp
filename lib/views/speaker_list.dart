@@ -3,10 +3,11 @@
 // found in the LICENSE file.
 
 import 'dart:developer';
+
 import 'package:devfest_florida_app/data/speaker.dart';
+import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/util/pluto.dart';
 import 'package:devfest_florida_app/views/shared/drawer.dart';
-import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/views/speaker_detail.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,7 @@ class _SpeakerListState extends State<SpeakerListWidget> {
           child: speakerInitials.isEmpty ? null : new Text(speakerInitials),
           backgroundImage: new PlutoImage.networkWithPlaceholder(
                   speaker.thumbnailUrl,
-                  new Image.asset('assets/images/devfest-logo.png'))
+                  logoImage)
               .image,
         )),
         title: new DefaultTextStyle(
@@ -81,7 +82,7 @@ class _SpeakerListState extends State<SpeakerListWidget> {
       appBar: new AppBar(
           title: new Text(
             kAppTitle,
-            style: new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne'),
+            style: navbarFontStyle,
           )),
       drawer: new ConfAppDrawer(),
       body: new Scrollbar(

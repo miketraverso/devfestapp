@@ -121,7 +121,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
                 children: <Widget>[
                   new PlutoImage.networkWithPlaceholder(
                     kSelectedSpeaker.thumbnailUrl,
-                    new Image.asset('assets/images/devfest-logo.png'),
+                    logoImage,
                     fit: BoxFit.cover,
                     height: _appBarHeight,
                   ),

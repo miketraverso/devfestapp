@@ -16,7 +16,6 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final _auth = FirebaseAuth.instance;
@@ -68,7 +67,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
   }
 
   Future loadDataFromFireBase() async {
-    final reference = FirebaseDatabase.instance.reference().child('2017');
+    final reference = FirebaseDatabase.instance.reference().child(firebaseRootNode);
     reference.onChildAdded.forEach((event) {
       fireb.DataSnapshot dataSnapshot = event.snapshot;
       if (dataSnapshot.key == 'sessions') {
@@ -175,7 +174,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
           appBar: new AppBar(
             title: new Text(
               kAppTitle,
-              style: new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne'),
+              style: navbarFontStyle,
             ),
             bottom: new TabBar(
               controller: _tabController,
@@ -199,7 +198,7 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
         appBar: new AppBar(
             title: new Text(
           kAppTitle,
-              style: new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne'),
+              style: navbarFontStyle,
         )),
         drawer: new ConfAppDrawer(),
         body: const Center(
@@ -240,7 +239,6 @@ class ScheduledSessionWidget extends StatefulWidget {
 
 class SessionState extends State<ScheduledSessionWidget> {
   final TimeSlot timeSlot;
-  var formatter = new DateFormat.jm();
 
   SessionState({this.timeSlot});
 

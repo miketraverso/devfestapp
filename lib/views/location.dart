@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/util/pluto.dart';
 import 'package:devfest_florida_app/views/shared/drawer.dart';
-import 'package:devfest_florida_app/main.dart';
 import 'package:flutter/material.dart';
 
 class LocationWidget extends StatefulWidget {
@@ -23,7 +23,7 @@ class _LocationState extends State<LocationWidget> {
       appBar: new AppBar(
           title: new Text(
             kAppTitle,
-            style: new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne'),
+            style: navbarFontStyle,
       )),
       drawer: new ConfAppDrawer(),
       body: new Container(
@@ -71,7 +71,7 @@ class _LocationState extends State<LocationWidget> {
               new Expanded(
                 child: new PlutoImage.networkWithPlaceholder(
                     kGoogleStaticMapUrl,
-                    new Image.asset('assets/images/devfest-logo.png'),
+                    logoImage,
                     fit: BoxFit.fitHeight),
               ),
             ],

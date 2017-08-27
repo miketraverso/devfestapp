@@ -3,12 +3,12 @@
 // found in the LICENSE file.
 
 import 'dart:developer';
+
 import 'package:devfest_florida_app/data/speaker.dart';
 import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/util/pluto.dart';
 import 'package:devfest_florida_app/views/speaker_detail.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class SessionDetailsWidget extends StatefulWidget {
   static const String routeName = '/sessiondetails';
@@ -18,7 +18,6 @@ class SessionDetailsWidget extends StatefulWidget {
 }
 
 class SessionDetailsState extends State<SessionDetailsWidget> {
-  var formatter = new DateFormat.jm();
   String roomAndTime() {
     return kSelectedSession.room
         + '\n'
@@ -59,7 +58,7 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
                 child: speakerInitials.isEmpty ? null : new Text(speakerInitials),
                 backgroundImage: new PlutoImage.networkWithPlaceholder(
                     speak.thumbnailUrl,
-                    new Image.asset('assets/images/devfest-logo.png'))
+                    logoImage)
                     .image,
               )),
           title: new DefaultTextStyle(
