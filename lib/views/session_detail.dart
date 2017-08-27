@@ -40,8 +40,9 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
             speaker.thumbnailUrl.endsWith("jpeg") ||
             speaker.thumbnailUrl.endsWith("png"))) {
       return speakerIntials;
-    } else
+    } else {
       return "";
+    }
   }
 
   @override
@@ -96,67 +97,66 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
     gradientStops.add(.5);
 
     return new Scaffold(
-        body: new CustomScrollView(
-          slivers: <Widget>[
-            new SliverAppBar(
-              expandedHeight: 240.0,
-              pinned: true,
-              flexibleSpace: new FlexibleSpaceBar(
-                background: new Stack(
-                  fit: StackFit.expand,
-                  children: <Widget>[
-                      new Container(
-                        margin: new EdgeInsets.only(left: kPadding, bottom: kPadding, top: 100.0),
-                        padding: new EdgeInsets.only(right: kMaterialPadding),
-                        child: new Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
+      body: new CustomScrollView(
+        slivers: <Widget>[
+          new SliverAppBar(
+            expandedHeight: 240.0,
+            pinned: true,
+            flexibleSpace: new FlexibleSpaceBar(
+              background: new Stack(
+                fit: StackFit.expand,
+                children: <Widget>[
+                    new Container(
+                      margin: new EdgeInsets.only(left: kPadding, bottom: kPadding, top: 100.0),
+                      padding: new EdgeInsets.only(right: kMaterialPadding),
+                      child: new Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                            new Text(
+                              kSelectedSession.title,
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                              style: new TextStyle(
+                                  fontSize: 20.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold
+                              ),
+                            ),
+
                               new Text(
-                                kSelectedSession.title,
-                                maxLines: 3,
+                                roomAndTime(),
+                                maxLines: 4,
+                                softWrap: true,
                                 overflow: TextOverflow.ellipsis,
                                 style: new TextStyle(
-                                    fontSize: 20.0,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold
+                                  color: Colors.white,
+                                  fontSize: 18.0,
                                 ),
                               ),
-
-                                new Text(
-                                  roomAndTime(),
-                                  maxLines: 4,
-                                  softWrap: true,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: new TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                  ),
+                          new Row(children: <Widget>[
+                            new Expanded(
+                              child:new Text(
+                                kSelectedSession.track,
+                                style: new TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.0,
                                 ),
-                            new Row(children: <Widget>[
-                              new Expanded(
-                                child:new Text(
-                                  kSelectedSession.track,
-                                  style: new TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                  ),
-                                )
-                              ),
-                            ]),
-                          ],
-                        ),
+                              )
+                            ),
+                          ]),
+                        ],
                       ),
-                  ],
-                ),
+                    ),
+                ],
               ),
             ),
-            new SliverList(
-              delegate: new SliverChildListDelegate(sessionDetailWidgets),
-            ),
-          ],
-        ),
-//      ),
+          ),
+          new SliverList(
+            delegate: new SliverChildListDelegate(sessionDetailWidgets),
+          ),
+        ],
+      ),
     );
   }
 }

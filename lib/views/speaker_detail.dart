@@ -21,7 +21,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
   final _appBarHeight = 256.0;
 
   String _twitterHandle() {
-    String twitterHandle = "";
+    var twitterHandle = "";
     if (kSelectedSpeaker.socialMap.containsKey("twitter")) {
       twitterHandle = kSelectedSpeaker.socialMap["twitter"];
       if (twitterHandle.startsWith("https://twitter.com/")) {
@@ -45,7 +45,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    String twitterHandle = _twitterHandle();
+    var twitterHandle = _twitterHandle();
 
     Widget twitterWidget = new Container(
       margin: new EdgeInsets.only(left: kPadding, top: kPadding),
@@ -54,38 +54,38 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           new Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                new Row(children: <Widget>[
-                  new Expanded(
-                    child: new Row(
-                      children: <Widget>[
-                        new IconButton(
-                            icon: new Icon(
-                              FontAwesomeIcons.twitter,
-                              color: const Color(0xff1DA1F2),
-                              size: 28.0,
-                            ),
-                            onPressed: () {
-                              launch(kSelectedSpeaker.socialMap["twitter"]);
-                            }),
-                        new Padding(
-                            padding: new EdgeInsets.only(top: defaultTargetPlatform == TargetPlatform.iOS ? 4.0 : 0.0),
-                            child: new RichText(
-                                text: new TextSpan(children: <TextSpan>[
-                              new LinkTextSpan(
-                                  style: new TextStyle(
-                                      color: const Color(0xff1DA1F2),
-                                      fontSize: 20.0),
-                                  url: kSelectedSpeaker.socialMap["twitter"],
-                                  text: twitterHandle),
-                            ]))),
-                      ],
-                    ),
-                  )
-                ]),
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              new Row(children: <Widget>[
+                new Expanded(
+                  child: new Row(
+                    children: <Widget>[
+                      new IconButton(
+                          icon: new Icon(
+                            FontAwesomeIcons.twitter,
+                            color: const Color(0xff1DA1F2),
+                            size: 28.0,
+                          ),
+                          onPressed: () {
+                            launch(kSelectedSpeaker.socialMap["twitter"]);
+                          }),
+                      new Padding(
+                          padding: new EdgeInsets.only(top: defaultTargetPlatform == TargetPlatform.iOS ? 4.0 : 0.0),
+                          child: new RichText(
+                              text: new TextSpan(children: <TextSpan>[
+                            new LinkTextSpan(
+                                style: new TextStyle(
+                                    color: const Color(0xff1DA1F2),
+                                    fontSize: 20.0),
+                                url: kSelectedSpeaker.socialMap["twitter"],
+                                text: twitterHandle),
+                          ]))),
+                    ],
+                  ),
+                )
               ]),
+            ]),
         ],
       ),
     );

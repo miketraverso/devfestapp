@@ -420,7 +420,7 @@ class SessionState extends State<ScheduledSessionWidget> {
   }
 
   String getSpeakerNames(Session session) {
-    String speakerString = "";
+    var speakerString = "";
     if (session != null && session.speakers != null) {
       session.speakers.forEach((speakerId) {
         if (kSessions.containsKey(speakerId.toString())) {
