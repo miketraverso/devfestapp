@@ -119,7 +119,6 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
           _speakersMap.putIfAbsent(speaker.id, () => speaker);
         }
       });
-
       setState(() {
         kSpeakers = _speakersMap;
       });

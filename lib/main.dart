@@ -32,7 +32,7 @@ var navbarFontStyle = new TextStyle(color: Colors.white, fontSize: 24.0, fontFam
 var logoImage = new Image.asset('assets/images/devfest-logo.png');
 
 // TODO Change the Firebase root node name
-var firebaseRootNode = '2017/actual';
+var firebaseRootNode = '2017';
 
 const kMaterialPadding = 8.0;
 const kPadding = 12.0;
