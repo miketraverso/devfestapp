@@ -1,0 +1,767 @@
+{
+  "schedule": [{
+    "date": "2017-11-11",
+    "dateReadable": "NOV 11",
+    "timeslots": [{
+      "starts": "08:00:00",
+      "ends": "09:00:00",
+      "sessions": [501]
+    }, {
+      "starts": "09:00:00",
+      "ends": "10:00:00",
+      "sessions": [19]
+    }, {
+      "starts": "10:00:00",
+      "ends": "10:30:00",
+      "sessions": [16]
+    }, {
+      "starts": "10:30:00",
+      "ends": "11:30:00",
+      "sessions": [23, 18, 21]
+    }, {
+      "starts": "11:30:00",
+      "ends": "12:30:00",
+      "sessions": [9, 8, 14]
+    }, {
+      "starts": "12:30:00",
+      "ends": "13:00:00",
+      "sessions": [20, 25, 12]
+    }, {
+      "starts": "13:00:00",
+      "ends": "14:00:00",
+      "sessions": [503]
+    }, {
+      "starts": "14:00:00",
+      "ends": "15:00:00",
+      "sessions": [5, 24, 13]
+    }, {
+      "starts": "15:00:00",
+      "ends": "16:00:00",
+      "sessions": [15, 22, 7]
+    }, {
+      "starts": "16:00:00",
+      "ends": "17:00:00",
+      "sessions": [11, 29, 26]
+    }, {
+      "starts": "17:00:00",
+      "ends": "18:00:00",
+      "sessions": [10, 32, 2]
+    }, {
+      "starts": "18:00:00",
+      "ends": "18:30:00",
+      "sessions": [17, 4, 6]
+    }, {
+      "starts": "18:30:00",
+      "ends": "19:00:00",
+      "sessions": [504]
+    }]
+  }],
+  "sessions": {
+    "501": {
+      "room": "Disney's Contemporary Resort Convention Center",
+      "track": "General",
+      "language": "EN",
+      "title": "Registration",
+      "description": "**Please arrive early and bring your ticket OR a photo ID.\n\nRegistration starts at 8am. Please be on time so you do not miss any of the action. We’re expecting 200 attendees. We’ll have organizers ready to check you in and get your day going.\n\nThe keynote will start promptly at 9:00am.\n\nIf you’re staying at the Swan Hotel we’ll be providing transportation to the Contemporary Resort every 10 minutes, starting at 8:00am and ending at 8:20am. \n\nParking at the Contemporary will be FREE unlike last year we will not have issues with this. Be prepared to show photo ID at the security gate. Alternatively, you’ll be able to take a bus from ANY of the Disney hotels to the Ticket & Transportation Hub and transfer to the Monorail. The Monorail will take you right into the Contemporary where you can take the escalators down to the ground level and walk through the lobby to the convention center."
+    },
+    "503": {
+      "room": "Fantasia A-D",
+      "track": "General",
+      "language": "EN",
+      "title": "Lunch",
+      "description": "'Be Our Guest' for lunch in the Fantasia rooms across the hall from the breakout sessions"
+    },
+    "504": {
+      "room": "Sorcerer's Ballroom",
+      "track": "General",
+      "language": "EN",
+      "title": "Closing remarks",
+      "description": "Join us as we wrap up the day, thank our sponsors and speakers and give away some really cool prizes. You have to be present to claim your prize."
+    },
+    "10": {
+      "speakers": [10],
+      "room": "Sorcerer's Apprentice 3",
+      "track": "Android",
+      "language": "EN",
+      "title": "Video Processing on Android",
+      "description": "An increasing number of social media apps such as Instagram, Snapchat and Messenger are using video features. With modern Android devices having enough processing power to run video processing algorithms locally, there's no need to send videos through expensive internet bandwidth to be processed on the backend. \n\nOverlays, transcoding and cropping are just a few of the challenges you face when working with video on-device. In this talk I will go through my experience experimenting with built-in as well as third party libraries for video manipulation on Android. We will look at the benefits of two leading media processing libraries, and how you can leverage them to enhance Android's native MediaCodec API to accomplish these tasks. You will walk away with a head start on how to tackle the most common challenges with videos on Android.",
+      "complexity": "Intermediate",
+      "bio": "Namrata is a Software Engineer at OANDA and has experience doing native Android and iOS development. She is a member of the Ray Wenderlich Android tutorial team. Apart from building apps, she is passionate about travelling, dancing and hiking with her dog."
+    },
+    "14": {
+      "speakers": [14],
+      "room": "Sorcerer's Apprentice 3",
+      "track": "Android",
+      "language": "EN",
+      "title": "Mixed Reality for Social Good",
+      "description": "Exciting times for mixed reality enthusiasts. With many AR and VR platforms now available, we're witnessing the birth of a new medium. \n\nIn many ways, this boom is similar to the personal computer revolution of the 70s and 80s. People are wondering: \"Besides games, what are these gadgets good for, anyway?\"\n\nIn this session, we'll see how people are using mixed reality for social good. Then, we'll learn about the Android Thing, Ar.js and the Daydream VR platform. We'll see how you can use these and other platforms to build your own community projects.",
+      "complexity": "Intermediate",
+      "bio": "Etienne Caron is an Android developer at Shopify, a popular Canadian e-commerce company. He is also part of Google's Developer Expert program, and an instructor for Caster.io\n\n3D animation, procedural content generation and VR are some of his hobbies, and he loves introducing other developers to this fascinating field."
+    },
+    "5": {
+      "speakers": [5],
+      "room": "Sorcerer's Apprentice 3",
+      "track": "Android",
+      "language": "EN",
+      "title": "First, Do No Harm",
+      "description": "Developing Android applications is a powerful way to connect people with the information they need the most. Apps are for living your life: daily commutes, traveling abroad, handling your money, communicating with family, and much more! This places the responsibility of engineering top-notch software squarely in the laps of us developers. Unlike doctors, we were not required to take an oath or pledge when becoming Android Developers. However, we can still learn much from the principles behind the phrase, \"First, do no harm\". In this talk, we will discuss over a dozen tools that are at your disposal as a developer which can enable you to provide high quality applications to your users. Thus allowing you to first, do no harm!",
+      "complexity": "Intermediate",
+      "bio": "Annyce is an Android Google Developer Expert. She has spent the past 6 years developing applications for the Android ecosystem across multiple form factors. She is also a international conference speaker and author, sharing her knowledge of Android development with others. In addition, Annyce is active in the Washington, DC tech scene and assists with running a local meetup focused on Android development and design."
+    },
+    "20": {
+      "speakers": [20],
+      "room": "Sorcerer's Apprentice 3",
+      "track": "Android",
+      "language": "EN",
+      "title": "Espresso: A Screenshot is Worth 1,000 Words",
+      "description": "Do your product owners, designers and the people that pay you understand what in the world your Espresso tests are doing and why they are valuable? You've spent so much time and effort writing these tests and your whole team deserves to get the most benefit out of them. In this talk you'll learn how to setup your Espresso tests to take programmatic screenshots, and leverage the Robot pattern of testing for clean, readable, and maintainable tests. \n\nYou'll also learn guidelines on when it's appropriate to write Espresso tests instead of Robolectric or Unit tests, and how to leverage mock data to make your Espresso tests run with Tesla-like speed. I have architected the Espresso test setup for our Capital One Wallet Android team and helped execute our ongoing continuous integration efforts. We've seen a 4x+ speed improvement over Appium, have more maintainable tests, and now have visibility for anyone to look into our test coverage.",
+      "complexity": "Intermediate",
+      "bio": "Sam is a Lead Android Engineer for Capital One Wallet. He has been working with Android since 2011 and has over 13 years of professional experience with full-stack development with Java and JavaScript. Check out https://handstandsam.com where he shares tips and tricks about Android and software development."
+    },
+    "23": {
+      "speakers": [23],
+      "room": "Sorcerer's Apprentice 3",
+      "track": "Android",
+      "language": "EN",
+      "title": "Kotlin: Uncovered",
+      "description": "Kotlin does a lot for us in the way of reducing boilerplate. But what is it really doing? We will be inspecting some decompiled Kotlin to discover how it does its job. By looking underneath at how it handles data classes, lambdas, and delegation, we can better understand how the language executes what we write. If you're curious about the language, or already using it in production, you should walk away from this investigation with a deeper understanding of Kotlin, and some tools for continued exploration.",
+      "complexity": "Intermediate",
+      "bio": "Victoria was drawn to programming because of its potential to help people in a meaningful way. She is currently a Software Developer at Collective Idea, building mobile and web applications. The conferences she has spoken at have been an enjoyable way to connect with the technical community, and exchange information with others. In her spare time, Victoria enjoys taking dance classes, and curling up with a good book."
+    },
+    "15": {
+      "speakers": [15],
+      "room": "Sorcerer's Apprentice 3",
+      "track": "Android",
+      "language": "EN",
+      "title": "Make your app instant!",
+      "description": "Building an instant app was not only a one-way win in terms of increased conversion rate, it came with great tech benefits as well: app modularization, architecture redesign, code cleanup, and new features integration such as Smart Lock and Pay with Google.",
+      "complexity": "Intermediate",
+      "bio": "Yuliya is an Android Developer at Jet.com, leading a team of 4 developers whose main focus is to built performant, scalable, cutting-edge Android projects. For the last few months Yuliya has been collaborating with Google to launch the first multi-feature Instant App. It was a great experience that did not bring benefits only in terms of Instant Apps context, it also improved the installed application in regards to architecture, design, scalability."
+    },
+    "25": {
+      "speakers": [25],
+      "room": "Sorcerer's Apprentice 2",
+      "track": "Web",
+      "language": "EN",
+      "title": "The Observable Future of Animations",
+      "description": "UI animations can be an incredible asset to the user experience, but the handoff between prototyping complex motion interactions to implementing them in code is not always the smoothest transition. That's what Google's new Material Motion library aims to solve. \n\nIn this talk, we'll discuss how thinking about animations as reactive streams of data can make even the most complex animations easy to develop, and how Material Motion is bridging the gap between motion design and development for iOS, Android, and the web.",
+      "complexity": "Intermediate",
+      "bio": "David Khourshid is a Microsoft software engineer based right here in Orlando. He is passionate about open-source, complex user interfaces and animations, cutting-edge front-end technologies, and helping the web community in any way he can. When he's not at a computer keyboard, he's behind a piano keyboard, or traveling."
+    },
+    "12": {
+      "speakers": [12],
+      "room": "Sorcerer's Apprentice 1",
+      "track": "New Hotness 🔥",
+      "language": "EN",
+      "title": "Design for the Virtual World",
+      "description": "We are used to create 2D flat environments but we rarely had the experience of designing for the 3D world. For my talk, I will be covering my experiences with working with successful VR title's for commercial products such as Sylvania and insidious 3. There are many factors we learned from user testing and consumer feedback. As a developer, we had to consistently make changes and updates to our softwares to adopt to the hardware platform changes.",
+      "complexity": "Beginner",
+      "bio": "Macy Kuang is not just the producer and host of her own YouTube technology tips and tricks show - CodeToCreate, she is also the founder of Miaomiao Games. She is on the organizing committee for AndroidTO, the annual Android conference, and the co-organizer of the Toronto Google Developer Group. Macy became a Google Developer Expert for Wearable since 2014 and is now an IoT Pioneer. In early 2017, Macy joins the intel innovator program as an robotic, IoT and VE expert."
+    },
+    "6": {
+      "speakers": [6],
+      "room": "Sorcerer's Apprentice 1",
+      "track": "New Hotness 🔥",
+      "language": "EN",
+      "title": "Building chat bots with Firebase",
+      "description": "I built a chat bot to help customer service agents for a hackathon and a resource provider bot for the recent NASA Space Apps challenge and I found Firebase to be a great platform to leverage. \n\nIn my talk, I'll start by highlighting popular bots in social media and chatting clients. I'll then go over the anatomy of bots for  Slack and Twitter before leading into how Firebase Database and Firebase Functions can be leveraged to build a simple backend.  \n\nI'll show off some code bits from Firebase Functions to demonstrate how easy it is to create an endpoint  or read/update the database.  That's the gist of it.",
+      "complexity": "Beginner",
+      "bio": "John is an Android Developer that enjoys hackathons, organizing talks, and working on side projects that solves problems that already have been solved years ago.  He co-organizes the Central Florida Android Developers Meetup and attends local tech events in Orlando.  He probably follows more animal celebrities than people on Instagram."
+    },
+    "29": {
+      "speakers": [29],
+      "room": "Sorcerer's Apprentice 2",
+      "track": "Web",
+      "language": "EN",
+      "title": "Angular in the Cloud: When it's time to get MEAN",
+      "description": "We can build amazing apps with Angular and Node.js. But we can level-up our skills by using great tools like VS Code and Azure services. We'll demonstrate how to create an app with the MEAN.js stack, build it with the Angular CLI, deploy it with CI/CD and host it in the cloud. You'll walk out know how to deploy your apps to the cloud with confidence and consistency",
+      "complexity": "Intermediate",
+      "bio": "John Papa is a Principal Developer Advocate with Microsoft and an alumni of the Google Developer Expert, Microsoft Regional Director, and MVP programs. He's passionate about Web and mobile technologies and often enjoys speaking around the world at keynotes and sessions for conferences including NgConf, Build, Ignite, VSLive and AngleBrackets. John is a co-host of the popular Adventures in Angular podcast, author of the Angular Style Guide, several books, and many popular Pluralsight courses."
+    },
+    "19": {
+      "speakers": [19],
+      "room": "Sorcerer's Apprentice",
+      "track": "General",
+      "language": "EN",
+      "title": "Production vs Staging in Life",
+      "description": "Sometimes your current production build (job/life) is stable and predictable. That's good but not very exciting. You want to be part of something that you're passionate about and truly enjoy! Use your spare time and weekends to run staging environments (side projects). \n\nMaybe this is building an innovative product or an open source project that you're particularly passionate about. It's the thing that you're testing and building on the side in a safe place to eventually deploy it as your production build. Many awesome opportunities and connections are created through side projects. Let's talk about ways to successfully build this staging environment in your life so when your ready we can deploy this side project to production!",
+      "complexity": "Beginner",
+      "bio": "Brandy is a developer, designer, and doer, that could out hustle Jay-Z. She is a full stack developer, with an enthusiasm for application development and learning the latest technologies. If she isn't coding or creating content you can find her running laps around the beautiful lakes of Winter Park, FL or sipping lattes at the local coffee shops."
+    },
+    "11": {
+      "speakers": [11],
+      "room": "Sorcerer's Apprentice 3",
+      "track": "Android",
+      "language": "EN",
+      "title": "Get a Room",
+      "description": "One of the Android Architecture Components released at Google I|O 2017 was Room, Google's take on an object-relational mapping (ORM) engine. It offers a convenient, reactive API for working with SQLite or other SQLite-compliant databases (e.g., SQLCipher for Android). \n\nIn this presentation, we will explore Room, both in terms of its basic integration into your app and some of the challenges and idiosyncrasies that it presents.",
+      "complexity": "Intermediate",
+      "bio": "Author of \"The Busy Coder's Guide to Android Development\". Contributor of over 19,000 answers to Android questions on Stack Overflow. Developer of open source libraries. Presenter at conferences. Trainer of multitudes. Writer of sentence fragments."
+    },
+    "13": {
+      "speakers": [13],
+      "room": "Sorcerer's Apprentice 1",
+      "track": "New Hotness 🔥",
+      "language": "EN",
+      "title": "Pragmatic Machine Learning: From Classification To Creativity",
+      "description": "By now, we've all heard that the industry is moving towards an \"AI first\" vision where machine learning powered features like computer vision and natural language processing, drive innovations like autonomous driving, speech & object recognition, smart assistants and more.\n\nBut what does this mean for developers? Do we need PhD-level expertise in data science? What tools & technologies should we master? Where is it useful and why should we care? \n\nIn this talk, we'll look at machine learning through a pragmatic lens - learning what you need to get the current job done, then exploring paths you can follow to evolve those solutions as your expertise and requirements grow.",
+      "complexity": "Intermediate",
+      "bio": "Nitya is a software architect and polyglot with ~20 years of industry experience in research, development and startup contexts. She is a PhD, an innovator (11 patents, 20+ filings), an educator and a community organizer (GDG NYC & GDG Hudson Valley). She helps architect and build mobile web solutions for early stage startups, runs study camps for workforce retraining & plans to launch her first voice product this fall. She is a frequent tech conference speaker but is happiest talking to kids about science, coding, curiosity and self-confidence."
+    },
+    "16": {
+      "speakers": [16],
+      "room": "Sorcerer's Apprentice",
+      "track": "General",
+      "language": "EN",
+      "title": "Reflections on the Mozilla Developer Roadshow Journey",
+      "description": "Sandra Persing, Global Program Manager for DevRel Sponsorship & Events, Director at Women Who Code, and Co-Founder of DevRel Summit, spent 10 months on the road collaborating with global partners and local meetups, influential  speakers and freshly minted contributors, to bring over 50 Developer Roadshow programs all around the world. Join us as she reflects about the early days designing the program, wins and fails along the way, and some of the best practices in this weird and wonderful industry called developer relations.",
+      "complexity": "Beginner",
+      "bio": "Sandra Persing is the Sr. Program Manager at Mozilla, investing in DevRel Events. She's the producer of over 50 Developer Roadshows; serves as the Women Who Code Seattle Chapter Director, and is the CoFounder of @DevRelSummit. Find her at meetups, conferences, and the busiest airport terminals."
+    },
+    "24": {
+      "speakers": [24],
+      "room": "Sorcerer's Apprentice 2",
+      "track": "Web",
+      "language": "EN",
+      "title": "Developer Tools: Using source maps to view & debug your data models in browsers",
+      "description": "How to use your browser tools for debugging and hacking. Learn how to connect an iPhone and android devices for debugging from your localhost. Watch as I set break points and trouble shoot broken code.",
+      "complexity": "Intermediate",
+      "bio": "Craft Beer drinking, barefoot running, IoT hacking Lady Dev who went from symphonic percussionist to coding for cash, our \"Busy Betty\" is a UI/UX Developer with over 16 years of professional experience in Tampa Florida.  She was a speaker at UXD Summit in Ft Lauderdale, a presenter with Girl Develop It, Women Who Code and Tampa Bay Media Professionals. Betty is currently a Principal UI/UX Consultant, for Cardinal Solutions and has worked in diverse industries from government to advertising and builds everything from enterprise apps to HTML5 games.  This happy mother of five spends her days cooking, cleaning and coding."
+    },
+    "4": {
+      "speakers": [4],
+      "room": "Sorcerer's Apprentice 2",
+      "track": "Web",
+      "language": "EN",
+      "title": "Crossing Over to the Darkside -- A React Developer's Journey into the World of Angular 4",
+      "description": "A Star Wars themed talk on the opinions of a React developer turned Angular enthusiast. In a galaxy far, far away one React developer turns to the darkside and learns what it's like to have an arsenal of state-of-the-art weapons at her disposal. \n\nLet's take a journey into the darkside. I heard there were cookies.",
+      "complexity": "Beginner",
+      "bio": "Jenell Pizarro is a front end developer at Web Benefits Design and teaches people how to code through her teaching assistant role at Skillcrush. Upon graduation from The Iron Yard, Jenell has made it her personal mission to connect senior developers to their junior developer counterparts and bridge the mentorship gap. She used to peddle Butterbeer to people and now she's a developer so that's pretty sweet."
+    },
+    "8": {
+      "speakers": [8],
+      "room": "Sorcerer's Apprentice 2",
+      "track": "Web",
+      "language": "EN",
+      "title": "Create Enterprise UIs that your users will love",
+      "description": "It's no longer acceptable to have Enterprise apps that only work on desktop machines. Additionally, it's no longer OK for Enterprise web apps to be just functional on mobile. The productivity of your mobile users is key to your company's bottom line and your employee retention. \n\nIn this talk, we'll explore how to build productive Enterprise mobile web app experiences with Angular Material and Angular Flex Layout.",
+      "complexity": "Intermediate",
+      "bio": "Michael Prentice is a software consultant on Angular, Material Design, Firebase, Google Cloud, NodeJS, software architecture, and Agile project management. He is a founder of GDG Space Coast, DevIntent, and Market Amplified. Michael is a Google Developer Expert (GDE) in Angular and active supporter of multiple developer communities."
+    },
+    "9": {
+      "speakers": [9],
+      "room": "Sorcerer's Apprentice 3",
+      "track": "Android",
+      "language": "EN",
+      "title": "The new Android ViewModel in Action",
+      "description": "At Google I/O we got the Android architecture components. \n\nOne of its most interesting concepts is the new ViewModel. \n\nHow does it work? How do I plug it into my app? Can I use it without any of the other components?\n\nCan I plug it into an existing MVVM or how would I build MVVM with Google's ViewModel?\n\nLet's do a deep dive into the topic",
+      "complexity": "Intermediate",
+      "bio": "Danny is in charge of Android development at Viacom in Berlin. Before that he worked for companies like Groupon, eBay and Alcatel. \n\nHis mobile career started long before any iPhone with Java ME and Blackberry applications. \n\nDanny writes and talks about mobile development and testing regularly and is is a Google Developer Expert for Android."
+    },
+    "22": {
+      "speakers": [22],
+      "room": "Sorcerer's Apprentice 2",
+      "track": "Web",
+      "language": "EN",
+      "title": "Polymer-Powered Design Systems",
+      "description": "One of the most powerful features of Web Components is using Shadow DOM & CSS Custom properties to achieve actual code sharing among your style guides & pattern libraries with your website and web application code. No more developing design systems in isolation and struggling to have design updates applied to the actual development code. The code you write in your Web Components is both the living pattern library and the code your components use!\n\nIn this talk you'll learn the specifics of working with Polymer, the most popular Web Components library, to build your design system in a way that can be used across any web-enabled device. We'll cover best practices for working with CSS in Polymer to ensure design and accessibility needs are met. We'll also demonstrate the best ways to deal with the limitations of the Shadow DOM & CSS Custom Property shims to support older browsers.",
+      "complexity": "Intermediate",
+      "bio": "John Riviello is a Distinguished Engineer and Lead Frontend Developer at Comcast where he works on the XFINITY customer websites and web applications. He is also the author of the Lynda.com course \"CSS to Sass.\" In his free time, he prefers surfing waves over surfing the internet."
+    },
+    "21": {
+      "speakers": [21],
+      "room": "Sorcerer's Apprentice 1",
+      "track": "New Hotness 🔥",
+      "language": "EN",
+      "title": "Bootstrapping IoT Products with Google",
+      "description": "Building embedded products for IoT requires a wide range of disciplines and often includes infrastructure and process that may seem out of reach for companies developing products for the long tail of the market. Android Things is focused on enabling Android developers to leverage existing skills, while also providing the hardware support and cloud infrastructure necessary to move from prototype to sustainable production. \n\nIn this session, we will discuss how to get started with Android Things development and build apps that integrate with Google's cloud offerings for enterprise IoT and the smart home.",
+      "complexity": "Intermediate",
+      "bio": "Dave is a Developer Advocate at Google, focused on IoT and the Android Things platform. Over the past decade, he has worked with low power M2M systems and wireless radio links, as well as custom applications and system components to run Android on embedded platforms. He has a passion for finding opportunities to make devices, and developers, smarter."
+    },
+    "17": {
+      "speakers": [17],
+      "room": "Sorcerer's Apprentice 3",
+      "track": "Android",
+      "language": "EN",
+      "title": "Developing iOS and Android apps with Flutter",
+      "description": "Let's take a look at how promising Flutter looks to be by implementing a conference app. We'll first take a look at Dart, see its similarities & differences compared to Java. Then take a look at what it takes to write an app with one codebase for Android & iOS. Finally we'll pull our conference data into our app using Firebase as our datasource.",
+      "complexity": "Intermediate",
+      "bio": "Mike traded in a decade of full stack development for Wall Street for mobile development. Since then he has worked on native iOS & Android apps for large corporations and startups. He's developed Hillary 2016 for Android, games for Ringling Bro's Circus and apps for the last Twitter Flight conference. \n\nCurrently he's working on enterprise iOS apps for the New York Yankees. He's beat stage 3 colorectal cancer twice and always looks to give back to the tech community by speaking at local meetups or organizing and sponsoring DevFest Florida."
+    },
+    "2": {
+      "speakers": [2],
+      "room": "Sorcerer's Apprentice 1",
+      "track": "New Hotness 🔥",
+      "language": "EN",
+      "title": "Attacking an Android Application",
+      "description": "Shown with the launch of Pokemon Go, applications need to prepare for all vectors of attack to stay ahead of the curve of attackers. In this talk we will look into some common methods applications take to slow attackers while at the same time looking into methods attackers use to unravel the inner workings of an application.",
+      "complexity": "Intermediate",
+      "bio": "Connor is a software engineer at Sourcetoad, building software that powers the cruise ship industry. In his free time, he is a big supporter of open-source projects and maintains apktool, a popular Android reverse engineering tool."
+    },
+    "18": {
+      "speakers": [18],
+      "room": "Sorcerer's Apprentice 2",
+      "track": "Web",
+      "language": "EN",
+      "title": "Securing your websites",
+      "description": "The myth of attackers breaking through layers of firewalls or decoding encryption with their smartphones makes for great movies, but poor real world examples. In the majority of cases, attackers go for easy targets: web frameworks with security vulnerabilities, out of date systems, administration pages open to the Internet with guessable passwords or security credentials mistakenly leaked in open source code are all popular candidates. These issues can be easily avoided by adopting a set of elementary security practices, a baseline for security, and making sure everything complies with it.\n\nIn this talk, we will share with the audience the tools and best practices developed at Mozilla to safely run websites and services online. We will cover infrastructure and application security, tightly integrated with DevOps practices, and discuss ways to improve engineering standards with very minimal overhead.\n\nDuring the talk, we will cover common attacks against web applications, how to protect against them, and tests your controls with the Mozilla Observatory. We will discuss elementary rules to grant access to your infrastructure and your development environments. We will also touch on advanced topics, such as log analysis and fraud detection.\n\nThis is a beginner talk, for developers and operators with an interest in web security. We will explain core concepts and share pointers for the audience to get started and continue their research long after the talk.",
+      "complexity": "Beginner",
+      "bio": "Julien leads the Firefox Operations Security team at Mozilla, tasked with defining, implementing and operating the security of Firefox's backend services and the release engineering infrastructure. Julien's background is in web applications security, services architecture, cryptography and risk management. Julien is the author of \"Securing DevOps\" published at Manning Editions."
+    },
+    "7": {
+      "speakers": [7],
+      "room": "Sorcerer's Apprentice 1",
+      "track": "New Hotness 🔥",
+      "language": "EN",
+      "title": "Google Assistant, Not Your Ordinary Alexa",
+      "description": "Hands-free is the future of Internet services due to the Artificial Intelligence (AI) discipline of natural language processing.  Google Assistant, released in 2016, realizes the promise of voice as a more natural and frictionless way to interact with technology, bringing the hands-free future to present day.  Although not the first product of its type on the market, Google Assistant outshines its competitors. \n\nDuring this talk, learn how to interact with Google Assistant and the steps required to teach this AI to become smarter.  This talk explores the creation of Actions and the API.AI platform by peaking under the covers of an existing Action.  Attendees will hear from a developer's point of view, the major differences in development and implementation between Google Assistant and its competitors. \n\nAfter this talk, attendees will be better prepared to build their own Actions and will truly understand why Google Assistant has the entire world at its fingertips.",
+      "complexity": "Beginner",
+      "bio": "Kesha Williams is a software engineer with over 20 years experience specializing in web application development. In addition to being a software engineer with Chick-fil-A, she trains and mentors thousands of software developers in the US, Europe, and Asia while teaching at the University of California.  She's authored courses on Java, Machine Learning (ML), Artificial Intelligence (AI), and Augmented Reality (AR).  She most recently won the Think Different Innovation Award from Chick-fil-A for her work on investigating how emerging technologies like Artificial Intelligence (AI), Augmented Reality (AR), Computer Vision/Facial Recognition, and the Internet of Things (IOT) can enhance restaurant operations and customer experiences.  She has worked for companies like Delta Air Lines, McKesson Information Systems, and Keane Federal Systems (U.S. Air Force), serving in various technical lead and software development roles. She did her summer internship with the National Security Agency (NSA); how cool is that?  In her spare time, she leads the Georgia chapter of Technovation, serves as a mentor with the New York Academy of Sciences, and conducts free \"Hour of Code\" sessions for children at her local library."
+    },
+    "26": {
+      "speakers": [26],
+      "room": "Sorcerer's Apprentice 1",
+      "track": "New Hotness 🔥",
+      "language": "EN",
+      "title": "Containers, Kubernetes and Google Cloud",
+      "description": "Creating a single microservice is a well understood problem. Creating a cluster of load-balanced microservices that are resilient and self-healing is not so easy. Managing that cluster with rollouts and rollbacks, scaling individual services on demand, securely sharing secrets and configuration among services is even harder. Kubernetes, an open-source container management system, can help with this. \n\nIn this talk, we will start with a simple microservice, containerize it using Docker, and scale it to a cluster of resilient microservices managed by Kubernetes. Along the way, we will learn what makes Kubernetes a great system for automating deployment, operations, and scaling of containerized applications.",
+      "complexity": "Beginner",
+      "bio": "Mete is a Developer Advocate at Google, currently focused on helping developers with Google Cloud Platform. As a long-time Java and a recent C# developer, he likes to compare the two ecosystems. Prior to Google, he worked at Microsoft, Skype, Adobe, EMC, and Nokia building apps and services on various web, mobile and cloud platforms. Originally from Cyprus, he currently lives in Greenwich, not too far away from the prime meridian."
+    },
+    "30": {
+      "speakers": [30],
+      "room": "Fantasia E",
+      "track": "Too Much Awesome",
+      "language": "EN",
+      "title": "Native Android development for people who’ve been avoiding it",
+      "description": "If you’ve always wanted to write native Android apps but have shied away from it because of Java, Eclipse, or because you’ve been told that native development is so much pain for so little payoff, this session is for you! It’s 2017, and Android development is different now. With a much better IDE, a more expressive programming language in Kotlin, and all sorts of libraries and tools that make this the best time to start building native Android apps.",
+      "complexity": "Beginner",
+      "bio": "Joey deVilla is the Lead Product Manager at Sourcetoad, a development shop in Tampa, and an author on the Android Team at the tutorial site RayWenderlich.com. In former lives, he’s been a platform evangelist at SMARTRAC, GSG Telco, and Shopify. He was also at Microsoft, where he was a Windows Phone Champ, and tried in vain to make Windows Phone happen. In his spare time, Joey wreaks havoc on karaoke bars with his rock and roll accordion performances."
+    },
+    "32": {
+      "speakers": [32],
+      "room": "Sorcerer's Apprentice 2",
+      "track": "Web",
+      "language": "EN",
+      "title": "Building WebVR experiences with AFrame.IO",
+      "description": "In the next few years, augmented reality and virtual reality will continue to provide innovations in gaming, education and training. Other applications might include helping you tour your next vacation resort or explore a future architecture design.  Thanks to open web standards like WebVR, web developers can leverage their existing skills in JavaScript and HTML to create delightful VR experiences. \n\nDuring this session, we will explore  A-Frame.io, an open source project supported by Mozilla enabling you to craft VR experiences using JavaScript and a growing ecosystem of web components.  We’ll include a \"hands on\" code lab to help you start start building 3D experiences today with your Android phone and Google Cardboard.",
+      "complexity": "Intermediate",
+      "bio": "Michael is an experienced software developer, Scrum master, technologist and blogger. As a principle software engineer at Mercer Engineering Research center, Michael performed a study of the Microsoft HoloLens and various Android eye wear to help enable remote collaboration in aircraft maintenance environments.  On InnovativeTeams.NET, he enjoys sharing stories on growing cultures of innovation, Agile leadership, constructivist learning, makers movement, and human computer interaction."
+    }
+  },
+  "speakers": [
+    {
+      "id": "26",
+      "lastname": "Atamel",
+      "name": "Mete Atamel",
+      "rockstar": true,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/mete_atamel.jpg",
+      "company": "Google",
+      "companyUrl": "http://devfestflorida.org/img/partners/google-logo.svg",
+      "social": {
+        "twitter": "https://twitter.com/meteatamel",
+        "linkedin": "https://www.linkedin.com/in/meteatamel",
+        "blog": "https://meteatamel.wordpress.com/",
+        "googleplus": "https://plus.google.com/+MeteAtamel/",
+        "github": "https://github.com/meteatamel/"
+      },
+      "complexity": "Beginner",
+      "shortBio": "Mete is a Developer Advocate at Google, currently focused on helping developers with Google Cloud Platform. As a long-time Java and a recent C# developer, he likes to compare the two ecosystems.",
+      "bio": "Mete is a Developer Advocate at Google, currently focused on helping developers with Google Cloud Platform. As a long-time Java and a recent C# developer, he likes to compare the two ecosystems. Prior to Google, he worked at Microsoft, Skype, Adobe, EMC, and Nokia building apps and services on various web, mobile and cloud platforms. Originally from Cyprus, he currently lives in Greenwich, not too far away from the prime meridian."
+    },{
+      "id": "10",
+      "lastname": "Bandekar",
+      "name": "Namrata Bandekar",
+      "rockstar": false,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/namrata_bandekar.jpg",
+      "company": "Oanda",
+      "companyUrl": "http://devfestflorida.org/img/companies/oanda.svg",
+      "social": {
+        "twitter": "https://twitter.com/namrataCodes"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Namrata is a Software Engineer at OANDA and has experience doing native Android and iOS development. She is a member of the Ray Wenderlich Android tutorial team. Apart from building apps, she is passionate about travelling, dancing and hiking with her dog.",
+      "bio": "Namrata is a Software Engineer at OANDA and has experience doing native Android and iOS development. She is a member of the Ray Wenderlich Android tutorial team. Apart from building apps, she is passionate about travelling, dancing and hiking with her dog."
+    },{
+      "id": "14",
+      "lastname": "Caron",
+      "name": "Etienne Caron-Petit-Pas",
+      "rockstar": false,
+      "gde": true,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/etienne_caron.jpg",
+      "company": "Shopify",
+      "companyUrl": "http://devfestflorida.org/img/logos/shopify.png",
+      "social": {
+        "twitter": "https://twitter.com/kanawish",
+        "github": "https://github.com/kanawish"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Etienne Caron is an Android developer at Shopify, a popular Canadian e-commerce company. He is also part of Google's Developer Expert program, and an instructor for Caster.io\n\n3D animation, procedural content generation and VR are some of his hobbies, and he loves introducing other developers to this fascinating field.",
+      "bio": "Etienne Caron is an Android developer at Shopify, a popular Canadian e-commerce company. He is also part of Google's Developer Expert program, and an instructor for Caster.io\n\n3D animation, procedural content generation and VR are some of his hobbies, and he loves introducing other developers to this fascinating field."
+    },{
+      "id": "5",
+      "lastname": "Davis",
+      "name": "Annyce Davis",
+      "rockstar": false,
+      "gde": true,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/annyce_davis.jpg",
+      "company": "Off Grid Electric",
+      "companyUrl": "http://devfestflorida.org/img/logos/off-grid-electric.png",
+      "social": {
+        "twitter": "https://twitter.com/brwngrldev",
+        "blog": "http://adavis.info/about-me"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Annyce is an Android Google Developer Expert. She has spent the past 6 years developing applications for the Android ecosystem across multiple form factors. She is an international conference speaker/author, sharing her knowledge of Android development with others.",
+      "bio": "Annyce is an Android Google Developer Expert. She has spent the past 6 years developing applications for the Android ecosystem across multiple form factors. She is also a international conference speaker and author, sharing her knowledge of Android development with others. In addition, Annyce is active in the Washington, DC tech scene and helps run a local meetup focused on Android development and design."
+    },{
+      "id": "20",
+      "lastname": "Edwards",
+      "name": "Sam Edwards",
+      "rockstar": false,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/sam_edwards.jpg",
+      "company": "Capital One",
+      "companyUrl": "http://devfestflorida.org/img/companies/capitalone.png",
+      "social": {
+        "twitter": "https://twitter.com/HandstandSam",
+        "blog": "https://handstandsam.com"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Sam is a Lead Android Engineer for Capital One Wallet. He has been working with Android since 2011 and has over 13 years of professional experience with full-stack development with Java and JavaScript.",
+      "bio": "Sam is a Lead Android Engineer for Capital One Wallet. He has been working with Android since 2011 and has over 13 years of professional experience with full-stack development with Java and JavaScript. Check out https://handstandsam.com where he shares tips and tricks about Android and software development."
+    },{
+      "id": "23",
+      "lastname": "Gonda",
+      "name": "Victoria Gonda",
+      "rockstar": true,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/victoria_gonda.jpg",
+      "company": "Collective Idea",
+      "social": {
+        "twitter": "https://twitter.com/TTGonda",
+        "blog": "http://www.victoriagonda.com/blogs/"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Victoria was drawn to programming because of its potential to help people in a meaningful way. She is currently a Software Developer at Collective Idea, building mobile and web applications.",
+      "bio": "Victoria was drawn to programming because of its potential to help people in a meaningful way. She is currently a Software Developer at Collective Idea, building mobile and web applications. The conferences she has spoken at have been an enjoyable way to connect with the technical community, and exchange information with others. In her spare time, Victoria enjoys taking dance classes, and curling up with a good book."
+    },{
+      "id": "15",
+      "lastname": "Kaleda",
+      "name": "Yuliya Kaleda",
+      "rockstar": false,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/yuliya_kaleda.jpg",
+      "company": "Jet.com",
+      "companyUrl": "http://devfestflorida.org/img/partners/jet_logo.svg",
+      "complexity": "Intermediate",
+      "social": {
+        "twitter": "https://twitter.com/yuliyakaleda"
+      },
+      "shortBio": "Yuliya is an Android Developer at Jet.com, leading a team of 4 developers whose main focus is to built performant, scalable, cutting-edge Android projects. For the last few months Yuliya has been collaborating with Google to launch the first multi-feature Instant App.",
+      "bio": "Yuliya is an Android Developer at Jet.com, leading a team of 4 developers whose main focus is to built performant, scalable, cutting-edge Android projects. For the last few months Yuliya has been collaborating with Google to launch the first multi-feature Instant App. It was a great experience that did not bring benefits only in terms of Instant Apps context, it also improved the installed application in regards to architecture, design, scalability."
+    },{
+      "id": "25",
+      "lastname": "Khoursid",
+      "name": "David Khourshid",
+      "gde": false,
+      "rockstar": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/david_khoursid.jpg",
+      "company": "Microsoft",
+      "companyUrl": "http://devfestflorida.org/img/companies/microsoft.png",
+      "social": {
+        "twitter": "https://twitter.com/davidkpiano",
+        "blog": "https://codepen.io/davidkpiano"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "David Khourshid is a Microsoft software engineer based right here in Orlando. He is passionate about open-source, complex user interfaces and animations, cutting-edge front-end technologies, and helping the web community in any way he can.",
+      "bio": "David Khourshid is a Microsoft software engineer based right here in Orlando. He is passionate about open-source, complex user interfaces and animations, cutting-edge front-end technologies, and helping the web community in any way he can. When he's not at a computer keyboard, he's behind a piano keyboard, or traveling."
+    },{
+      "id": "6",
+      "lastname": "Li",
+      "name": "John Li",
+      "rockstar": false,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/john_li.jpg",
+      "company": "Omicron Media",
+      "social": {
+        "twitter": "https://twitter.com/tbfJohn"
+      },
+      "complexity": "Beginner",
+      "shortBio": "John is an Android Developer that enjoys hackathons, organizing talks, and working on side projects that solves problems that already have been solved years ago.  He co-organizes the Central Florida Android Developers Meetup.",
+      "bio": "John is an Android Developer that enjoys hackathons, organizing talks, and working on side projects that solves problems that already have been solved years ago.  He co-organizes the Central Florida Android Developers Meetup and attends local tech events in Orlando.  He probably follows more animal celebrities than people on Instagram."
+    },{
+      "id": "12",
+      "lastname": "Kuang",
+      "name": "Macy Kuang",
+      "gde": true,
+      "rockstar": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/macy_kuang.jpg",
+      "company": "Miaomiao Games",
+      "companyUrl": "http://devfestflorida.org/img/companies/miaomiaogames.png",
+      "social": {
+        "twitter": "https://twitter.com/MacyKuang",
+        "blog": "https://youtube.com/codetocreate"
+      },
+      "complexity": "Beginner",
+      "shortBio": "Macy Kuang is not just the producer and host of her own YouTube technology tips and tricks show - CodeToCreate, she is also the founder of Miaomiao Games.Macy became a Google Developer Expert for Wearable since 2014 and is now an IoT Pioneer.",
+      "bio": "Macy Kuang is not just the producer and host of her own YouTube technology tips and tricks show - CodeToCreate, she is also the founder of Miaomiao Games. She is on the organizing committee for AndroidTO, the annual Android conference, and the co-organizer of the Toronto Google Developer Group. \n\nMacy became a Google Developer Expert for Wearable since 2014 and is now an IoT Pioneer. \n\nIn early 2017, Macy joins the intel innovator program as an robotic, IoT and VE expert."
+    },{
+      "id": "19",
+      "lastname": "Morgan",
+      "name": "Brandy Morgan",
+      "rockstar": false,
+      "gde": false,
+      "keynote": true,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/brandy_morgan.jpg",
+      "social": {
+        "twitter": "https://twitter.com/msbrandymorgan",
+        "instagram": "https://www.instagram.com/msbrandymorgan"
+      },
+      "complexity": "Beginner",
+      "shortBio": "Brandy is a developer, designer, and doer, that could out hustle Jay-Z. She is a full stack developer, with an enthusiasm for application development and learning the latest technologies. If she isn't coding or creating content you can find her running laps around the beautiful lakes of Winter Park, FL or sipping lattes at the local coffee shops.",
+      "bio": "Brandy is a developer, designer, and doer, that could out hustle Jay-Z. She is a full stack developer, with an enthusiasm for application development and learning the latest technologies. If she isn't coding or creating content you can find her running laps around the beautiful lakes of Winter Park, FL or sipping lattes at the local coffee shops."
+    },{
+      "id": "11",
+      "lastname": "Murphy",
+      "name": "Mark Murphy",
+      "rockstar": true,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/mark_murphy.jpg",
+      "company": "CommonsWare",
+      "companyUrl": "http://devfestflorida.org/img/logos/commonsware.png",
+      "social": {
+        "twitter": "https://twitter.com/commonsguy",
+        "blog": "https://commonsware.com/blog",
+        "github": "https://github.com/commonsguy"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Author of \"The Busy Coder's Guide to Android Development\". Contributor of over 19,000 answers to Android questions on Stack Overflow. Developer of open source libraries. Presenter at conferences. Trainer of multitudes. Writer of sentence fragments.",
+      "bio": "Author of \"The Busy Coder's Guide to Android Development\". Contributor of over 19,000 answers to Android questions on Stack Overflow. Developer of open source libraries. Presenter at conferences. Trainer of multitudes. Writer of sentence fragments."
+    },{
+      "id": "13",
+      "lastname": "Narasimhan",
+      "name": "Nitya Narasimhan",
+      "gde": false,
+      "rockstar": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/nitya_narasimhan.jpg",
+      "company": "GDG NYC / BitNBot",
+      "companyUrl": "http://devfestflorida.org/img/companies/logo-gdgnyc.png",
+      "social": {
+        "twitter": "https://twitter.com/nitya",
+        "blog": "https://medium.com/nitya"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Nitya is a software architect and polyglot with ~20 years of industry experience in research, development and startup contexts. She is a PhD, an innovator (11 patents, 20+ filings), an educator and a community organizer (GDG NYC & GDG Hudson Valley).",
+      "bio": "Nitya is a software architect and polyglot with ~20 years of industry experience in research, development and startup contexts. She is a PhD, an innovator (11 patents, 20+ filings), an educator and a community organizer (GDG NYC & GDG Hudson Valley). She helps architect and build mobile web solutions for early stage startups, runs study camps for workforce retraining & plans to launch her first voice product this fall. She is a frequent tech conference speaker but is happiest talking to kids about science, coding, curiosity and self-confidence."
+    },{
+      "id": "29",
+      "lastname": "Papa",
+      "name": "John Papa",
+      "rockstar": true,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/john_papa.png",
+      "company": "Microsoft",
+      "companyUrl": "http://devfestflorida.org/img/companies/microsoft.png",
+      "social": {
+        "twitter": "https://twitter.com/john_papa",
+        "github": "https://gist.github.com/johnpapa",
+        "blog": "http://johnpapa.net"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "John Papa is dedicated a father and husband, a Principal Developer Advocate with Microsoft, and an alumni of the Google Developer Expert, Microsoft RD and MVP programs. His passions are deploying and teaching modern web technologies, and enjoying everything Disney with his family. John is a co-host of the popular Adventures in Angular podcast, author of the Angular Style Guide, and many popular Pluralsight courses.",
+      "bio": "John Papa is a Principal Developer Advocate with Microsoft and an alumni of the Google Developer Expert, Microsoft Regional Director, and MVP programs. He's passionate about Web and mobile technologies and often enjoys speaking around the world at keynotes and sessions for conferences including NgConf, Build, Ignite, VSLive and AngleBrackets. John is a co-host of the popular Adventures in Angular podcast, author of the Angular Style Guide, several books, and many popular Pluralsight courses.\n\nYou can reach me at johnpapa.net or on twitter at @john_papa."
+    },{
+      "id": "16",
+      "lastname": "Persing",
+      "name": "Sandra Persing",
+      "rockstar": false,
+      "gde": false,
+      "keynote": true,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/sandra_persing.jpg",
+      "company": "Mozilla",
+      "companyUrl": "http://devfestflorida.org/img/partners/mozilla.svg",
+      "social": {
+        "twitter": "https://twitter.com/sandrapersing",
+        "blog": "http://medium.com/@SandraPersing"
+      },
+      "complexity": "Beginner",
+      "shortBio": "Sandra Persing is the Sr. Program Manager at Mozilla, investing in DevRel Events. She's the producer of over 50 Developer Roadshows; serves as the Women Who Code Seattle Chapter Director, and is the CoFounder of @DevRelSummit. Find her at meetups, conferences, and the busiest airport terminals.",
+      "bio": "Sandra Persing is the Sr. Program Manager at Mozilla, investing in DevRel Events. She's the producer of over 50 Developer Roadshows; serves as the Women Who Code Seattle Chapter Director, and is the CoFounder of @DevRelSummit. Find her at meetups, conferences, and the busiest airport terminals."
+    },{
+      "id": "24",
+      "lastname": "Pierce",
+      "name": "Betty Pierce",
+      "gde": false,
+      "rockstar": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/betty_pierce.jpg",
+      "company": "Cardinal Solutions",
+      "social": {
+        "twitter": "https://twitter.com/UIBusyBetty"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Betty is a UI/UX Developer with over 16 years of professional experience in Tampa, Florida.  She was a speaker at UXD Summit in Ft Lauderdale, a presenter with Girl Develop It, Women Who Code and Tampa Bay Media Professionals.",
+      "bio": "Craft Beer drinking, barefoot running, IoT hacking Lady Dev who went from symphonic percussionist to coding for cash, our \"Busy Betty\" is a UI/UX Developer with over 16 years of professional experience in Tampa Florida.  She was a speaker at UXD Summit in Ft Lauderdale, a presenter with Girl Develop It, Women Who Code and Tampa Bay Media Professionals. \n\nBetty is currently a Principal UI/UX Consultant, for Cardinal Solutions and has worked in diverse industries from government to advertising and builds everything from enterprise apps to HTML5 games.  This happy mother of five spends her days cooking, cleaning and coding."
+    },{
+      "id": "4",
+      "lastname": "Pizarro",
+      "name": "Jenell Pizarro",
+      "gde": false,
+      "rockstar": true,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/jenell_pizarro.jpg",
+      "company": "Skillcrush // Web Benefits Design",
+      "social": {
+        "twitter": "https://twitter.com/nellarro",
+        "blog": "https://medium.com/nellarro"
+      },
+      "complexity": "Beginner",
+      "shortBio": "Jenell Pizarro is a front end developer at Web Benefits Design and teaches people how to code through her teaching assistant role at Skillcrush. Jenell is an Iron Yard graduate.",
+      "bio": "Jenell Pizarro is a front end developer at Web Benefits Design and teaches people how to code through her teaching assistant role at Skillcrush. Upon graduation from The Iron Yard, Jenell has made it her personal mission to connect senior developers to their junior developer counterparts and bridge the mentorship gap. She used to peddle Butterbeer to people and now she's a developer so that's pretty sweet."
+    },{
+      "id": "8",
+      "lastname": "Prentice",
+      "name": "Michael Prentice",
+      "gde": true,
+      "rockstar": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/michael_prentice.jpg",
+      "company": "DevIntent",
+      "companyUrl": "http://devfestflorida.org/img/partners/devintent.png",
+      "social": {
+        "twitter": "https://twitter.com/splaktar"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Michael Prentice is a software consultant on Angular, Material Design, Firebase, Google Cloud, NodeJS, software architecture, and Agile project management. He is a founder of GDG Space Coast, DevIntent, and Market Amplified. Michael is a Google Developer Expert (GDE) in Angular and active supporter of multiple developer communities.",
+      "bio": "Michael Prentice is a software consultant on Angular, Material Design, Firebase, Google Cloud, NodeJS, software architecture, and Agile project management. He is a founder of GDG Space Coast, DevIntent, and Market Amplified. Michael is a Google Developer Expert (GDE) in Angular and active supporter of multiple developer communities."
+    },{
+      "id": "9",
+      "lastname": "Preussler",
+      "name": "Danny Preussler",
+      "rockstar": false,
+      "gde": true,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/danny_preussler.jpg",
+      "company": "Viacom",
+      "social": {
+        "twitter": "https://twitter.com/PreusslerBerlin",
+        "blog": "https://medium.com/@dpreussler"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Danny is in charge of Android development at Viacom in Berlin. Before that he worked for companies like Groupon, eBay and Alcatel. \n\nHis mobile career started long before any iPhone with Java ME and Blackberry applications. \n\nDanny writes and talks about mobile development and testing regularly and is is a Google Developer Expert for Android.",
+      "bio": "Danny is in charge of Android development at Viacom in Berlin. Before that he worked for companies like Groupon, eBay and Alcatel. \n\nHis mobile career started long before any iPhone with Java ME and Blackberry applications. \n\nDanny writes and talks about mobile development and testing regularly and is is a Google Developer Expert for Android."
+    },{
+      "id": "22",
+      "lastname": "Riviello",
+      "name": "John Riviello",
+      "rockstar": false,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/john_riviello.jpg",
+      "company": "Comcast",
+      "companyUrl": "http://devfestflorida.org/img/companies/comcast.svg",
+      "social": {
+        "twitter": "https://twitter.com/JohnRiv",
+        "linkedin": "http://www.linkedin.com/in/johnriviello",
+        "github": "https://github.com/JohnRiv"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "John Riviello is a Distinguished Engineer and Lead Frontend Developer at Comcast where he works on the XFINITY customer websites and web applications. He is also the author of the Lynda.com course \"CSS to Sass.\" In his free time, he prefers surfing waves over surfing the internet.",
+      "bio": "John Riviello is a Distinguished Engineer and Lead Frontend Developer at Comcast where he works on the XFINITY customer websites and web applications. He is also the author of the Lynda.com course \"CSS to Sass.\" In his free time, he prefers surfing waves over surfing the internet."
+    },{
+      "id": "32",
+      "lastname": "Rosario",
+      "name": "Michael Rosario",
+      "gde": false,
+      "rockstar": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/michael_rosario.jpg",
+      "company": "GDG Central Florida",
+      "companyUrl": "http://devfestflorida.org/img/partners/gdg-central-florida.svg",
+      "social": {
+        "twitter": "https://twitter.com/MichaelRosario"
+      },
+      "complexity": "Beginner",
+      "shortBio": "Michael is an experienced software developer, Scrum master, technologist and blogger. As a principle software engineer at Mercer Engineering Research center, Michael performed a study of the Microsoft HoloLens and various Android eye wear to help enable remote collaboration in aircraft maintenance environments.",
+      "bio": "Michael is an experienced software developer, Scrum master, technologist and blogger. As a principle software engineer at Mercer Engineering Research center, Michael performed a study of the Microsoft HoloLens and various Android eye wear to help enable remote collaboration in aircraft maintenance environments. \n\nOn InnovativeTeams.NET, he enjoys sharing stories on growing cultures of innovation, Agile leadership, constructivist learning, makers movement, and human computer interaction."
+    },{
+      "id": "21",
+      "lastname": "Smith",
+      "name": "Dave Smith",
+      "rockstar": true,
+      "gde": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/dave_smith.jpg",
+      "company": "Google",
+      "companyUrl": "http://devfestflorida.org/img/partners/google-logo.svg",
+      "social": {
+        "twitter": "https://twitter.com/devunwired"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Dave is a Developer Advocate at Google, focused on IoT and the Android Things platform. Over the past decade, he has worked with low power M2M systems and wireless radio links, as well as custom applications and system components to run Android on embedded platforms. He has a passion for finding opportunities to make devices, and developers, smarter.",
+      "bio": "Dave is a Developer Advocate at Google, focused on IoT and the Android Things platform. Over the past decade, he has worked with low power M2M systems and wireless radio links, as well as custom applications and system components to run Android on embedded platforms. He has a passion for finding opportunities to make devices, and developers, smarter."
+    },{
+      "id": "17",
+      "lastname": "Traverso",
+      "name": "Mike Traverso",
+      "gde": false,
+      "rockstar": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/mike_traverso.jpg",
+      "company": "Traversoft Software",
+      "companyUrl": "http://devfestflorida.org/img/partners/traversoft.svg",
+      "social": {
+        "twitter": "https://twitter.com/traversoft",
+        "github": "https://github.com/miketraverso",
+        "blog": "https://traversoft.com/blog"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Mike traded in a decade of full stack development for Wall Street for mobile development. Now he works on native iOS & Android apps for large corporations and startups.",
+      "bio": "Mike traded in a decade of full stack development for Wall Street for mobile development. Since then he has worked on native iOS & Android apps for large corporations and startups. He's developed Hillary 2016 for Android, games for Ringling Bro's Circus and apps for the last Twitter Flight conference. \n\nCurrently he's working on enterprise iOS apps for the New York Yankees. He's beat stage 3 cancer twice and always looks to give back to the tech community by speaking at local meetups or organizing and sponsoring DevFest Florida."
+    },{
+      "id": "2",
+      "lastname": "Tumbleson",
+      "name": "Connor Tumbleson",
+      "gde": false,
+      "rockstar": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/connor_tumbleson.jpg",
+      "company": "Sourcetoad",
+      "companyUrl": "http://devfestflorida.org/img/partners/sourcetoad.svg",
+      "social": {
+        "twitter": "https://twitter.com/iBotPeaches",
+        "googleplus": "https://plus.google.com/+ConnorTumbleson",
+        "blog": "https://connortumbleson.com"
+      },
+      "complexity": "Intermediate",
+      "shortBio": "Connor is a software engineer at Sourcetoad, building software that powers the cruise ship industry. In his free time, he is a big supporter of open-source projects and maintains apktool, a popular Android reverse engineering tool.",
+      "bio": "Connor is a software engineer at Sourcetoad, building software that powers the cruise ship industry. In his free time, he is a big supporter of open-source projects and maintains apktool, a popular Android reverse engineering tool."
+    },{
+      "id": "18",
+      "lastname": "Vehent",
+      "name": "Julien Vehent",
+      "gde": false,
+      "rockstar": true,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/julien_vehent.jpg",
+      "company": "Mozilla",
+      "companyUrl": "http://devfestflorida.org/img/partners/mozilla.svg",
+      "social": {
+        "twitter": "https://twitter.com/jvehent",
+        "blog": "https://j.vehent.org"
+      },
+      "complexity": "Beginner",
+      "shortBio": "Julien leads the Firefox Operations Security team at Mozilla, tasked with defining, implementing and operating the security of Firefox's backend services and the release engineering infrastructure.",
+      "bio": "Julien leads the Firefox Operations Security team at Mozilla, tasked with defining, implementing and operating the security of Firefox's backend services and the release engineering infrastructure. Julien's background is in web applications security, services architecture, cryptography and risk management. Julien is the author of \"Securing DevOps\", published at Manning Editions."
+    },{
+      "id": "7",
+      "lastname": "Williams",
+      "name": "Kesha Williams",
+      "gde": false,
+      "rockstar": false,
+      "thumbnailUrl": "https://devfestflorida.org/img/people/kesha_williams.jpg",
+      "company": "Chick-fil-A",
+      "social": {
+        "twitter": "https://twitter.com/KeshaUCI",
+        "linkedin": "https://www.linkedin.com/in/java-rock-star-kesha/",
+        "blog": "http://colorsofstem.org/"
+      },
+      "complexity": "Beginner",
+      "shortBio": "Kesha Williams is a software engineer with over 20 years۪ experience specializing in web application development. In addition to being a software engineer with Chick-fil-A, she trains and mentors thousands of software developers in the US, Europe, and Asia while teaching at the University of California.",
+      "bio": "Kesha Williams is a software engineer with over 20 years۪ experience specializing in web application development. In addition to being a software engineer with Chick-fil-A, she trains and mentors thousands of software developers in the US, Europe, and Asia while teaching at the University of California.  \n\nShe's authored courses on Java, Machine Learning (ML), Artificial Intelligence (AI), and Augmented Reality (AR).  She most recently won the Think Different Innovation Award from Chick-fil-A for her work on investigating how emerging technologies like Artificial Intelligence (AI), Augmented Reality (AR), Computer Vision/Facial Recognition, and the Internet of Things (IOT) can enhance restaurant operations and customer experiences.  She has worked for companies like Delta Air Lines, McKesson Information Systems, and Keane Federal Systems (U.S. Air Force), serving in various technical lead and software development roles. She did her summer internship with the National Security Agency (NSA); how cool is that? \n\nIn her spare time, she leads the Georgia chapter of Technovation, serves as a mentor with the New York Academy of Sciences, and conducts free Hour of Code sessions for children at her local library."
+    }
+  ]
+}
