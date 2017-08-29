@@ -19,6 +19,10 @@ Speaker kSelectedSpeaker;
 Session kSelectedSession;
 TimeSlot kSelectedTimeSlot;
 
+
+// TODO Change your base URL
+var baseUrl = "https://devfestflorida.org/";
+
 // TODO Change the navbar color
 final ThemeData kTheme = new ThemeData(
   brightness: Brightness.light,
