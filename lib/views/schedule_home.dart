@@ -388,10 +388,17 @@ class SessionState extends State<ScheduledSessionWidget> {
   Widget buildRow() {
     List<Widget> sessionCards = <Widget>[];
     sessionWidgets.clear();
-    timeSlot.sessions.forEach((sessionId) {
-      Session session = kSessions[sessionId.toString()];
-      Widget sessionCard = buildSessionCard(session);
-      sessionCards.add(sessionCard);
+    timeSlot.sessions.forEach((sessionIter) {
+      Session session;
+      if (sessionIter is List) {
+        session = kSessions[sessionIter[0].toString()]; // ignore: undefined_operator
+      } else if (sessionIter is int) {
+        session = kSessions[sessionIter.toString()];
+      }
+      if (session != null) {
+        Widget sessionCard = buildSessionCard(session);
+        sessionCards.add(sessionCard);
+      }
     });
 
     Widget titleSection = new Container(
