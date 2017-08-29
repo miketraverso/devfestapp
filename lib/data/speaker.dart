@@ -1,5 +1,7 @@
 import 'dart:collection';
 
+import 'package:devfest_florida_app/main.dart';
+
 class Speaker {
   String id;
   String bio;
@@ -8,6 +10,7 @@ class Speaker {
   String lastName;
   String jobTitle;
   String thumbnailUrl = "";
+  String photoUrl = "";
   bool featured;
 
   LinkedHashMap<String, String> socialMap = new LinkedHashMap<String, String>();
@@ -37,6 +40,14 @@ class Speaker {
         case 'thumbnailUrl':
           this.thumbnailUrl = map[key];
           break;
+        case 'photoUrl':
+          this.photoUrl = map[key];
+          if (!this.photoUrl.startsWith("https://")
+              || !this.photoUrl.startsWith("http://")) {
+            this.photoUrl = baseUrl + this.photoUrl;
+          }
+          this.thumbnailUrl = this.photoUrl;
+          break;
         case 'jobTitle':
           this.jobTitle = map[key];
           break;
@@ -46,10 +57,6 @@ class Speaker {
         case 'social': {
             if (map[key] is HashMap) {
               this.socialMap = map[key];
-//              LinkedHashMap socialMap = map[key];
-//              socialMap.forEach((key, value) {
-//                socials.add(new Social(key, value));
-//              });
             }
           }
           break;
