@@ -27,6 +27,9 @@ class Speaker {
           break;
         case 'name':
           this.name = map[key];
+          if (this.name != null && this.name != "" && this.name.contains(" ")) {
+            this.lastName = this.name.substring(this.name.lastIndexOf(" "));
+          }
           break;
         case 'lastname':
           this.lastName = map[key];
