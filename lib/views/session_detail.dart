@@ -96,6 +96,13 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
     List<double> gradientStops = <double>[];
     gradientStops.add(.5);
 
+    var roomOrTrack = "";
+    if (kSelectedSession != null && (kSelectedSession.room != "" && kSelectedSession.room != null)) {
+      roomOrTrack = kSelectedSession.room;
+    } else if (kSelectedSession != null && (kSelectedSession.track != "" && kSelectedSession.track != null)) {
+      roomOrTrack = kSelectedSession.track;
+    }
+
     return new Scaffold(
       body: new CustomScrollView(
         slivers: <Widget>[
@@ -137,7 +144,7 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
                           new Row(children: <Widget>[
                             new Expanded(
                               child:new Text(
-                                kSelectedSession.track,
+                                roomOrTrack,
                                 style: new TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.0,

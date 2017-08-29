@@ -5,8 +5,8 @@ class Session {
   bool isFavorite = false;
   String description;
   String title;
-  String track;
-  String room;
+  String track = "";
+  String room = "";
   List<String> speakers = <String>[];
 
   Session.loadFromFireBase(String fbKey, LinkedHashMap map) {

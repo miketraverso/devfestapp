@@ -300,6 +300,13 @@ class SessionState extends State<ScheduledSessionWidget> {
   }
 
   Widget buildSessionCard(Session session) {
+    var roomOrTrack = "";
+    if (session != null && (session.room != "" && session.room != null)) {
+      roomOrTrack = session.room;
+    } else if (session != null && (session.track != "" && session.track != null)) {
+      roomOrTrack = session.track;
+    }
+
     String speakerString = getSpeakerNames(session);
     Widget card = new Card(
         child: new GestureDetector(
@@ -351,7 +358,7 @@ class SessionState extends State<ScheduledSessionWidget> {
                     ),
                     new Expanded(
                       child:new Text(
-                        session.room,
+                        roomOrTrack,
                         maxLines: 4,
                         overflow: TextOverflow.ellipsis,
                         style: new TextStyle(
