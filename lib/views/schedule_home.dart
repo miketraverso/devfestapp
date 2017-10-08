@@ -36,14 +36,16 @@ class ScheduleHomeWidget extends StatefulWidget {
   ScheduleWidgetState createState() => new ScheduleWidgetState();
 }
 
-class ScheduleWidgetState extends State<ScheduleHomeWidget> with TickerProviderStateMixin {
-
+class ScheduleWidgetState extends State<ScheduleHomeWidget>
+    with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   LinkedHashMap<String, Session> _sessionsMap = kSessions;
   LinkedHashMap<String, Speaker> _speakersMap = kSpeakers;
-  LinkedHashMap<int, Schedule> _allSchedulesMap = new LinkedHashMap<int, Schedule>();
-  LinkedHashMap<int, List<TimeSlot>> _timeSlotsByScheduleMap = new LinkedHashMap<int, List<TimeSlot>>();
+  LinkedHashMap<int, Schedule> _allSchedulesMap =
+      new LinkedHashMap<int, Schedule>();
+  LinkedHashMap<int, List<TimeSlot>> _timeSlotsByScheduleMap =
+      new LinkedHashMap<int, List<TimeSlot>>();
 
   var _schedules = <Schedule>[];
 
@@ -66,9 +68,8 @@ class ScheduleWidgetState extends State<ScheduleHomeWidget> with TickerProviderS
   }
 
   Future loadDataFromFireBase() async {
-    final reference = FirebaseDatabase.instance
-                                      .reference()
-                                      .child(firebaseRootNode);
+    final reference =
+        FirebaseDatabase.instance.reference().child(firebaseRootNode);
     reference.onChildAdded.forEach((event) {
       fireb.DataSnapshot dataSnapshot = event.snapshot;
       if (dataSnapshot.key == 'sessions') {
@@ -198,7 +199,7 @@ class ScheduleWidgetState extends State<ScheduleHomeWidget> with TickerProviderS
         appBar: new AppBar(
             title: new Text(
           kAppTitle,
-              style: navbarFontStyle,
+          style: navbarFontStyle,
         )),
         drawer: new ConfAppDrawer(),
         body: const Center(
@@ -259,11 +260,12 @@ class ScheduleState extends State<ScheduledSessionWidget> {
     }
   }
 
-  Widget  buildSessionCard(Session session) {
+  Widget buildSessionCard(Session session) {
     var roomOrTrack = "";
     if (session != null && (session.room != "" && session.room != null)) {
       roomOrTrack = session.room;
-    } else if (session != null && (session.track != "" && session.track != null)) {
+    } else if (session != null &&
+        (session.track != "" && session.track != null)) {
       roomOrTrack = session.track;
     }
 
@@ -317,12 +319,11 @@ class ScheduleState extends State<ScheduledSessionWidget> {
                       color: kColorText,
                     ),
                     new Expanded(
-                      child:new Text(
+                      child: new Text(
                         roomOrTrack,
                         maxLines: 4,
                         overflow: TextOverflow.ellipsis,
-                        style: new TextStyle(
-                            color: kColorText, fontSize: 14.0),
+                        style: new TextStyle(color: kColorText, fontSize: 14.0),
                       ),
                     ),
                     new IconButton(
@@ -351,7 +352,8 @@ class ScheduleState extends State<ScheduledSessionWidget> {
     timeSlot.sessions.forEach((sessionIter) {
       Session session;
       if (sessionIter is List) {
-        session = kSessions[sessionIter[0].toString()]; // ignore: undefined_operator
+        session =
+            kSessions[sessionIter[0].toString()]; // ignore: undefined_operator
       } else if (sessionIter is int) {
         session = kSessions[sessionIter.toString()];
       }
@@ -409,9 +411,9 @@ class ScheduleState extends State<ScheduledSessionWidget> {
   }
 
   String sessionTimePeriod(TimeSlot timeSlot) {
-    return formatter.format(timeSlot.startDate).replaceAll(" ", "")
-        + "\nto\n"
-        + formatter.format(timeSlot.endDate).replaceAll(" ", "");
+    return formatter.format(timeSlot.startDate).replaceAll(" ", "") +
+        "\nto\n" +
+        formatter.format(timeSlot.endDate).replaceAll(" ", "");
   }
 
   void toggleFavorite(Session session) {
