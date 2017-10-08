@@ -33,18 +33,17 @@ class ScheduleHomeWidget extends StatefulWidget {
   final VoidCallback onSendFeedback;
 
   @override
-  ConfAppHomeState createState() => new ConfAppHomeState();
+  ScheduleWidgetState createState() => new ScheduleWidgetState();
 }
 
-class ConfAppHomeState extends State<ScheduleHomeWidget>
-    with TickerProviderStateMixin {
+class ScheduleWidgetState extends State<ScheduleHomeWidget> with TickerProviderStateMixin {
+
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   LinkedHashMap<String, Session> _sessionsMap = kSessions;
   LinkedHashMap<String, Speaker> _speakersMap = kSpeakers;
-  LinkedHashMap<int, Schedule> _allSchedulesMap
-    = new LinkedHashMap<int, Schedule>();
-  LinkedHashMap<int, List<TimeSlot>> _timeSlotsByScheduleMap
-    = new LinkedHashMap<int, List<TimeSlot>>();
+  LinkedHashMap<int, Schedule> _allSchedulesMap = new LinkedHashMap<int, Schedule>();
+  LinkedHashMap<int, List<TimeSlot>> _timeSlotsByScheduleMap = new LinkedHashMap<int, List<TimeSlot>>();
 
   var _schedules = <Schedule>[];
 
@@ -67,7 +66,9 @@ class ConfAppHomeState extends State<ScheduleHomeWidget>
   }
 
   Future loadDataFromFireBase() async {
-    final reference = FirebaseDatabase.instance.reference().child(firebaseRootNode);
+    final reference = FirebaseDatabase.instance
+                                      .reference()
+                                      .child(firebaseRootNode);
     reference.onChildAdded.forEach((event) {
       fireb.DataSnapshot dataSnapshot = event.snapshot;
       if (dataSnapshot.key == 'sessions') {
@@ -233,28 +234,15 @@ class ScheduledSessionWidget extends StatefulWidget {
   ScheduledSessionWidget({this.timeSlot});
 
   @override
-  SessionState createState() => new SessionState(timeSlot: timeSlot);
+  ScheduleState createState() => new ScheduleState(timeSlot: timeSlot);
 }
 
-class SessionState extends State<ScheduledSessionWidget> {
+class ScheduleState extends State<ScheduledSessionWidget> {
+  ScheduleState({this.timeSlot});
+
   final TimeSlot timeSlot;
-
-  SessionState({this.timeSlot});
-
   final sessionWidgets = <Widget>[];
   final sessionRows = <Widget>[];
-
-  void toggleFavorite(Session session) {
-    setState(() {
-      if (session.isFavorite) {
-        session.isFavorite = false;
-        _unFavorite(session);
-      } else {
-        session.isFavorite = true;
-        _favorite(session);
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -271,35 +259,7 @@ class SessionState extends State<ScheduledSessionWidget> {
     }
   }
 
-  _unFavorite(Session session) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> favoriteSessions = prefs.getStringList("favoriteSessions");
-    if (favoriteSessions == null) {
-      return;
-    }
-    if (favoriteSessions.contains(session.id)) {
-      List<String> updatedFavorites = new List<String>();
-      updatedFavorites.addAll(favoriteSessions);
-      updatedFavorites.remove(session.id);
-      prefs.setStringList("favoriteSessions", updatedFavorites);
-    }
-  }
-
-  _favorite(Session session) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> favoriteSessions = prefs.getStringList("favoriteSessions");
-    if (favoriteSessions == null) {
-      favoriteSessions = <String>[];
-    }
-    if (!favoriteSessions.contains(session.id)) {
-      List<String> updatedFavorites = new List<String>();
-      updatedFavorites.addAll(favoriteSessions);
-      updatedFavorites.add(session.id);
-      prefs.setStringList("favoriteSessions", updatedFavorites);
-    }
-  }
-
-  Widget buildSessionCard(Session session) {
+  Widget  buildSessionCard(Session session) {
     var roomOrTrack = "";
     if (session != null && (session.room != "" && session.room != null)) {
       roomOrTrack = session.room;
@@ -452,5 +412,45 @@ class SessionState extends State<ScheduledSessionWidget> {
     return formatter.format(timeSlot.startDate).replaceAll(" ", "")
         + "\nto\n"
         + formatter.format(timeSlot.endDate).replaceAll(" ", "");
+  }
+
+  void toggleFavorite(Session session) {
+    setState(() {
+      if (session.isFavorite) {
+        session.isFavorite = false;
+        _unFavorite(session);
+      } else {
+        session.isFavorite = true;
+        _favorite(session);
+      }
+    });
+  }
+
+  _unFavorite(Session session) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> favoriteSessions = prefs.getStringList("favoriteSessions");
+    if (favoriteSessions == null) {
+      return;
+    }
+    if (favoriteSessions.contains(session.id)) {
+      List<String> updatedFavorites = new List<String>();
+      updatedFavorites.addAll(favoriteSessions);
+      updatedFavorites.remove(session.id);
+      prefs.setStringList("favoriteSessions", updatedFavorites);
+    }
+  }
+
+  _favorite(Session session) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> favoriteSessions = prefs.getStringList("favoriteSessions");
+    if (favoriteSessions == null) {
+      favoriteSessions = <String>[];
+    }
+    if (!favoriteSessions.contains(session.id)) {
+      List<String> updatedFavorites = new List<String>();
+      updatedFavorites.addAll(favoriteSessions);
+      updatedFavorites.add(session.id);
+      prefs.setStringList("favoriteSessions", updatedFavorites);
+    }
   }
 }
