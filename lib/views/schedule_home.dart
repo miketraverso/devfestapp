@@ -33,10 +33,10 @@ class ScheduleHomeWidget extends StatefulWidget {
   final VoidCallback onSendFeedback;
 
   @override
-  ScheduleWidgetState createState() => new ScheduleWidgetState();
+  ScheduleHomeWidgetState createState() => new ScheduleHomeWidgetState();
 }
 
-class ScheduleWidgetState extends State<ScheduleHomeWidget>
+class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
     with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -235,11 +235,11 @@ class ScheduledSessionWidget extends StatefulWidget {
   ScheduledSessionWidget({this.timeSlot});
 
   @override
-  ScheduleState createState() => new ScheduleState(timeSlot: timeSlot);
+  ScheduledSessionWidgetState createState() => new ScheduledSessionWidgetState(timeSlot: timeSlot);
 }
 
-class ScheduleState extends State<ScheduledSessionWidget> {
-  ScheduleState({this.timeSlot});
+class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
+  ScheduledSessionWidgetState({this.timeSlot});
 
   final TimeSlot timeSlot;
   final sessionWidgets = <Widget>[];
