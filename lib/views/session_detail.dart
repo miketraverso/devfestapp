@@ -53,31 +53,51 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
     kSelectedSession.speakers.forEach((speakerId) {
       Speaker speak = kSpeakers[speakerId.toString()];
       String speakerInitials = getCircleDetails(speak);
-
-      Widget speakerRowWidget = new MergeSemantics(
-        child: new ListTile(
-          leading: new ExcludeSemantics(
-              child: new CircleAvatar(
-                child: speakerInitials.isEmpty ? null : new Text(speakerInitials),
-                backgroundImage: new PlutoImage.networkWithPlaceholder(
-                    speak.thumbnailUrl,
-                    logoImage)
-                    .image,
-              )),
-          title: new DefaultTextStyle(
-            style: new TextStyle(color: kColorSpeakerName, fontSize: 20.0),
-            child: new Text(speak.name),
-          ),
-          onTap: () {
-            kSelectedSpeaker = speak;
-            Timeline.instantSync('Start Transition', arguments: <String, String>{
-              'from': '/',
-              'to': SpeakerDetailsWidget.routeName
-            });
-            Navigator.pushNamed(context, SpeakerDetailsWidget.routeName);
-          }
+      Widget speakerRowWidget = new Row(children: <Widget>[
+        new Expanded(
+            child: new ListTile(
+                leading: new ExcludeSemantics(
+                    child: new CircleAvatar(
+                      child: speakerInitials.isEmpty
+                          ? null
+                          : new Text(speakerInitials),
+                      backgroundImage: new PlutoImage.networkWithPlaceholder(
+                          speak.thumbnailUrl, logoImage)
+                          .image,
+                    )),
+                title: new DefaultTextStyle(
+                  style:
+                  new TextStyle(color: kColorSpeakerName, fontSize: 20.0),
+                  child: new Text(speak.name),
+                ),
+                onTap: () {
+                  kSelectedSpeaker = speak;
+                  Timeline.instantSync('Start Transition',
+                      arguments: <String, String>{
+                        'from': '/',
+                        'to': SpeakerDetailsWidget.routeName
+                      });
+                  Navigator.pushNamed(context, SpeakerDetailsWidget.routeName);
+                }
+            )
         ),
-      );
+        new Column(children: <Widget>[
+          new Container(
+              margin: const EdgeInsets.only(right: kMaterialPadding),
+              child: new SizedBox(
+                  width: 48.0,
+                  child: new CircleAvatar(
+                    child: new IconButton(
+                        alignment: FractionalOffset.center,
+                        padding: const EdgeInsets.all(0.0),
+                        onPressed: () {},
+                        icon: new Icon(Icons.message, color: Colors.white),
+                        color: kColorFavoriteOff),
+                  )
+              )
+          ),
+        ]),
+      ]);
       speakerRowWidgets.add(speakerRowWidget);
     });
 
