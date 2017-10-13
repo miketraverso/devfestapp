@@ -38,7 +38,7 @@ class Session {
   int get attendeeCounter => _attendeeCount;
 
   // Setter
-  void set attendeeCounter(int count) {
+  set attendeeCounter(int count) {
     this._attendeeCount = count;
   }
 
