@@ -256,94 +256,8 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
         child: new Container(child: buildRow()),
       );
     } else {
-      return new Container(child: new Text('Loading'));
+      return new Container(child: new Text(''));
     }
-  }
-
-  Widget buildSessionCard(Session session) {
-    var roomOrTrack = "";
-    if (session != null && (session.room != "" && session.room != null)) {
-      roomOrTrack = session.room;
-    } else if (session != null &&
-        (session.track != "" && session.track != null)) {
-      roomOrTrack = session.track;
-    }
-
-    String speakerString = getSpeakerNames(session);
-    Widget card = new Card(
-        child: new GestureDetector(
-      onTap: () {
-        kSelectedSession = session;
-        kSelectedTimeSlot = timeSlot;
-        Timeline.instantSync('Start Transition', arguments: <String, String>{
-          'from': '/',
-          'to': SessionDetailsWidget.routeName
-        });
-        Navigator.pushNamed(context, SessionDetailsWidget.routeName);
-      },
-      child: new Container(
-        margin: new EdgeInsets.only(
-            left: kPadding, top: kMaterialPadding, right: kPadding),
-        color: Colors.white,
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            new Row(children: <Widget>[
-              new Expanded(
-                child: new Text(
-                  session.title,
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                  style: new TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ]),
-            new Row(children: <Widget>[
-              new Container(
-                padding: const EdgeInsets.only(top: kMaterialPadding),
-                child: new Text(speakerString,
-                    style: new TextStyle(fontSize: 15.0, color: kColorText)),
-              ),
-            ]),
-            new Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  new Row(children: <Widget>[
-                    new Icon(
-                      Icons.location_on,
-                      color: kColorText,
-                    ),
-                    new Expanded(
-                      child: new Text(
-                        roomOrTrack,
-                        maxLines: 4,
-                        overflow: TextOverflow.ellipsis,
-                        style: new TextStyle(color: kColorText, fontSize: 14.0),
-                      ),
-                    ),
-                    new IconButton(
-                      alignment: FractionalOffset.centerRight,
-                      padding: const EdgeInsets.all(0.0),
-                      onPressed: () {
-                        toggleFavorite(session);
-                      },
-                      icon: session.isFavorite
-                          ? new Icon(Icons.star, color: kColorFavoriteOn)
-                          : new Icon(Icons.star_border,
-                              color: kColorFavoriteOff),
-                    ),
-                  ]),
-                ]),
-          ],
-        ),
-      ),
-    ));
-    return card;
   }
 
   Widget buildRow() {
@@ -358,7 +272,7 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
         session = kSessions[sessionIter.toString()];
       }
       if (session != null) {
-        Widget sessionCard = buildSessionCard(session);
+        Widget sessionCard = buildSessionCard(timeSlot, session);
         sessionCards.add(sessionCard);
       }
     });
@@ -392,6 +306,129 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
     );
 
     return titleSection;
+  }
+
+  Widget buildSessionCard(TimeSlot timeslot, Session session) {
+    var roomOrTrack = "";
+    if (session != null && (session.room != "" && session.room != null)) {
+      roomOrTrack = session.room;
+    } else if (session != null &&
+        (session.track != "" && session.track != null)) {
+      roomOrTrack = session.track;
+    }
+
+    bool sessionOver = false;
+    Color cardBackground = const Color(0xffffffff);
+    if (timeslot.endDate.compareTo(new DateTime.now()) < 0) {
+      cardBackground = const Color(0xffdee0e2);
+      sessionOver = true;
+    }
+    
+    String speakerString = getSpeakerNames(session);
+    Widget card = new Card(
+        child: new GestureDetector(
+          onTap: () {
+            kSelectedSession = session;
+            kSelectedTimeSlot = timeSlot;
+            Timeline.instantSync('Start Transition', arguments: <String, String>{
+              'from': '/',
+              'to': SessionDetailsWidget.routeName
+            });
+            Navigator.pushNamed(context, SessionDetailsWidget.routeName);
+          },
+          child: new Container(
+            padding: new EdgeInsets.only(
+                left: kPadding, top: kMaterialPadding, right: kPadding),
+            color: cardBackground,
+            child: new Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                new Row(children: <Widget>[
+                  new Expanded(
+                    child: new Text(
+                      session.title,
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis,
+                      style: new TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ]),
+                new Row(children: <Widget>[
+                  new Container(
+                    padding: const EdgeInsets.only(top: kMaterialPadding),
+                    child: new Text(speakerString,
+                        style: new TextStyle(fontSize: 15.0, color: kColorText)),
+                  ),
+                ]),
+                new Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    new Row(
+                        children: sessionCardRowWidgets(roomOrTrack, session, sessionOver)
+                    ),
+                  ]
+                ),
+              ],
+            ),
+          ),
+        ));
+    return card;
+  }
+
+  List<Widget> sessionCardRowWidgets (String roomOrTrack, Session session, bool isSessionOver) {
+    List<Widget> cardWidgets = <Widget>[];
+    cardWidgets.add(
+      new Icon(
+        Icons.location_on,
+        color: kColorText,
+      )
+    );
+
+    cardWidgets.add(
+      new Expanded(
+        child: new Text(
+          roomOrTrack,
+          maxLines: 4,
+          overflow: TextOverflow.ellipsis,
+          style: new TextStyle(color: kColorText, fontSize: 14.0),
+        ),
+      )
+    );
+
+    if (!isSessionOver) {
+      cardWidgets.add(
+          new IconButton(
+            alignment: FractionalOffset.centerRight,
+            padding: const EdgeInsets.all(0.0),
+            onPressed: () {
+              toggleFavorite(session);
+            },
+            icon: session.isFavorite
+                ? new Icon(Icons.star, color: kColorFavoriteOn)
+                : new Icon(Icons.star_border,
+                color: kColorFavoriteOff),
+          )
+      );
+    }
+
+    if (isSessionOver) {
+      cardWidgets.add(
+          new IconButton(
+            alignment: FractionalOffset.centerRight,
+            padding: const EdgeInsets.all(0.0),
+            onPressed: () {
+            },
+            icon: new Icon(Icons.message, color: Colors.blue),
+          )
+      );
+    }
+
+    return cardWidgets;
   }
 
   String getSpeakerNames(Session session) {
