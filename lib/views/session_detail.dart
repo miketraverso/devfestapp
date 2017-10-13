@@ -19,16 +19,18 @@ class SessionDetailsWidget extends StatefulWidget {
 
 class SessionDetailsState extends State<SessionDetailsWidget> {
   String roomAndTime() {
-    return kSelectedSession.room
-        + '\n'
-        + formatter.format(kSelectedTimeSlot.startDate).replaceAll(" ", "")
-        + ' - '
-        + formatter.format(kSelectedTimeSlot.endDate).replaceAll(" ", "");
+    return kSelectedSession.room +
+        '\n' +
+        formatter.format(kSelectedTimeSlot.startDate).replaceAll(" ", "") +
+        ' - ' +
+        formatter.format(kSelectedTimeSlot.endDate).replaceAll(" ", "");
   }
 
   String getCircleDetails(Speaker speaker) {
     String speakerIntials;
-    if (speaker.name.split(' ').length >= 2) {
+    if (speaker.name
+        .split(' ')
+        .length >= 2) {
       speakerIntials = speaker.name.split(' ')[0].substring(0, 1) +
           speaker.name.split(' ')[1].substring(0, 1);
     } else {
@@ -79,13 +81,9 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
       speakerRowWidgets.add(speakerRowWidget);
     });
 
-
     Widget sessionDescription = new Container(
       child: new Text(kSelectedSession.description,
-          style: new TextStyle(
-              color: const Color(0xff696969),
-              fontSize: 18.0)
-      ),
+          style: new TextStyle(color: const Color(0xff696969), fontSize: 18.0)),
       padding: const EdgeInsets.all(kPadding),
     );
 
@@ -97,9 +95,11 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
     gradientStops.add(.5);
 
     var roomOrTrack = "";
-    if (kSelectedSession != null && (kSelectedSession.room != "" && kSelectedSession.room != null)) {
+    if (kSelectedSession != null &&
+        (kSelectedSession.room != "" && kSelectedSession.room != null)) {
       roomOrTrack = kSelectedSession.room;
-    } else if (kSelectedSession != null && (kSelectedSession.track != "" && kSelectedSession.track != null)) {
+    } else if (kSelectedSession != null &&
+        (kSelectedSession.track != "" && kSelectedSession.track != null)) {
       roomOrTrack = kSelectedSession.track;
     }
 
@@ -113,48 +113,46 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
               background: new Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
-                    new Container(
-                      margin: new EdgeInsets.only(left: kPadding, bottom: kPadding, top: 100.0),
-                      padding: new EdgeInsets.only(right: kMaterialPadding),
-                      child: new Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                            new Text(
-                              kSelectedSession.title,
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                              style: new TextStyle(
-                                  fontSize: 20.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold
-                              ),
-                            ),
-
-                              new Text(
-                                roomAndTime(),
-                                maxLines: 4,
-                                softWrap: true,
-                                overflow: TextOverflow.ellipsis,
-                                style: new TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                ),
-                              ),
-                          new Row(children: <Widget>[
-                            new Expanded(
-                              child:new Text(
+                  new Container(
+                    margin: new EdgeInsets.only(
+                        left: kPadding, bottom: kPadding, top: 100.0),
+                    padding: new EdgeInsets.only(right: kMaterialPadding),
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        new Text(
+                          kSelectedSession.title,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: new TextStyle(
+                              fontSize: 20.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        new Text(
+                          roomAndTime(),
+                          maxLines: 4,
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                          style: new TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                        new Row(children: <Widget>[
+                          new Expanded(
+                              child: new Text(
                                 roomOrTrack,
                                 style: new TextStyle(
                                   color: Colors.white,
                                   fontSize: 16.0,
                                 ),
-                              )
-                            ),
-                          ]),
-                        ],
-                      ),
+                              )),
+                        ]),
+                      ],
                     ),
+                  ),
                 ],
               ),
             ),
