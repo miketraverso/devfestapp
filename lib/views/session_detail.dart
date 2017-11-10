@@ -19,11 +19,11 @@ class SessionDetailsWidget extends StatefulWidget {
 
 class SessionDetailsState extends State<SessionDetailsWidget> {
   String roomAndTime() {
-    return kSelectedSession.room +
+    return mSelectedSession.room +
         '\n' +
-        formatter.format(kSelectedTimeSlot.startDate).replaceAll(" ", "") +
+        formatter.format(mSelectedTimeSlot.startDate).replaceAll(" ", "") +
         ' - ' +
-        formatter.format(kSelectedTimeSlot.endDate).replaceAll(" ", "");
+        formatter.format(mSelectedTimeSlot.endDate).replaceAll(" ", "");
   }
 
   String getCircleDetails(Speaker speaker) {
@@ -50,8 +50,8 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
   @override
   Widget build(BuildContext context) {
     List<Widget> speakerRowWidgets = <Widget>[];
-    kSelectedSession.speakers.forEach((speakerId) {
-      Speaker speak = kSpeakers[speakerId.toString()];
+    mSelectedSession.speakers.forEach((speakerId) {
+      Speaker speak = mSpeakers[speakerId.toString()];
       String speakerInitials = getCircleDetails(speak);
       Widget speakerRowWidget = new Row(children: <Widget>[
         new Expanded(
@@ -70,20 +70,18 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
                 )),
                 title: new DefaultTextStyle(
                   style:
-                  new TextStyle(color: kColorSpeakerName, fontSize: 20.0),
+                      new TextStyle(color: kColorSpeakerName, fontSize: 20.0),
                   child: new Text(speak.name),
                 ),
                 onTap: () {
-                  kSelectedSpeaker = speak;
+                  mSelectedSpeaker = speak;
                   Timeline.instantSync('Start Transition',
                       arguments: <String, String>{
                         'from': '/',
                         'to': SpeakerDetailsWidget.routeName
                       });
                   Navigator.pushNamed(context, SpeakerDetailsWidget.routeName);
-                }
-            )
-        ),
+                })),
         new Column(children: <Widget>[
           new Container(
               margin: const EdgeInsets.only(right: kMaterialPadding),
@@ -105,7 +103,7 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
     });
 
     Widget sessionDescription = new Container(
-      child: new Text(kSelectedSession.description,
+      child: new Text(mSelectedSession.description,
           style: new TextStyle(color: const Color(0xff696969), fontSize: 18.0)),
       padding: const EdgeInsets.all(kPadding),
     );
@@ -118,12 +116,12 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
     gradientStops.add(.5);
 
     var roomOrTrack = "";
-    if (kSelectedSession != null &&
-        (kSelectedSession.room != "" && kSelectedSession.room != null)) {
-      roomOrTrack = kSelectedSession.room;
-    } else if (kSelectedSession != null &&
-        (kSelectedSession.track != "" && kSelectedSession.track != null)) {
-      roomOrTrack = kSelectedSession.track;
+    if (mSelectedSession != null &&
+        (mSelectedSession.room != "" && mSelectedSession.room != null)) {
+      roomOrTrack = mSelectedSession.room;
+    } else if (mSelectedSession != null &&
+        (mSelectedSession.track != "" && mSelectedSession.track != null)) {
+      roomOrTrack = mSelectedSession.track;
     }
 
     return new Scaffold(
@@ -145,7 +143,7 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         new Text(
-                          kSelectedSession.title,
+                          mSelectedSession.title,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: new TextStyle(

@@ -43,7 +43,7 @@ class _SpeakerListState extends State<SpeakerListWidget> {
           child: new Text(speaker.name),
         ),
         onTap: () {
-          kSelectedSpeaker = speaker;
+          mSelectedSpeaker = speaker;
           Timeline.instantSync('Start Transition', arguments: <String, String>{
             'from': '/',
             'to': SpeakerDetailsWidget.routeName
@@ -63,7 +63,7 @@ class _SpeakerListState extends State<SpeakerListWidget> {
   @override
   Widget build(BuildContext context) {
     List<Widget> listTiles = <Widget>[];
-    var speakers = kSpeakers.values.toList();
+    var speakers = mSpeakers.values.toList();
     speakers.sort((Speaker a, Speaker b) => a.lastName.compareTo(b.lastName));
     speakers.forEach((speaker) {
       Widget listItem = buildListTile(context, speaker);

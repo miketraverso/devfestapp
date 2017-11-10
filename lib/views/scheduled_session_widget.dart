@@ -29,7 +29,7 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (kSessions.length > 0 && kSpeakers.length > 0) {
+    if (mSessions.length > 0 && mSpeakers.length > 0) {
       return new Container(
         decoration: new BoxDecoration(
             border: new Border(
@@ -49,9 +49,9 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
       Session session;
       if (sessionIter is List) {
         session =
-            kSessions[sessionIter[0].toString()]; // ignore: undefined_operator
+            mSessions[sessionIter[0].toString()]; // ignore: undefined_operator
       } else if (sessionIter is int) {
-        session = kSessions[sessionIter.toString()];
+        session = mSessions[sessionIter.toString()];
       }
       if (session != null) {
         Widget sessionCard = buildSessionCard(timeSlot, session);
@@ -110,8 +110,8 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
     Widget card = new Card(
         child: new GestureDetector(
       onTap: () {
-        kSelectedSession = session;
-        kSelectedTimeSlot = timeSlot;
+        mSelectedSession = session;
+        mSelectedTimeSlot = timeSlot;
         Timeline.instantSync('Start Transition', arguments: <String, String>{
           'from': '/',
           'to': SessionDetailsWidget.routeName

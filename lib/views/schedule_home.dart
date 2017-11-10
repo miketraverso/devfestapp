@@ -41,12 +41,8 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
     with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  LinkedHashMap<String, Session> _sessionsMap = kSessions;
-  LinkedHashMap<String, Speaker> _speakersMap = kSpeakers;
-  LinkedHashMap<int, Schedule> _allSchedulesMap =
-      new LinkedHashMap<int, Schedule>();
-  LinkedHashMap<int, List<TimeSlot>> _timeSlotsByScheduleMap =
-      new LinkedHashMap<int, List<TimeSlot>>();
+  LinkedHashMap<String, Session> _sessionsMap = mSessions;
+  LinkedHashMap<String, Speaker> _speakersMap = mSpeakers;
 
   var _schedules = <Schedule>[];
 
@@ -59,11 +55,11 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
   @override
   void initState() {
     super.initState();
-    kSpeakers.clear();
-    kSessions.clear();
-    kSchedules.clear();
+    mSpeakers.clear();
+    mSessions.clear();
+    mSchedules.clear();
 
-    loadDataFromFireBase();
+    loadFromFireBase();
   }
 
   @override
@@ -72,7 +68,7 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
     super.dispose();
   }
 
-  Future loadDataFromFireBase() async {
+  Future loadFromFireBase() async {
     final reference =
         FirebaseDatabase.instance.reference().child(firebaseRootNode);
     reference.onChildAdded.forEach((event) {
@@ -90,62 +86,62 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
   void createScheduleFromSnapshot(fireb.DataSnapshot dataSnapshot) {
     var scheduleIndex = 0;
     dataSnapshot.value.forEach((LinkedHashMap map) {
-      _timeSlotsByScheduleMap[scheduleIndex] = <TimeSlot>[];
-      Schedule schedule =
-          new Schedule.loadFromFireBase(scheduleIndex.toString(), map);
+      Schedule schedule = new Schedule.loadFromFireBase(scheduleIndex.toString(),
+          map);
       _schedules.add(schedule);
-      _allSchedulesMap.putIfAbsent(scheduleIndex, () => schedule);
-      schedule.timeSlots.forEach((timeSlot) {
-        _timeSlotsByScheduleMap[scheduleIndex]
-            .insert(_timeSlotsByScheduleMap[scheduleIndex].length, timeSlot);
-      });
       scheduleIndex += 1;
     });
     setState(() {
-      kSchedules = _schedules;
-      _tabController =
-          new TabController(vsync: this, length: kSchedules.length);
+      mSchedules = _schedules;
+      _tabController = new TabController(vsync: this, length: mSchedules.length);
     });
   }
 
   void createSpeakersFromSnapshot(fireb.Event event) {
     if (event.snapshot.value is LinkedHashMap) {
       LinkedHashMap hashMap = event.snapshot.value;
-      hashMap.forEach((key, value) {
-        Speaker speaker = new Speaker.loadFromFireBase(key, value);
-        _speakersMap.putIfAbsent(speaker.id, () => speaker);
+      hashMap.forEach((key, map) {
+        Speaker speaker = new Speaker.loadFromFireBase(map);
+        _speakersMap.putIfAbsent(speaker.speakerId, () => speaker);
       });
       setState(() {
-        kSpeakers = _speakersMap;
+        mSpeakers = _speakersMap;
       });
     } else {
       List list = event.snapshot.value;
-      list.forEach((value) {
-        if (value != null) {
-          Speaker speaker = new Speaker.loadFromFireBase("speaker", value);
-          _speakersMap.putIfAbsent(speaker.id, () => speaker);
+      list.forEach((map) {
+        if (map != null) {
+          Speaker speaker = new Speaker.loadFromFireBase(map);
+          _speakersMap.putIfAbsent(speaker.speakerId, () => speaker);
         }
       });
       setState(() {
-        kSpeakers = _speakersMap;
+        mSpeakers = _speakersMap;
       });
     }
+
+    // TODO: Save speakers to database
+
   }
 
   void createSessionsFromSnapshot(fireb.DataSnapshot dataSnapshot) {
     LinkedHashMap hashMap = dataSnapshot.value;
-    hashMap.forEach((key, value) {
+    hashMap.forEach((key, value) async {
       Session session = new Session.loadFromFireBase(key, value);
-      _sessionsMap.putIfAbsent(session.id, () => session);
+      session.isFavorite = await FavoriteUtility.isFavorite(session);
+      _sessionsMap.putIfAbsent(session.sessionId, () => session);
     });
     setState(() {
-      kSessions = _sessionsMap;
+      mSessions = _sessionsMap;
       _setStoredFavorites();
     });
+
+    // TODO: Save sessions to database
+
   }
 
   _setStoredFavorites() async {
-    kSessions.values.forEach((session) async {
+    mSessions.values.forEach((session) async {
       session.isFavorite = await _isFavorite(session);
     });
   }
@@ -156,7 +152,7 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
     if (favoriteSessions == null) {
       return false;
     }
-    if (favoriteSessions.contains(session.id)) {
+    if (favoriteSessions.contains(session.sessionId.toString())) {
       return true;
     }
     return false;
@@ -197,7 +193,7 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
             ],
             bottom: new TabBar(
               controller: _tabController,
-              tabs: kSchedules
+              tabs: mSchedules
                   .map((Schedule schedule) => new Tab(
                         text: schedule.dateReadable,
                       ))
@@ -229,7 +225,7 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
 
   List createScheduleWidget() {
     var dailyScrollingScheduleWidgets = new List();
-    for (Schedule schedule in kSchedules) {
+    for (Schedule schedule in mSchedules) {
       List<Widget> widgetsForDay = new List<Widget>();
       for (TimeSlot slot in schedule.timeSlots) {
         widgetsForDay.add(buildScheduledSession(slot));

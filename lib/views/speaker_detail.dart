@@ -22,8 +22,8 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
 
   String _twitterHandle() {
     var twitterHandle = "";
-    if (kSelectedSpeaker.socialMap.containsKey("twitter")) {
-      twitterHandle = kSelectedSpeaker.socialMap["twitter"];
+    if (mSelectedSpeaker.socialMap.containsKey("twitter")) {
+      twitterHandle = mSelectedSpeaker.socialMap["twitter"];
       if (twitterHandle.startsWith("https://twitter.com/")) {
         twitterHandle = twitterHandle.replaceAll("https://twitter.com/", "@");
         return twitterHandle;
@@ -68,7 +68,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
                             size: 28.0,
                           ),
                           onPressed: () {
-                            launch(kSelectedSpeaker.socialMap["twitter"]);
+                            launch(mSelectedSpeaker.socialMap["twitter"]);
                           }),
                       new Padding(
                           padding: new EdgeInsets.only(top: defaultTargetPlatform == TargetPlatform.iOS ? 4.0 : 0.0),
@@ -78,7 +78,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
                                 style: new TextStyle(
                                     color: const Color(0xff1DA1F2),
                                     fontSize: 20.0),
-                                url: kSelectedSpeaker.socialMap["twitter"],
+                                url: mSelectedSpeaker.socialMap["twitter"],
                                 text: twitterHandle),
                           ]))),
                     ],
@@ -91,7 +91,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
     );
 
     Widget speakerBio = new Container(
-      child: new Text(kSelectedSpeaker.bio,
+      child: new Text(mSelectedSpeaker.bio,
           style: new TextStyle(
               color: const Color(0xff696969),
               fontSize: 18.0)
@@ -115,12 +115,12 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
             expandedHeight: _appBarHeight,
             pinned: true,
             flexibleSpace: new FlexibleSpaceBar(
-              title: new Text(kSelectedSpeaker.name, textAlign: TextAlign.center,),
+              title: new Text(mSelectedSpeaker.name, textAlign: TextAlign.center,),
               background: new Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
                   new PlutoImage.networkWithPlaceholder(
-                    kSelectedSpeaker.thumbnailUrl,
+                    mSelectedSpeaker.thumbnailUrl,
                     logoImage,
                     fit: BoxFit.fitWidth,
                     alignment: const FractionalOffset(0.5, 0.5),
