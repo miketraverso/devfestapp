@@ -92,15 +92,15 @@ class ConfAppState extends State<DevFestApp> {
   Widget build(BuildContext context) {
     var routes = <String, WidgetBuilder>{
       ScheduleHomeWidget.routeName: (BuildContext context) =>
-          new ScheduleHomeWidget(),
+      new ScheduleHomeWidget(),
       SpeakerListWidget.routeName: (BuildContext context) =>
-          new SpeakerListWidget(),
+      new SpeakerListWidget(),
       SpeakerDetailsWidget.routeName: (BuildContext context) =>
-          new SpeakerDetailsWidget(),
+      new SpeakerDetailsWidget(),
       SessionDetailsWidget.routeName: (BuildContext context) =>
-        new SessionDetailsWidget(),
+      new SessionDetailsWidget(),
       LocationWidget.routeName: (BuildContext context) =>
-          new LocationWidget()
+      new LocationWidget()
     };
 
     setUuid();
