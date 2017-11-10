@@ -97,12 +97,27 @@ class ConfAppState extends State<DevFestApp> {
           new LocationWidget()
     };
 
+    setUuid();
+
     return new MaterialApp(
       title: kAppTitle,
       theme: kTheme.copyWith(platform: _platform),
       routes: routes,
       home: new ScheduleHomeWidget(),
     );
+  }
+
+  Future<Null> setUuid() async {
+    if (mUuid == null || mUuid.isEmpty) {
+      const uuidKey = "uuid";
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      mUuid = prefs.getString(uuidKey);
+      if (mUuid == null || mUuid.isEmpty) {
+        prefs.setString(uuidKey, new Uuid().v4());
+        prefs.commit();
+        print(mUuid);
+      }
+    }
   }
 }
 
