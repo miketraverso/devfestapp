@@ -16,7 +16,6 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/services/platform_channel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final _auth = FirebaseAuth.instance;
@@ -45,10 +44,6 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
   LinkedHashMap<String, Speaker> _speakersMap = mSpeakers;
 
   var _schedules = <Schedule>[];
-
-  int _counter = 0;
-  static const MethodChannel _methodChannel =
-  const MethodChannel("samples.flutter.io/platform_view");
 
   TabController _tabController;
 
@@ -240,25 +235,5 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
       dailyScrollingScheduleWidgets.add(dayScrollWidget);
     }
     return dailyScrollingScheduleWidgets;
-  }
-
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  Future<Null> _launchPlatformCount() async {
-    final int platformCounter = await _methodChannel.invokeMethod("switchView", _counter);
-    setState(() {
-      _counter = platformCounter;
-    });
-  }
-
-  Future<Null> _launchNativeCamera(BuildContext context) async {
-    await _methodChannel.invokeMethod("switchView");
-    setState(() {
-    });
   }
 }
