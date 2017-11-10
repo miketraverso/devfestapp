@@ -1,10 +1,15 @@
 import 'dart:collection';
 
 class Session {
-  int _attendeeCount = 0;		// Underscore denotes private field
+  int id;
+  int _attendeeCount = 0;
+  String sessionId;
+  String description;
+  String title;
+  String track = "";
+  String room = "";
   bool isFavorite = false;
-  String id, description, title, track = "", room = "";
-  List<String> speakers = <String>[];
+  List<int> speakers = <int>[];
 
   // Constructor
   Session(this.title, this.description, this.track, this.speakers,
@@ -12,7 +17,7 @@ class Session {
 
   // Named Constructor
   Session.loadFromFireBase(String fbKey, LinkedHashMap map) {
-    id = fbKey;
+    sessionId = fbKey;
     for (String key in map.keys) {
       switch (key) {
         case 'description':
@@ -47,17 +52,4 @@ class Session {
     // Override toString()
     return 'Session: $title\nSpeakers: $speakers\nTrack: $track\nExpected Attendees: $_attendeeCount';
   }
-}
-
-void main() {
-  var session = new Session("Science: More art than science.",
-      "Wubbalubbadubdub...",
-      "DevFest Florida",
-      <String>["Rick", "Morty"]);
-
-  print('Before Attendees Set:\n$session\n\n');
-
-  session.attendeeCounter = 10;
-
-  print('After Attendees Set:\n$session');
 }

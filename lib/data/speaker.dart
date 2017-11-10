@@ -3,7 +3,8 @@ import 'dart:collection';
 import 'package:devfest_florida_app/main.dart';
 
 class Speaker {
-  String id;
+  int id;
+  String speakerId;
   String bio;
   String company;
   String name;
@@ -15,12 +16,11 @@ class Speaker {
 
   LinkedHashMap<String, String> socialMap = new LinkedHashMap<String, String>();
 
-  Speaker.loadFromFireBase(String fbKey, LinkedHashMap map) {
-    id = fbKey;
+  Speaker.loadFromFireBase(LinkedHashMap map) {
     for (String key in map.keys) {
       switch (key) {
         case 'id':
-          this.id = map[key].toString();
+          this.speakerId = map[key];
           break;
         case 'bio':
           this.bio = map[key];
