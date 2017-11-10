@@ -80,7 +80,7 @@ class ConfAppDrawer extends StatelessWidget {
     drawerItems.add(new ConfAppDrawerHeader());
     kAllDrawerMenuItems.forEach((drawerItem)=> drawerItems.add(drawerItem));
     drawerItems.add(new Divider(color: kColorDivider, height: 0.4));
-//    drawerItems.add(surveyItem); TODO Add this back in once we have a survey link
+    drawerItems.add(surveyItem);
     drawerItems.add(aboutDrawerItem(context));
     return new Drawer(child: new ListView(primary: false, children: drawerItems));
   }

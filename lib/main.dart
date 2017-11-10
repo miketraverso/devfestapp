@@ -67,7 +67,7 @@ var formatter = new DateFormat.jm('en_US');
 
 // TODO Change app specifics: title, survey url, venue specifics, firebase parent child, etc.
 final kAppTitle = 'DevFest Florida';
-final kSurveyUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScvVof4YcQiiR0qvAN84rNVsXBLgArTdmOuwFQY4KXK2Tff-g/viewform?entry.385327315=GDG+Sun+Coast';
+final kSurveyUrl = 'https://docs.google.com/forms/d/13Bs4pC88mp2_EYUmOm2rhAGEhp7tVuwRKG_u3nR2YuM/viewform?entry.381167392=https://www.meetup.com/GDG-Central-Florida/events/239734946/';
 final kVenueName = 'Disney\'s Contemporary Resort';
 final kVenueAddress = '4600 North World Dr.\nOrlando, FL 32830';
 final kVenuePhone = '(407) 824-1000';
@@ -79,9 +79,7 @@ final kVenuePhone = '(407) 824-1000';
 final kGoogleStaticMapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=Disney+Contemporary+Resort&zoom=15&scale=2&size=600x1000&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7CDisney+Contemporary+Resort';
 
 class DevFestApp extends StatefulWidget {
-  const DevFestApp({this.onSendFeedback, Key key}) : super(key: key);
-
-  final VoidCallback onSendFeedback;
+  const DevFestApp({Key key}) : super(key: key);
 
   @override
   ConfAppState createState() => new ConfAppState();
