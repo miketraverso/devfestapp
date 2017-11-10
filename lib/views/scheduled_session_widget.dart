@@ -192,12 +192,16 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
     }
 
     if (isSessionOver) {
-      cardWidgets.add(new IconButton(
-        alignment: FractionalOffset.centerRight,
-        padding: const EdgeInsets.all(0.0),
-        onPressed: () {},
-        icon: new Icon(Icons.message, color: Colors.blue),
-      ));
+      if (session.isFavorite) {
+        cardWidgets.add(new IconButton(
+          alignment: FractionalOffset.centerRight,
+          padding: const EdgeInsets.all(0.0),
+          onPressed: () {
+            toggleFavorite(session);
+          },
+          icon: new Icon(Icons.star, color: kColorFavoriteOn)
+        ));
+      }
     }
 
     return cardWidgets;
@@ -207,8 +211,8 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
     var speakerString = "";
     if (session != null && session.speakers != null) {
       session.speakers.forEach((speakerId) {
-        if (kSessions.containsKey(speakerId.toString())) {
-          Speaker speaker = kSpeakers[speakerId.toString()];
+        if (mSessions.containsKey(speakerId.toString())) {
+          Speaker speaker = mSpeakers[speakerId.toString()];
           speakerString += speaker.name + ", ";
         }
       });
@@ -243,11 +247,12 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
     if (favoriteSessions == null) {
       return;
     }
-    if (favoriteSessions.contains(session.id)) {
+    if (favoriteSessions.contains(session.sessionId)) {
       List<String> updatedFavorites = new List<String>();
       updatedFavorites.addAll(favoriteSessions);
-      updatedFavorites.remove(session.id);
+      updatedFavorites.remove(session.sessionId);
       prefs.setStringList("favoriteSessions", updatedFavorites);
+      prefs.commit();
     }
   }
 
@@ -257,11 +262,12 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
     if (favoriteSessions == null) {
       favoriteSessions = <String>[];
     }
-    if (!favoriteSessions.contains(session.id)) {
+    if (!favoriteSessions.contains(session.sessionId)) {
       List<String> updatedFavorites = new List<String>();
       updatedFavorites.addAll(favoriteSessions);
-      updatedFavorites.add(session.id);
+      updatedFavorites.add(session.sessionId);
       prefs.setStringList("favoriteSessions", updatedFavorites);
+      prefs.commit();
     }
   }
 }
