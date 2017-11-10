@@ -28,9 +28,7 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
 
   String getCircleDetails(Speaker speaker) {
     String speakerIntials;
-    if (speaker.name
-        .split(' ')
-        .length >= 2) {
+    if (speaker.name.split(' ').length >= 2) {
       speakerIntials = speaker.name.split(' ')[0].substring(0, 1) +
           speaker.name.split(' ')[1].substring(0, 1);
     } else {
