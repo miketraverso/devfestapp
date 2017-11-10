@@ -72,7 +72,7 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
                 margin:
                     const EdgeInsets.only(right: 4.0, top: kMaterialPadding),
                 child: new SizedBox(
-                    width: 64.0,
+                    width: 70.0,
                     child: new Text(
                       sessionTimePeriod(timeSlot),
                       textAlign: TextAlign.right,
