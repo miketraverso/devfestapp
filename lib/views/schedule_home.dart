@@ -174,19 +174,19 @@ class ScheduleHomeWidgetState extends State<ScheduleHomeWidget>
               kAppTitle,
               style: navbarFontStyle,
             ),
-            actions: <Widget>[
-              new Builder(
-                builder: (BuildContext context) {
-                  return new IconButton(
-                    icon: const Icon(Icons.camera_alt),
-                    tooltip: 'Snap a photo',
-                    onPressed: () {
-                      _launchNativeCamera(context);
-                    },
-                  );
-                },
-              ),
-            ],
+//            actions: <Widget>[
+//              new Builder(
+//                builder: (BuildContext context) {
+//                  return new IconButton(
+//                    icon: const Icon(Icons.camera_alt),
+//                    tooltip: 'Snap a photo',
+//                    onPressed: () {
+//                      _launchNativeCamera(context);
+//                    },
+//                  );
+//                },
+//              ),
+//            ],
             bottom: new TabBar(
               controller: _tabController,
               tabs: mSchedules
