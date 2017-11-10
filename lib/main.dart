@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:collection';
-import 'dart:io';
 
 import 'package:devfest_florida_app/data/schedule.dart';
-import 'package:devfest_florida_app/data/timeslot.dart';
 import 'package:devfest_florida_app/data/session.dart';
 import 'package:devfest_florida_app/data/speaker.dart';
+import 'package:devfest_florida_app/data/timeslot.dart';
 import 'package:devfest_florida_app/views/location.dart';
 import 'package:devfest_florida_app/views/schedule_home.dart';
 import 'package:devfest_florida_app/views/session_detail.dart';
@@ -13,8 +12,6 @@ import 'package:devfest_florida_app/views/speaker_detail.dart';
 import 'package:devfest_florida_app/views/speaker_list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 

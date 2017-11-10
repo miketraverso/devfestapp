@@ -8,6 +8,7 @@ import 'package:devfest_florida_app/data/session.dart';
 import 'package:devfest_florida_app/data/speaker.dart';
 import 'package:devfest_florida_app/data/timeslot.dart';
 import 'package:devfest_florida_app/main.dart';
+import 'package:devfest_florida_app/util/favorite_utility.dart';
 import 'package:devfest_florida_app/views/scheduled_session_widget.dart';
 import 'package:devfest_florida_app/views/shared/drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
