@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:devfest_florida_app/data/schedule.dart';
 import 'package:devfest_florida_app/data/session.dart';
 import 'package:devfest_florida_app/data/speaker.dart';
+import 'package:devfest_florida_app/data/timeslot.dart';
 import 'package:devfest_florida_app/main.dart';
 import 'package:devfest_florida_app/views/session_detail.dart';
 import 'package:flutter/material.dart';
