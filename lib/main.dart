@@ -1,6 +1,9 @@
+import 'dart:async';
 import 'dart:collection';
+import 'dart:io';
 
 import 'package:devfest_florida_app/data/schedule.dart';
+import 'package:devfest_florida_app/data/timeslot.dart';
 import 'package:devfest_florida_app/data/session.dart';
 import 'package:devfest_florida_app/data/speaker.dart';
 import 'package:devfest_florida_app/views/location.dart';
@@ -10,15 +13,20 @@ import 'package:devfest_florida_app/views/speaker_detail.dart';
 import 'package:devfest_florida_app/views/speaker_list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
 
-List<Schedule> kSchedules = <Schedule>[];
-LinkedHashMap<String, Speaker> kSpeakers = new LinkedHashMap<String, Speaker>();
-LinkedHashMap<String, Session> kSessions = new LinkedHashMap<String, Session>();
+List<Schedule> mSchedules = <Schedule>[];
+LinkedHashMap<String, Speaker> mSpeakers = new LinkedHashMap<String, Speaker>();
+LinkedHashMap<String, Session> mSessions = new LinkedHashMap<String, Session>();
 
-Speaker kSelectedSpeaker;
-Session kSelectedSession;
-TimeSlot kSelectedTimeSlot;
-
+Speaker mSelectedSpeaker;
+Session mSelectedSession;
+TimeSlot mSelectedTimeSlot;
+String mUuid;
+String mdbPath;
 
 // TODO Change your base URL
 var baseUrl = "https://devfestflorida.org/";
