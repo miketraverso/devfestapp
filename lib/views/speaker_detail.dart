@@ -122,7 +122,8 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
                   new PlutoImage.networkWithPlaceholder(
                     kSelectedSpeaker.thumbnailUrl,
                     logoImage,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitWidth,
+                    alignment: const FractionalOffset(0.5, 0.5),
                     height: _appBarHeight,
                   ),
                   const DecoratedBox(

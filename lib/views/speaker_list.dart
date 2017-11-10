@@ -34,8 +34,9 @@ class _SpeakerListState extends State<SpeakerListWidget> {
           child: speakerInitials.isEmpty ? null : new Text(speakerInitials),
           backgroundImage: new PlutoImage.networkWithPlaceholder(
                   speaker.thumbnailUrl,
-                  logoImage)
-              .image,
+                  logoImage,
+                alignment: const FractionalOffset(0.5, 0.5),)
+            .image,
         )),
         title: new DefaultTextStyle(
           style: new TextStyle(color: kColorSpeakerName, fontSize: 20.0),

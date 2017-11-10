@@ -58,13 +58,16 @@ class SessionDetailsState extends State<SessionDetailsWidget> {
             child: new ListTile(
                 leading: new ExcludeSemantics(
                     child: new CircleAvatar(
-                      child: speakerInitials.isEmpty
-                          ? null
-                          : new Text(speakerInitials),
-                      backgroundImage: new PlutoImage.networkWithPlaceholder(
-                          speak.thumbnailUrl, logoImage)
-                          .image,
-                    )),
+                  child: speakerInitials.isEmpty
+                      ? null
+                      : new Text(speakerInitials),
+                  backgroundImage: new PlutoImage.networkWithPlaceholder(
+                    speak.thumbnailUrl,
+                    logoImage,
+                    alignment: const FractionalOffset(0.0, 0.0),
+                  )
+                      .image,
+                )),
                 title: new DefaultTextStyle(
                   style:
                   new TextStyle(color: kColorSpeakerName, fontSize: 20.0),

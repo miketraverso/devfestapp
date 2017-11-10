@@ -72,6 +72,7 @@ class _LocationState extends State<LocationWidget> {
                 child: new PlutoImage.networkWithPlaceholder(
                     kGoogleStaticMapUrl,
                     logoImage,
+                    alignment: const FractionalOffset(0.5, 0.5),
                     fit: BoxFit.fitHeight),
               ),
             ],
