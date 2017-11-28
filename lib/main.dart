@@ -35,7 +35,7 @@ final ThemeData kTheme = new ThemeData(
 );
 
 // TODO Change the font style of the navbar - Ensure font is defined in pubspec.yaml
-var navbarFontStyle = new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne');
+var navbarFontStyle = new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'ProductSans-Regular');
 
 // TODO Change the logo image - Ensure asset is defined in pubspec.yaml
 var logoImage = new Image.asset('assets/images/devfest-logo.png');
