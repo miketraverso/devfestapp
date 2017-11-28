@@ -138,11 +138,12 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
                 ),
               ),
             ]),
+            new Padding(padding: const EdgeInsets.only(top: kMaterialPadding)),
             new Row(children: <Widget>[
-              new Container(
-                padding: const EdgeInsets.only(top: kMaterialPadding),
+              new Flexible(
                 child: new Text(speakerString,
-                    style: new TextStyle(fontSize: 15.0, color: kColorText)),
+                    overflow: TextOverflow.ellipsis,
+                    style: new TextStyle(fontSize: 15.0, color: kColorText,)),
               ),
             ]),
             new Column(
@@ -210,7 +211,7 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
     var speakerString = "";
     if (session != null && session.speakers != null) {
       session.speakers.forEach((speakerId) {
-        if (mSessions.containsKey(speakerId.toString())) {
+        if (mSpeakers.containsKey(speakerId.toString())) {
           Speaker speaker = mSpeakers[speakerId.toString()];
           speakerString += speaker.name + ", ";
         }

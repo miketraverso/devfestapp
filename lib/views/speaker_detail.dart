@@ -115,7 +115,7 @@ class SpeakerDetailsState extends State<SpeakerDetailsWidget> {
             expandedHeight: _appBarHeight,
             pinned: true,
             flexibleSpace: new FlexibleSpaceBar(
-              title: new Text(mSelectedSpeaker.name, textAlign: TextAlign.center,),
+              title: new Text(mSelectedSpeaker.name, textAlign: TextAlign.center, style: new TextStyle(color: Colors.white),),
               background: new Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
