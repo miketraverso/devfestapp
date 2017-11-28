@@ -20,7 +20,7 @@ class Speaker {
     for (String key in map.keys) {
       switch (key) {
         case 'id':
-          this.speakerId = map[key];
+          this.speakerId = map[key].toString();
           break;
         case 'bio':
           this.bio = map[key];
@@ -57,6 +57,22 @@ class Speaker {
         case 'social': {
             if (map[key] is HashMap) {
               this.socialMap = map[key];
+            }
+          }
+          break;
+        case 'socials':
+          {
+            if (map[key] is List) {
+              if (map[key].length > 0) {
+                map[key].forEach((listItem) {
+                  if (listItem != null && listItem is HashMap) {
+                    if (listItem.containsKey("icon") && listItem.containsKey("link")) {
+                      this.socialMap.putIfAbsent(
+                          listItem["icon"], () => listItem["link"]);
+                    }
+                  }
+                });
+              }
             }
           }
           break;
