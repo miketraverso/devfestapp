@@ -41,7 +41,7 @@ var navbarFontStyle = new TextStyle(color: Colors.white, fontSize: 24.0, fontFam
 var logoImage = new Image.asset('assets/images/devfestnyc.png');
 
 // TODO Change the Firebase root node name
-var firebaseRootNode = '2017';
+var firebaseRootNode = '';
 
 const kMaterialPadding = 8.0;
 const kPadding = 12.0;
@@ -64,7 +64,7 @@ var formatter = new DateFormat.jm('en_US');
 
 // TODO Change app specifics: title, survey url, venue specifics, firebase parent child, etc.
 final kAppTitle = 'DevFest NYC 2017';
-final kSurveyUrl = 'https://docs.google.com/forms/d/13Bs4pC88mp2_EYUmOm2rhAGEhp7tVuwRKG_u3nR2YuM/viewform?entry.381167392=https://www.meetup.com/GDG-Central-Florida/events/239734946/';
+final kSurveyUrl = 'https://docs.google.com/forms/d/13Bs4pC88mp2_EYUmOm2rhAGEhp7tVuwRKG_u3nR2YuM/viewform?entry.381167392=https://www.meetup.com/gdgnyc/events/242200007/';
 final kVenueName = 'Galvanize';
 final kVenueAddress = '315 Hudson Street\nNew York, NY 10013';
 final kVenuePhone = '';
