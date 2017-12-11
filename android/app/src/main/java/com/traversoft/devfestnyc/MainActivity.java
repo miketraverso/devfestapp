@@ -1,4 +1,4 @@
-package com.traversoft.devfestflorida;
+package com.traversoft.devfestnyc;
 
 import android.os.Bundle;
 

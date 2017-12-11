@@ -18,13 +18,12 @@ dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/logo.png
-    - assets/images/devfest-logo.png
+    - assets/images/devfestnyc.png
 
   fonts:
     - family: FontAwesome
       fonts:
         - asset: packages/font_awesome_flutter/fonts/fontawesome.woff
-    - family: FloridaProject-PhaseOne
+    - family: ProductSans-Regular
       fonts:
-        - asset: assets/fonts/FloridaProjectPhaseOne.ttf
+        - asset: assets/fonts/ProductSansRegular.ttf

@@ -26,30 +26,30 @@ String mUuid;
 String mdbPath;
 
 // TODO Change your base URL
-var baseUrl = "https://devfestflorida.org/";
+var baseUrl = "https://devfestnyc.com/";
 
 // TODO Change the navbar color
 final ThemeData kTheme = new ThemeData(
   brightness: Brightness.light,
-  primarySwatch: Colors.blue,
+  primarySwatch: Colors.lightGreen,
 );
 
 // TODO Change the font style of the navbar - Ensure font is defined in pubspec.yaml
-var navbarFontStyle = new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'FloridaProject-PhaseOne');
+var navbarFontStyle = new TextStyle(color: Colors.white, fontSize: 24.0, fontFamily: 'ProductSans-Regular');
 
 // TODO Change the logo image - Ensure asset is defined in pubspec.yaml
-var logoImage = new Image.asset('assets/images/devfest-logo.png');
+var logoImage = new Image.asset('assets/images/devfestnyc.png');
 
 // TODO Change the Firebase root node name
-var firebaseRootNode = '2017';
+var firebaseRootNode = '';
 
 const kMaterialPadding = 8.0;
 const kPadding = 12.0;
 const kPaddingDouble = 24.0;
 
 // TODO Change the color of the favorite icons (on/off)
-final kColorFavoriteOn = Colors.orange[500];
-final kColorFavoriteOff = Colors.orange[100];
+final kColorFavoriteOn = Colors.lightGreen[500];
+final kColorFavoriteOff = Colors.lightGreen[300];
 
 // TODO Change the color of the dividers
 final kColorDivider = Colors.grey[400];
@@ -63,17 +63,17 @@ final kColorSpeakerName = Colors.grey[800];
 var formatter = new DateFormat.jm('en_US');
 
 // TODO Change app specifics: title, survey url, venue specifics, firebase parent child, etc.
-final kAppTitle = 'DevFest Florida';
-final kSurveyUrl = 'https://docs.google.com/forms/d/13Bs4pC88mp2_EYUmOm2rhAGEhp7tVuwRKG_u3nR2YuM/viewform?entry.381167392=https://www.meetup.com/GDG-Central-Florida/events/239734946/';
-final kVenueName = 'Disney\'s Contemporary Resort';
-final kVenueAddress = '4600 North World Dr.\nOrlando, FL 32830';
-final kVenuePhone = '(407) 824-1000';
+final kAppTitle = 'DevFest NYC 2017';
+final kSurveyUrl = 'https://docs.google.com/forms/d/13Bs4pC88mp2_EYUmOm2rhAGEhp7tVuwRKG_u3nR2YuM/viewform?entry.381167392=https://www.meetup.com/gdgnyc/events/242200007/';
+final kVenueName = 'Galvanize';
+final kVenueAddress = '315 Hudson Street\nNew York, NY 10013';
+final kVenuePhone = '';
 
 // TODO Change the url for the location map
 // Visit http://staticmapmaker.com/google/ to create your own static map
 // Flutter can't, at the time of this coding, handle native maps so let's
 // provide the user with a map image instead.
-final kGoogleStaticMapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=Disney+Contemporary+Resort&zoom=15&scale=2&size=600x1000&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7CDisney+Contemporary+Resort';
+final kGoogleStaticMapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=315+Hudson+St,+New+York,+NY+10013&zoom=16&scale=2&size=600x1000&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C315+Hudson+St';
 
 class DevFestApp extends StatefulWidget {
   const DevFestApp({Key key}) : super(key: key);

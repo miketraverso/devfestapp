@@ -192,16 +192,13 @@ class ScheduledSessionWidgetState extends State<ScheduledSessionWidget> {
     }
 
     if (isSessionOver) {
-      if (session.isFavorite) {
-        cardWidgets.add(new IconButton(
-          alignment: FractionalOffset.centerRight,
-          padding: const EdgeInsets.all(0.0),
-          onPressed: () {
-            toggleFavorite(session);
-          },
-          icon: new Icon(Icons.star, color: kColorFavoriteOn)
-        ));
-      }
+      cardWidgets.add(new IconButton(
+        alignment: FractionalOffset.centerRight,
+        padding: const EdgeInsets.all(0.0),
+        onPressed: () {
+        },
+        icon: new Icon(Icons.star, color: session.isFavorite ? kColorFavoriteOn : const Color.fromARGB(0, 0, 0, 0))
+      ));
     }
 
     return cardWidgets;

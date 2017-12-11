@@ -46,7 +46,7 @@ class _ConfAppDrawerHeaderState extends State<ConfAppDrawerHeader> {
   Widget build(BuildContext context) {
     return new DrawerHeader(
         decoration:new BoxDecoration(
-            color: const Color(0xff1e90ff),
+            color: const Color(0xff364145),
         ),
         duration: const Duration(milliseconds: 750),
         child: logoImage

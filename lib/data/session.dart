@@ -37,6 +37,10 @@ class Session {
           break;
       }
     }
+
+    if ((room == null || room.isEmpty) && (track == null || track.isEmpty)) {
+      track = room = 'TBD';
+    }
   }
 
   // Getter

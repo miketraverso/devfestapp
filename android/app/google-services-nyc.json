@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "1017856677470",
+    "firebase_url": "https://devfestnyc-2017.firebaseio.com",
+    "project_id": "devfestnyc-2017",
+    "storage_bucket": "devfestnyc-2017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017856677470:android:054eb25c5aa08be9",
+        "android_client_info": {
+          "package_name": "com.traversoft.devfestnyc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1017856677470-upm354mmllbv4fdtltm9to2o7jgegjai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.traversoft.devfestnyc",
+            "certificate_hash": "889be524217b9ef83187e3dc835c6320a7b56e03"
+          }
+        },
+        {
+          "client_id": "1017856677470-rk0tuqh2p1m969dr327vtjkht5gstcfs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_EomNUiKpJv9OU2xPARdFYkCqWZnDNsY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1017856677470-o51ipre57l8hhfvbr73pv2kh3hcslhmp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.traversoft.devfestnyc",
+                "app_store_id": "1318026899"
+              }
+            },
+            {
+              "client_id": "1017856677470-rk0tuqh2p1m969dr327vtjkht5gstcfs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
