@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.traversoft.devfestflorida"
+    package="com.traversoft.devfestnyc"
     android:versionCode="1"
     android:versionName="1.0.0">
 
@@ -17,7 +17,7 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
     <application android:name="io.flutter.app.FlutterApplication" android:label="DevFest NYC" android:icon="@mipmap/ic_launcher">
-        <activity android:name=".MainActivity"
+        <activity android:name="com.traversoft.devfestnyc.MainActivity"
                   android:launchMode="singleTop"
                   android:theme="@android:style/Theme.Black.NoTitleBar"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection"
